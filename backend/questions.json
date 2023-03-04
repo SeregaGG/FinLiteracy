@@ -1,0 +1,20 @@
+{
+  "question1": {
+    "cost": 400,
+    "variants": ["qwe", "ewq", "q"],
+    "answer": "q",
+    "lvl": 3
+  },
+  "question2": {
+    "cost": 300,
+    "variants": ["qwe", "ewq", "q"],
+    "answer": "ewq",
+    "lvl": 2
+  },
+  "question3": {
+    "cost": 200,
+    "variants": ["qwe", "ewq", "q"],
+    "answer": "qwe",
+    "lvl": 1
+  }
+}
