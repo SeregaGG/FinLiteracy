@@ -3,18 +3,21 @@
     "cost": 400,
     "variants": ["qwe", "ewq", "q"],
     "answer": "q",
-    "lvl": 3
+    "lvl": 3,
+    "location": "school"
   },
   "question2": {
     "cost": 300,
     "variants": ["qwe", "ewq", "q"],
     "answer": "ewq",
-    "lvl": 2
+    "lvl": 2,
+    "location": "school"
   },
   "question3": {
     "cost": 200,
     "variants": ["qwe", "ewq", "q"],
     "answer": "qwe",
-    "lvl": 1
+    "lvl": 1,
+    "location": "school"
   }
 }
