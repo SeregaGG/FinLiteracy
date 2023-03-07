@@ -27,7 +27,7 @@ class Question(BaseModel):
     cost: int
     variants: list[str]
     lvl: int
-    answer: str
+    answer: int
 
 
 class Results(BaseModel):
