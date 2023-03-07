@@ -2,11 +2,11 @@ import pymongo
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
-from secrets import db_user, db_pass, SECRET_KEY, ALGORITHM
+from secrets import db_user, db_pass
 import motor.motor_asyncio
-from jose import jwt
 import string
 import random
+import json
 
 
 class TokenClass(BaseModel):
@@ -117,30 +117,9 @@ async def get_user(name: str):
 
 @app.get('/questions', response_model=list[Question])
 def get_question():
-    questions_dict = {
-        "question1": {
-            "cost": 400,
-            "variants": ["qwe", "ewq", "q"],
-            "answer": "q",
-            "lvl": 3,
-            "location": "school"
-        },
-        "question2": {
-            "cost": 300,
-            "variants": ["qwe", "ewq", "q"],
-            "answer": "ewq",
-            "lvl": 2,
-            "location": "school"
-        },
-        "question3": {
-            "cost": 200,
-            "variants": ["qwe", "ewq", "q"],
-            "answer": "qwe",
-            "lvl": 1,
-            "location": "school"
-        }
-    }
-    result_questions = [Question(question=question, **values) for question, values in questions_dict.items()]
+    with open('questions.json', encoding="utf8") as f:
+        questions = json.load(f)
+    result_questions = [Question(**question) for question in questions]
 
     return result_questions
 
