@@ -43,20 +43,8 @@ tokens = dict()
 
 @app.post('/token')
 async def create_token(token_data: TokenClass):
-    # encode_data = token_data.dict()
-    # encode_jwt = jwt.encode(encode_data, SECRET_KEY, ALGORITHM)
-    # tokens.append(encode_jwt)
     random_str = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10)).upper()
     tokens.update({random_str: token_data.dict()})
-    # encode_data = ' '.join([token_data.school, token_data.class_name, token_data.city])
-    # encode_jwt = [ord(symbol) for symbol in encode_data]
-    # client = motor.motor_asyncio.AsyncIOMotorClient(
-    #     f"mongodb+srv://{db_user}:{db_pass}@rating.xxrncp1.mongodb.net/?retryWrites=true&w=majority")
-    # # client = pymongo.MongoClient(
-    # #     f"mongodb+srv://{db_user}:{db_pass}@rating.xxrncp1.mongodb.net/?retryWrites=true&w=majority")
-    # db = client["schools_rating"]
-    # collection = db["tokens"]
-    # await collection.insert_one({"token": token_data.__str__()})
     return JSONResponse(status_code=200, content={"token": random_str})
 
 
@@ -64,8 +52,6 @@ async def create_token(token_data: TokenClass):
 async def set_results(results: Results):
     client = motor.motor_asyncio.AsyncIOMotorClient(
         f"mongodb+srv://{db_user}:{db_pass}@rating.xxrncp1.mongodb.net/?retryWrites=true&w=majority")
-    # client = pymongo.MongoClient(
-    #     f"mongodb+srv://{db_user}:{db_pass}@rating.xxrncp1.mongodb.net/?retryWrites=true&w=majority")
     db = client["schools_rating"]
     collection = db["results"]
     await collection.insert_one(results.dict())
@@ -74,23 +60,8 @@ async def set_results(results: Results):
 
 @app.post('/user')
 async def user_add(user: User):
-    # client = motor.motor_asyncio.AsyncIOMotorClient(
-    #     f"mongodb+srv://{db_user}:{db_pass}@rating.xxrncp1.mongodb.net/?retryWrites=true&w=majority")
-    # # client = pymongo.MongoClient(
-    # #     f"mongodb+srv://{db_user}:{db_pass}@rating.xxrncp1.mongodb.net/?retryWrites=true&w=majority")
-    #
-    # db = client["schools_rating"]
-    # tokens_coll = db["tokens"]
-    # token = tokens_coll.find_one({"token": user.token})
-    #
-    # if token is None:
-    #     return JSONResponse(status_code=403, content={"message": "Forbidden"})
-
     if user.token not in tokens:
         return JSONResponse(status_code=403, content={"message": "Forbidden, bad token"})
-    #
-    # collection = db["users"]
-    # await collection.insert_one(user.dict())
     token_data = tokens.get(user.token)
     return JSONResponse(status_code=200, content={
         "city": token_data.get("city"),
@@ -106,8 +77,6 @@ async def user_add(user: User):
 async def get_user(name: str):
     client = motor.motor_asyncio.AsyncIOMotorClient(
         f"mongodb+srv://{db_user}:{db_pass}@rating.xxrncp1.mongodb.net/?retryWrites=true&w=majority")
-    # client = pymongo.MongoClient(
-    #     f"mongodb+srv://{db_user}:{db_pass}@rating.xxrncp1.mongodb.net/?retryWrites=true&w=majority")
     db = client["schools_rating"]
     collection = db["users"]
     user: User = User(**(await collection.find_one({"username": name})))
@@ -140,8 +109,6 @@ def get_question(questions: list[Question]):
 async def clean_scheme_by_name(scheme: str):
     client = motor.motor_asyncio.AsyncIOMotorClient(
         f"mongodb+srv://{db_user}:{db_pass}@rating.xxrncp1.mongodb.net/?retryWrites=true&w=majority")
-    # client = pymongo.MongoClient(
-    #     f"mongodb+srv://{db_user}:{db_pass}@rating.xxrncp1.mongodb.net/?retryWrites=true&w=majority")
     db = client["schools_rating"]
     collection = db[scheme]
     await collection.drop()
