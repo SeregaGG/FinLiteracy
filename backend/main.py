@@ -1,4 +1,5 @@
 import pymongo
+import os
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
@@ -86,7 +87,7 @@ async def get_user(name: str):
 
 @app.get('/questions', response_model=list[Question])
 def get_question():
-    with open('questions.json', encoding="utf8") as f:
+    with open(os.path.dirname(__file__) + '\questions.json', encoding="utf8") as f:
         questions = json.load(f)
     result_questions = [Question(**question) for question in questions]
 
