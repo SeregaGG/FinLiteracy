@@ -1,13 +1,16 @@
 import pymongo
 import os
-from fastapi import FastAPI
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI, Depends
+from fastapi.responses import JSONResponse, Response
 from pydantic import BaseModel
 from secrets import db_user, db_pass
 import motor.motor_asyncio
 import string
 import random
 import json
+from models import data_base, serializers
+
+data_base.Base.metadata.create_all(bind=data_base.engine)
 
 
 class TokenClass(BaseModel):
@@ -21,6 +24,7 @@ class User(BaseModel):
     lastname: str
     patronymic: str
     token: str
+    email: str
 
 
 class Question(BaseModel):
@@ -43,10 +47,22 @@ tokens = dict()
 
 
 @app.post('/token')
-async def create_token(token_data: TokenClass):
-    random_str = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10)).upper()
-    tokens.update({random_str: token_data.dict()})
+async def create_token(token_data: serializers.Token):
+    db = data_base.get_db()
+    random_str = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(5)).upper()
+    new_token = data_base.Token(**token_data.dict())
+    db.add(new_token)
+    db.commit()
+    # tokens.update({random_str: token_data.dict()})
     return JSONResponse(status_code=200, content={"token": random_str})
+
+@app.get('/token')
+async def get_token(r_token: str):
+    db = data_base.get_db()
+    current_token = db.query(data_base.Token).filter(data_base.Token.token == r_token).first()
+    if current_token is None:
+        return Response(status_code=304)
+    return JSONResponse(status_code=200, content={"token": "Token exists"})
 
 
 @app.post('/results')
