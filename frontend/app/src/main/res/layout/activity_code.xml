@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="codeVM" type="com.daniiltropolsapplication.app.modules.code.data.viewmodel.CodeVM"/>
+    </data>
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearColumnlanguage"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStylegray_100">
+        <TextView android:gravity="center_horizontal"
+            android:id="@+id/txtLanguage"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10pxh"
+            android:layout_marginStart="@dimen/_10pxh"
+            android:layout_marginTop="@dimen/_26pxv"
+            android:layout_width="match_parent"
+            android:lineSpacingExtra="@dimen/_3pxh"
+            android:text="@{codeVM.codeModel.txtLanguage}"
+            style="@style/txtRibeyeRUSBYLYAJKAribeyeregular33" tools:text="@string/msg"/>
+        <TextView android:gravity="center_horizontal"
+            android:id="@+id/txtFour"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10pxh"
+            android:layout_marginStart="@dimen/_10pxh"
+            android:layout_marginTop="@dimen/_22pxv"
+            android:layout_width="match_parent"
+            android:text="@{codeVM.codeModel.txtFour}"
+            style="@style/txtMontserratsemibold14" tools:text="@string/msg_4"/>
+        <com.mukesh.OtpView android:focusableInTouchMode="true"
+            android:id="@+id/otpViewOtpview" android:inputType="number"
+            android:itemBackground="@color/white_A700"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10pxh"
+            android:layout_marginStart="@dimen/_10pxh"
+            android:layout_marginTop="@dimen/_35pxv"
+            android:layout_width="wrap_content" app:OtpItemCount="4"
+            app:OtpItemHeight="@dimen/_60pxv"
+            app:OtpItemSpacing="@dimen/_17pxh"
+            app:OtpItemWidth="@dimen/_60pxh"
+            app:OtpLineColor="@android:color/transparent" app:OtpViewType="rectangle"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:ellipsize="end" android:gravity="center"
+            android:id="@+id/btn" android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10pxh"
+            android:layout_marginStart="@dimen/_10pxh"
+            android:layout_marginTop="@dimen/_33pxv"
+            android:layout_width="match_parent"
+            android:paddingBottom="@dimen/_14pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_14pxv" android:singleLine="true"
+            android:text="@string/lbl19" android:textAllCaps="false"
+            style="@style/btnSolidRounded" tools:text="@string/lbl19"/>
+        <ImageView android:id="@+id/imageBiruzafOne"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_340pxh"
+            android:layout_marginBottom="@dimen/_17pxv"
+            android:layout_marginEnd="@dimen/_10pxh"
+            android:layout_marginStart="@dimen/_10pxh"
+            android:layout_marginTop="@dimen/_38pxv"
+            android:layout_width="@dimen/_340pxh"
+            android:scaleType="fitXY"
+            imageRes="@{@drawable/img_biruzaf1}"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_biruzaf1"/>
+    </LinearLayout>
+</layout>

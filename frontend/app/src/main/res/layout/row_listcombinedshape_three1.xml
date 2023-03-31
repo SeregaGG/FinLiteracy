@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="listcombinedshapeThree1RowModel" type="com.daniiltropolsapplication.app.modules.finaltalkpositive.data.model.ListcombinedshapeThree1RowModel"/>
+    </data>
+    <FrameLayout android:id="@+id/frameStacktail"
+        android:layout_height="wrap_content" android:layout_width="match_parent">
+        <FrameLayout android:id="@+id/frameTechMessaging"
+            android:layout_gravity="end"
+            android:layout_height="@dimen/_58pxv"
+            android:layout_marginStart="@dimen/_10pxh"
+            android:layout_marginTop="@dimen/_2pxv" android:layout_width="@dimen/_256pxh">
+            <FrameLayout android:id="@+id/frameStackcombinedshapeThree"
+                android:layout_gravity="center"
+                android:layout_height="@dimen/_58pxv"
+                android:layout_marginStart="@dimen/_5pxh" android:layout_width="@dimen/_251pxh">
+                <ImageView android:id="@+id/imageCombinedShapeThree"
+                    android:layout_gravity="start"
+                    android:layout_height="@dimen/_58pxh"
+                    android:layout_width="@dimen/_251pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_combinedshape"
+                    tools:ignore="ContentDescription" tools:src="@drawable/img_combinedshape"/>
+                <TextView android:gravity="top|start"
+                    android:id="@+id/txtFifty"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10pxv"
+                    android:layout_marginEnd="@dimen/_19pxh"
+                    android:layout_marginStart="@dimen/_17pxh"
+                    android:layout_marginTop="@dimen/_10pxv"
+                    android:layout_width="match_parent"
+                    android:text="@{listcombinedshapeThree1RowModel.txtFifty}"
+                    style="@style/txtMontserratmedium14_1" tools:text="@string/msg11"/>
+            </FrameLayout>
+            <ImageView android:id="@+id/imageTailThree"
+                android:layout_gravity="bottom|start"
+                android:layout_height="@dimen/_14pxh"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_10pxv"
+                android:layout_width="@dimen/_20pxh"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_tail"
+                tools:ignore="ContentDescription" tools:src="@drawable/img_tail"/>
+        </FrameLayout>
+        <ImageView android:id="@+id/imageEleven"
+            android:layout_gravity="start"
+            android:layout_height="@dimen/_60pxh"
+            android:layout_marginEnd="@dimen/_10pxh"
+            android:layout_width="@dimen/_60pxh"
+            android:scaleType="fitXY" imageRes="@{@drawable/img_10}"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_10"/>
+    </FrameLayout>
+</layout>
