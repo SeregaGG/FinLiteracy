@@ -3,4 +3,9 @@ fastapi
 pydantic
 pymongo
 motor
+pandas
+numpy
 sqlalchemy
+SQLAlchemy-Utils
+openpyxl
+
