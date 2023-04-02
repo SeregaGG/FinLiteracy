@@ -1,8 +1,10 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
+# from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 from sqlalchemy_utils import database_exists, create_database
-from local_settings import postgresql as settings
+
+from config.local_settings import postgresql as settings
 
 import logging
 
@@ -73,9 +75,9 @@ def get_session():
     engine = get_database()
     session = sessionmaker(bind=engine)()
     #session = Session()
-    return session
+    return engine, session
 
 
 db = get_database()
-session = get_session()
+engine, session = get_session()
 Base = declarative_base()
