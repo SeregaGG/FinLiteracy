@@ -1,12 +1,7 @@
-import enum
-import numpy as np
-import pandas as pd
-
-from sqlalchemy import BigInteger, Boolean, Column, \
-    Date, DateTime, Enum, Float, ForeignKey, Integer, \
-    String, UniqueConstraint, and_, func, ARRAY, Text
-from sqlalchemy.orm import relationship
-from psql import Base, db, session
+from sqlalchemy import Boolean, Column, \
+    ForeignKey, Integer, \
+    String, ARRAY, Text
+from utils.psql import Base, db, engine
 
 
 class Tokens(Base):
@@ -30,9 +25,10 @@ class Students(Base):
 class Questions(Base):
     __tablename__ = 'questions'
     question_id = Column(Integer, primary_key=True, autoincrement=True)
-    wrong_answers = Column(ARRAY(Text, dimensions=5), nullable=False)
-    right_answer = Column(String(200), nullable=False)
-    quest_name = Column(String(200), nullable=False)
+    question = Column(String, nullable=False)
+    wrong_answers = Column(ARRAY(String), nullable=False)
+    right_answer = Column(String, nullable=False)
+    quest_name = Column(String, nullable=False)
     coins = Column(Integer, nullable=False)
 
 
@@ -52,5 +48,8 @@ class Statistics(Base):
 def create():
     Base.metadata.create_all(db)
 
-
+Statistics.__table__.drop(engine)
+Questions.__table__.drop(engine)
+Students.__table__.drop(engine)
+Tokens.__table__.drop(engine)
 create()
