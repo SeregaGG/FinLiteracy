@@ -4,7 +4,7 @@ from sqlmodel import SQLModel, Field, Column, Integer, String, ARRAY, ForeignKey
 class TokensBase(SQLModel):
     city: str = Field(sa_column=Column(String(50), nullable=False))
     school: str = Field(sa_column=Column(String(200), nullable=False))
-    classs: str = Field(sa_column=Column(String(200), nullable=False))
+    class_name: str = Field(sa_column=Column(String(200), nullable=False))
     teacher_phone: str = Field(sa_column=Column(String(200), nullable=False))
 
     class Config:
@@ -13,7 +13,7 @@ class TokensBase(SQLModel):
 
 class Tokens(TokensBase, table=True):
     __tablename__ = 'tokens'
-    token_id = Field(sa_column=Column(Integer, primary_key=True, autoincrement=True))
+    token_id = Field(sa_column=Column(String, primary_key=True, unique=True))
 
 
 class TokenCreate(TokensBase):

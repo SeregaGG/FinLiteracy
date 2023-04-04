@@ -8,4 +8,7 @@ numpy
 sqlalchemy
 SQLAlchemy-Utils
 openpyxl
+sqlmodel
+asyncpg
+python-multipart
 
