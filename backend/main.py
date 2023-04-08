@@ -7,6 +7,8 @@ from db.models import Tokens, Statistics, Questions, Students, QuestionsCreate, 
 from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession
 import pandas as pd
+from sqlalchemy.sql import func
+from itertools import chain
 
 app = FastAPI()
 
@@ -42,8 +44,12 @@ async def get_token(session: AsyncSession = Depends(get_session)):
 
 @app.get('/questions', response_model=list[QuestionsCreate])
 async def get_question(session: AsyncSession = Depends(get_session)):
-    result = await session.execute(select(Questions))
-    questions = result.scalars().all()
+    results = [
+        await session.execute(select(Questions).where(Questions.location == x).order_by(func.random()).limit(1))
+        for x in ['bank', 'shop', 'fin_org', 'entertainment_center', 'school']
+    ]
+    # result = await session.execute(select(Questions).where(Questions.location == 'bank').order_by(func.random()).limit(1))
+    questions: list[QuestionsCreate] = list(chain.from_iterable([x.scalars().all() for x in results]))
     return questions
 
 
