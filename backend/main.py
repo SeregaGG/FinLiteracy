@@ -1,14 +1,11 @@
-import os
 from fastapi import FastAPI, Depends, File, UploadFile
 from fastapi.responses import JSONResponse, Response
 import string
 import random
-import json
 from db.db import init_db, get_session
 from db.models import Tokens, Statistics, Questions, Students, QuestionsCreate, TokenCreate
 from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession
-from io import StringIO
 import pandas as pd
 
 app = FastAPI()
@@ -53,7 +50,7 @@ async def get_question(session: AsyncSession = Depends(get_session)):
 @app.post('/questions')
 async def get_question(questions: UploadFile = File(...), session: AsyncSession = Depends(get_session)):
     df = pd.read_excel(await questions.read())
-    df_grouped = df.groupby(['question', 'right_answer', 'quest_name', 'coins'], as_index=False) \
+    df_grouped = df.groupby(['question', 'right_answer', 'quest_name', 'coins', 'location'], as_index=False) \
         .agg({'wrong_answer': tuple})
 
     for i, r in df_grouped.iterrows():
@@ -63,7 +60,9 @@ async def get_question(questions: UploadFile = File(...), session: AsyncSession 
             wrong_answers=r['wrong_answer'],
             right_answer=r['right_answer'],
             quest_name=r['quest_name'],
-            coins=r['coins'])
+            coins=r['coins'],
+            location=r['location']
+        )
         session.add(questionss)
         await session.commit()
     return 0

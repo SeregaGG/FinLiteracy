@@ -38,6 +38,7 @@ class QuestionsBase(SQLModel):
     right_answer: str = Field(sa_column=Column(String, nullable=False))
     quest_name: str = Field(sa_column=Column(String, nullable=False))
     coins: int = Field(sa_column=Column(Integer, nullable=False))
+    location: str = Field(sa_column=Column(String, nullable=False))
 
     class Config:
         arbitrary_types_allowed = True
