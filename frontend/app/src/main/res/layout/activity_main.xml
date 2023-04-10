@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Время вышло -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/some_id"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:clipToOutline="true"
+    android:background="@drawable/background"
+    android:elevation="4dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/_300pxv"
+        android:layout_marginEnd="@dimen/_50pxv"
+        android:layout_marginStart="@dimen/_50pxv"
+        android:layout_marginTop="@dimen/_200pxv"
+        android:scrollbars="none"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="При большом количестве информации, которую нужно поместить на экране приходится использовать полосы прокрутки. В Android существуют специальные компоненты ScrollView и HorizontalScrollView, которые являются контейнерными элементами и наследуются от ViewGroup. Обратите внимание, что класс TextView использует свою собственную прокрутку и не нуждается в добавлении отдельных полос прокрутки. Но использование отдельных полос даже с TextView может улучшить вид вашего приложения и повышает удобство работы для пользователя.
+
+На панели инструментов компоненты можно найти в разделе Containers.
+
+В контейнеры ScrollView и HorizontalScrollView можно размещать только один дочерний элемент (обычно LinearLayout), который в свою очередь может быть контейнером для других элементов. Виджет ScrollView, несмотря на свое название, поддерживает только вертикальную прокрутку, поэтому для создания вертикальной и горизонтальной прокрутки необходимо использовать ScrollView в сочетании с HorizontalScrollView. Обычно ScrollView используют в качестве корневого элемента, а HorizontalScrollView в качестве дочернего. Можно и наоборот, пробуйте.
+
+"/>
+    </ScrollView>
+
+<!--    <View-->
+<!--        android:id="@+id/sand_timer_"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="150dp"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_marginLeft="105dp"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginTop="241dp"-->
+<!--        android:background="@drawable/pink_arrow" />-->
+
+</RelativeLayout>
