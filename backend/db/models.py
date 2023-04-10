@@ -13,23 +13,32 @@ class TokensBase(SQLModel):
 
 class Tokens(TokensBase, table=True):
     __tablename__ = 'tokens'
-    token_id = Field(sa_column=Column(String, primary_key=True, unique=True))
+    token_id: str = Field(sa_column=Column(String(50), primary_key=True, autoincrement=False, unique=True))
 
 
 class TokenCreate(TokensBase):
     pass
 
 
-class Students(SQLModel, table=True):
+class StudentsBase(SQLModel):
+    first_name: str = Field(sa_column=Column(String(200), nullable=False))
+    second_name: str = Field(sa_column=Column(String(200), nullable=False))
+
+
+class Students(StudentsBase, table=True):
     __tablename__ = 'students'
     student_id = Field(sa_column=Column(Integer, primary_key=True, autoincrement=True))
-    city = Field(sa_column=Column(String(50), nullable=False))
-    school = Field(sa_column=Column(String(200), nullable=False))
-    classs = Field(sa_column=Column(String(200), nullable=False))
-    teacher_phone = Field(sa_column=Column(String(200), nullable=False))
+    city: str = Field(sa_column=Column(String(50), nullable=False))
+    school: str = Field(sa_column=Column(String(200), nullable=False))
+    class_name: str = Field(sa_column=Column(String(200), nullable=False))
+    teacher_phone: str = Field(sa_column=Column(String(200), nullable=False))
 
     class Config:
         arbitrary_types_allowed = True
+
+
+class StudentsCreate(StudentsBase):
+    pass
 
 
 class QuestionsBase(SQLModel):

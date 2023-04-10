@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse, Response
 import string
 import random
 from db.db import init_db, get_session
-from db.models import Tokens, Statistics, Questions, Students, QuestionsCreate, TokenCreate
+from db.models import Tokens, Statistics, Questions, Students, QuestionsCreate, TokenCreate, StudentsCreate
 from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession
 import pandas as pd
@@ -32,13 +32,17 @@ async def create_token(token_data: TokenCreate, session: AsyncSession = Depends(
 
 
 @app.get('/token')
-async def get_token(session: AsyncSession = Depends(get_session)):
-    result = await session.execute(select(Tokens))
-    current_token = result.scalar_one_or_none()
+async def get_token(token: str, student: StudentsCreate, session: AsyncSession = Depends(get_session)):
+    result = await session.execute(select(Tokens).where(Tokens.token_id == token))
+    current_token: Tokens = result.scalar_one_or_none()
 
     if current_token is None:
-        return Response(status_code=304)
+        return JSONResponse(status_code=304, content={"token": "Forbidden"})
 
+    new_student = Students(city=current_token.city, school=current_token.school, class_name=current_token.class_name,
+                           teacher_phone=current_token.teacher_phone, **student.dict())
+    session.add(new_student)
+    await session.commit()
     return JSONResponse(status_code=200, content={"token": "Token exists"})
 
 
@@ -70,5 +74,5 @@ async def get_question(questions: UploadFile = File(...), session: AsyncSession 
             location=r['location']
         )
         session.add(questionss)
-        await session.commit()
+    await session.commit()
     return 0
