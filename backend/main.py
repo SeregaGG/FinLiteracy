@@ -31,7 +31,7 @@ async def create_token(token_data: TokenCreate, session: AsyncSession = Depends(
     return JSONResponse(status_code=200, content={"token": random_str})
 
 
-@app.get('/token')
+@app.post('/auth')
 async def get_token(token: str, student: StudentsCreate, session: AsyncSession = Depends(get_session)):
     result = await session.execute(select(Tokens).where(Tokens.token_id == token))
     current_token: Tokens = result.scalar_one_or_none()
