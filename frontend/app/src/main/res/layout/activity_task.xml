@@ -124,7 +124,7 @@
                     android:src="@drawable/img_coins"
                     tools:ignore="ContentDescription" tools:src="@drawable/img_coins"/>
             </LinearLayout>
-            <FrameLayout android:id="@+id/frameStackdescription"
+            <ScrollView android:id="@+id/frameStackdescription"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="@dimen/_416pxv"
                 android:layout_marginEnd="@dimen/_21pxh"
@@ -134,10 +134,11 @@
                     android:layout_gravity="center"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_2pxh"
+                    android:layout_marginTop="@dimen/_60pxv"
                     android:layout_width="match_parent"
                     android:orientation="vertical" style="@style/groupStylewhite_A700cornerRadius">
                     <TextView android:gravity="center_horizontal"
-                        android:id="@+id/txtDescription"
+                        android:id="@+id/taskDescription"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/_26pxh"
                         android:layout_marginStart="@dimen/_26pxh"
@@ -211,25 +212,25 @@
                             style="@style/txtMontserratsemibold15" tools:text="@string/msg_c"/>
                     </LinearLayout>
                 </LinearLayout>
-                <View android:background="@color/black_900_14"
-                    android:id="@+id/lineLineSeven"
-                    android:layout_gravity="bottom|start"
-                    android:layout_height="@dimen/_3pxv"
-                    android:layout_marginBottom="@dimen/_162pxv"
-                    android:layout_marginTop="@dimen/_162pxv" android:layout_width="@dimen/_318pxh"/>
-                <View android:background="@color/black_900_14"
-                    android:id="@+id/lineLineEight"
-                    android:layout_gravity="bottom|start"
-                    android:layout_height="@dimen/_3pxv"
-                    android:layout_marginBottom="@dimen/_106pxv"
-                    android:layout_marginTop="@dimen/_106pxv" android:layout_width="@dimen/_318pxh"/>
-                <View android:background="@color/black_900_14"
-                    android:id="@+id/lineLineNine"
-                    android:layout_gravity="bottom|start"
-                    android:layout_height="@dimen/_3pxv"
-                    android:layout_marginBottom="@dimen/_50pxv"
-                    android:layout_marginTop="@dimen/_50pxv" android:layout_width="@dimen/_318pxh"/>
-            </FrameLayout>
+<!--                <View android:background="@color/black_900_14"-->
+<!--                    android:id="@+id/lineLineSeven"-->
+<!--                    android:layout_gravity="bottom|start"-->
+<!--                    android:layout_height="@dimen/_3pxv"-->
+<!--                    android:layout_marginBottom="@dimen/_162pxv"-->
+<!--                    android:layout_marginTop="@dimen/_162pxv" android:layout_width="@dimen/_318pxh"/>-->
+<!--                <View android:background="@color/black_900_14"-->
+<!--                    android:id="@+id/lineLineEight"-->
+<!--                    android:layout_gravity="bottom|start"-->
+<!--                    android:layout_height="@dimen/_3pxv"-->
+<!--                    android:layout_marginBottom="@dimen/_106pxv"-->
+<!--                    android:layout_marginTop="@dimen/_106pxv" android:layout_width="@dimen/_318pxh"/>-->
+<!--                <View android:background="@color/black_900_14"-->
+<!--                    android:id="@+id/lineLineNine"-->
+<!--                    android:layout_gravity="bottom|start"-->
+<!--                    android:layout_height="@dimen/_3pxv"-->
+<!--                    android:layout_marginBottom="@dimen/_50pxv"-->
+<!--                    android:layout_marginTop="@dimen/_50pxv" android:layout_width="@dimen/_318pxh"/>-->
+            </ScrollView>
             <androidx.appcompat.widget.AppCompatButton
                 android:ellipsize="end" android:gravity="center"
                 android:id="@+id/btn"

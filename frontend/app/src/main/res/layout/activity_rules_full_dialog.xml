@@ -652,7 +652,7 @@
 
                         <TextView
                             android:gravity="top|start"
-                            android:id="@+id/txtDescription"
+                            android:id="@+id/taskDescription"
                             android:layout_gravity="center"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/_7pxv"
@@ -1126,19 +1126,19 @@
                 style="@style/txtMontserratmedium13"
                 tools:text="@string/lbl32" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:gravity="center_horizontal"
-                android:id="@+id/recyclerList"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_5pxh"
-                android:layout_marginTop="@dimen/_2pxv"
-                android:layout_width="match_parent"
-                android:nestedScrollingEnabled="false"
-                android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                itemSpace="@{@dimen/_24pxh}"
-                tools:itemCount="2"
-                tools:listitem="@layout/row_list" />
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:id="@+id/recyclerList"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="@dimen/_5pxh"-->
+<!--                android:layout_marginTop="@dimen/_2pxv"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:nestedScrollingEnabled="false"-->
+<!--                android:orientation="vertical"-->
+<!--                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--                itemSpace="@{@dimen/_24pxh}"-->
+<!--                tools:itemCount="2"-->
+<!--                tools:listitem="@layout/row_list" />-->
 
             <androidx.appcompat.widget.AppCompatButton
                 android:ellipsize="end"
