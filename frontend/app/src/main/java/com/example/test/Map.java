@@ -18,6 +18,7 @@ public class Map extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_map);
+        QuestManager.updateCoins(this);
     }
 
     public void schoolToTask(View view) {
