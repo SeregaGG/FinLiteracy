@@ -2,8 +2,11 @@ package com.example.test;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import java.util.Timer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,33 +14,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        try
-        {
+        try {
             this.getSupportActionBar().hide();
+        } catch (NullPointerException e) {
         }
-        catch (NullPointerException e){}
 
-        setContentView(R.layout.activity_rules_full_dialog);
+        setContentView(R.layout.activity_start);
     }
 
-    // Обработка нажатия кнопки
     public void toMap(View view) {
-        setContentView(R.layout.activity_map);
-    }
-
-    public void toTaskChoosing(View view) {
-        setContentView(R.layout.activity_task_choosing);
-    }
-
-    public void toTask(View view) {
-        setContentView(R.layout.activity_task);
-    }
-
-    public void toRightAnswer(View view) {
-        setContentView(R.layout.activity_right_answer);
-    }
-
-    public void toFinish(View view) {
-        setContentView(R.layout.activity_finish);
+        Intent intent = new Intent(this, Map.class);
+        startActivity(intent);
     }
 }
