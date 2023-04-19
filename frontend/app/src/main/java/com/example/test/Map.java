@@ -22,32 +22,28 @@ public class Map extends AppCompatActivity {
     }
 
     public void schoolToTask(View view) {
-        Intent intent = new Intent(this, Task.class);
-        intent.putExtra("location", "school");
-        startActivity(intent);
+        toTask("school");
     }
 
     public void bankToTask(View view) {
-        Intent intent = new Intent(this, Task.class);
-        intent.putExtra("location", "bank");
-        startActivity(intent);
+        toTask("bank");
     }
 
     public void mallToTask(View view) {
-        Intent intent = new Intent(this, Task.class);
-        intent.putExtra("location", "mall");
-        startActivity(intent);
+        toTask("mall");
     }
 
     public void marketToTask(View view) {
-        Intent intent = new Intent(this, Task.class);
-        intent.putExtra("location", "shop");
-        startActivity(intent);
+        toTask("shop");
     }
 
     public void atmToTask(View view) {
+        toTask("fin_org");
+    }
+
+    private void toTask(String location) {
         Intent intent = new Intent(this, Task.class);
-        intent.putExtra("location", "fin_org");
+        intent.putExtra("location", location);
         startActivity(intent);
     }
 }
