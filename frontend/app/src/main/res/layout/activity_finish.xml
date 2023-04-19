@@ -22,18 +22,19 @@
             android:id="@+id/linearRow"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_25pxv"
-            android:layout_marginEnd="@dimen/_41pxh"
+            android:layout_marginEnd="@dimen/_42pxh"
             android:layout_marginStart="@dimen/_59pxh"
             android:layout_marginTop="@dimen/_19pxv"
             android:layout_width="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:id="@+id/linearRowprofitone"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.44"
-                android:layout_width="0dp"
-                android:orientation="horizontal">
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1.5">
 
                 <ImageView
                     android:id="@+id/imageProfitOne"
@@ -46,52 +47,54 @@
 
                 <TextView
                     android:ellipsize="end"
-                    android:id="@+id/txtThreeHundred"
+                    android:id="@+id/txtFiveHundred"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_1pxv"
                     android:layout_marginStart="@dimen/_11pxh"
                     android:layout_marginTop="@dimen/_1pxv"
                     android:layout_weight="0.6"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:singleLine="true"
-                    android:text="@string/lbl_300"
+                    android:text="@string/lbl_500"
                     style="@style/txtMontserratbold20_1"
-                    tools:text="@string/lbl_300" />
+                    tools:text="@string/lbl_500"
+                    tools:ignore="NestedWeights" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearRowalarmclockof"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_80pxh"
-                android:layout_weight="0.56"
-                android:layout_width="0dp"
-                android:orientation="horizontal">
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="right"
+                android:layout_weight="0.5">
 
                 <ImageView
                     android:id="@+id/imageAlarmclockof"
                     android:layout_height="@dimen/_27pxh"
                     android:layout_width="@dimen/_27pxh"
+                    android:layout_marginStart="@dimen/_10pxv"
                     android:scaleType="fitXY"
                     android:src="@drawable/img_alarmclockof"
                     tools:ignore="ContentDescription"
                     tools:src="@drawable/img_alarmclockof" />
 
                 <TextView
+                    android:layout_gravity=""
                     android:ellipsize="end"
                     android:id="@+id/txtTime"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_1pxv"
-                    android:layout_marginStart="@dimen/_12pxh"
+                    android:layout_marginStart="@dimen/_13pxh"
                     android:layout_marginTop="@dimen/_1pxv"
-                    android:layout_weight="0.69"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:singleLine="true"
-                    android:text="@string/lbl_00_00"
+                    android:text="@string/lbl_40_03"
                     style="@style/txtMontserratbold20_2"
-                    tools:text="@string/lbl_00_00" />
+                    tools:text="@string/lbl_40_03"
+                    tools:ignore="NestedWeights" />
             </LinearLayout>
-        </LinearLayout>
-    </androidx.appcompat.widget.Toolbar>
+        </LinearLayout>    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:gravity="end"

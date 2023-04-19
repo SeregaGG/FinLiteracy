@@ -23,8 +23,12 @@ public class QuestManager {
         textView.setText(Integer.toString(coins_));
     }
 
-    public static void addToCoins(int coins) {
-        coins_ += coins;
+    public static void addCoins(int amount) {
+        coins_ += amount;
+    }
+
+    public static void removeCoins(int amount) {
+        coins_ -= amount;
     }
 
     public static int getCoins() {

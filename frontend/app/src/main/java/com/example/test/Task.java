@@ -30,10 +30,12 @@ public class Task extends AppCompatActivity {
         QuestManager.updateCoins(this);
     }
 
+    // activity_task_choosing
     public void easyTask(View view) {
         setContentView(R.layout.activity_task);
+        QuestManager.removeCoins(kQuestionPrice);
         QuestManager.updateCoins(this);
-        question = getQuestion(200, location);
+        question = getQuestion(kEasyTaskReward, location);
 
         TextView textView = findViewById(R.id.taskDescription);
         TextView a = findViewById(R.id.txtA);
@@ -42,15 +44,19 @@ public class Task extends AppCompatActivity {
         textView.setText(question.question);
         a.setText(question.right_answer);
         b.setText(question.wrong_answers[0]);
-        c.setText(question.wrong_answers[1]);
+        if (question.wrong_answers.length > 1) {
+            c.setText(question.wrong_answers[1]);
+        }
 
-        buffer = 200;
+        buffer = kEasyTaskReward;
     }
 
+    // activity_task_choosing
     public void middleTask(View view) {
         setContentView(R.layout.activity_task);
+        QuestManager.removeCoins(kQuestionPrice);
         QuestManager.updateCoins(this);
-        question = getQuestion(300, location);
+        question = getQuestion(kMiddleTaskReward, location);
 
         TextView textView = findViewById(R.id.taskDescription);
         TextView a = findViewById(R.id.txtA);
@@ -59,15 +65,19 @@ public class Task extends AppCompatActivity {
         textView.setText(question.question);
         a.setText(question.right_answer);
         b.setText(question.wrong_answers[0]);
-        c.setText(question.wrong_answers[1]);
+        if (question.wrong_answers.length > 1) {
+            c.setText(question.wrong_answers[1]);
+        }
 
-        buffer = 300;
+        buffer = kMiddleTaskReward;
     }
 
+    // activity_task_choosing
     public void hardTask(View view) {
         setContentView(R.layout.activity_task);
+        QuestManager.removeCoins(kQuestionPrice);
         QuestManager.updateCoins(this);
-        question = getQuestion(400, location);
+        question = getQuestion(kHardTaskReward, location);
 
         TextView textView = findViewById(R.id.taskDescription);
         TextView a = findViewById(R.id.txtA);
@@ -76,37 +86,42 @@ public class Task extends AppCompatActivity {
         textView.setText(question.question);
         a.setText(question.right_answer);
         b.setText(question.wrong_answers[0]);
-        c.setText(question.wrong_answers[1]);
+        if (question.wrong_answers.length > 1) {
+            c.setText(question.wrong_answers[1]);
+        }
 
-        buffer = 400;
+        buffer = kHardTaskReward;
     }
 
-    public void returnToMap(View view){
+    public void returnToMap(View view) {
         Intent intent = new Intent(this, Map.class);
         startActivity(intent);
     }
 
-    public void onClickFirst(View view){
-        TextView a  = findViewById(R.id.txtA);
+    // activity_task
+    public void onClickFirst(View view) {
+        TextView a = findViewById(R.id.txtA);
         answer = (String) a.getText();
         view.setBackgroundResource(R.drawable.rectangle_bg_gray_300);
     }
 
-    public void onClickSecond(View view){
-        TextView a  = findViewById(R.id.txtB);
+    // activity_task
+    public void onClickSecond(View view) {
+        TextView a = findViewById(R.id.txtB);
         answer = (String) a.getText();
         view.setBackgroundResource(R.drawable.rectangle_bg_gray_300);
     }
 
-    public void onClickThird(View view){
-        TextView a  = findViewById(R.id.txtC);
+    // activity_task
+    public void onClickThird(View view) {
+        TextView a = findViewById(R.id.txtC);
         answer = (String) a.getText();
         view.setBackgroundResource(R.drawable.rectangle_bg_gray_300);
     }
 
-    public void onClickAnswer(View view){
-        if (answer.equals(question.right_answer)){
-            QuestManager.addToCoins(buffer);
+    public void onClickAnswer(View view) {
+        if (answer.equals(question.right_answer)) {
+            QuestManager.addCoins(buffer);
             QuestManager.updateCoins(this);
             buffer = 0;
             Intent intent = new Intent(this, Map.class);
@@ -138,9 +153,12 @@ public class Task extends AppCompatActivity {
         }
     }
 
+    private static final int kEasyTaskReward = 200;
+    private static final int kMiddleTaskReward = 300;
+    private static final int kHardTaskReward = 400;
+    private static final int kQuestionPrice = 100;
     Question question;
     String location = "";
     String answer = "";
-//    int coins = 0;
     int buffer = 0;
 }
