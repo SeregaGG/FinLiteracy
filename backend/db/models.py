@@ -1,4 +1,5 @@
 from sqlmodel import SQLModel, Field, Column, Integer, String, ARRAY, ForeignKey, Boolean
+from sqladmin import ModelView
 
 
 class TokensBase(SQLModel):
@@ -6,6 +7,7 @@ class TokensBase(SQLModel):
     school: str = Field(sa_column=Column(String(200), nullable=False))
     class_name: str = Field(sa_column=Column(String(200), nullable=False))
     teacher_phone: str = Field(sa_column=Column(String(200), nullable=False))
+    current_token: str = Field(sa_column=Column(String(50), unique=True))
 
     class Config:
         arbitrary_types_allowed = True
@@ -13,11 +15,15 @@ class TokensBase(SQLModel):
 
 class Tokens(TokensBase, table=True):
     __tablename__ = 'tokens'
-    token_id: str = Field(sa_column=Column(String(50), primary_key=True, autoincrement=False, unique=True))
+    id: int = Field(sa_column=Column(Integer, primary_key=True, autoincrement=True, unique=True))
 
 
 class TokenCreate(TokensBase):
     pass
+
+
+class TokenView(ModelView, model=Tokens):
+    column_list = [Tokens.current_token, Tokens.city]
 
 
 class StudentsBase(SQLModel):
@@ -42,7 +48,7 @@ class StudentsCreate(StudentsBase):
 
 
 class QuestionsBase(SQLModel):
-    question: str = Field(sa_column=Column(String, nullable=False))
+    question: str = Field(sa_column=Column(String, nullable=False, unique=True))
     wrong_answers: list[str] = Field(sa_column=Column(ARRAY(String), nullable=False))
     right_answer: str = Field(sa_column=Column(String, nullable=False))
     quest_name: str = Field(sa_column=Column(String, nullable=False))
@@ -60,6 +66,10 @@ class Questions(QuestionsBase, table=True):
 
 class QuestionsCreate(QuestionsBase):
     pass
+
+
+class QuestionsView(ModelView, model=Questions):
+    column_list = [Questions.question, Questions.quest_name]
 
 
 class Statistics(SQLModel, table=True):
