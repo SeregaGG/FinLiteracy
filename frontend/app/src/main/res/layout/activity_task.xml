@@ -59,7 +59,7 @@
                         android:layout_marginStart="@dimen/_11pxh"
                         android:layout_marginTop="@dimen/_1pxv"
                         android:layout_weight="0.6"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:singleLine="true"
                         android:text="@string/lbl_500"
                         style="@style/txtMontserratbold20_1"
@@ -73,7 +73,8 @@
                     android:layout_width="wrap_content"
                     android:orientation="horizontal"
                     android:layout_gravity="right"
-                    android:layout_weight="0.5">
+                    android:layout_weight="0.5"
+                    tools:ignore="RtlHardcoded">
 
                     <ImageView
                         android:id="@+id/imageAlarmclockof"
@@ -174,19 +175,17 @@
 
         <ScrollView
             android:id="@+id/frameStackdescription"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="@dimen/_416pxv"
+            android:layout_height="@dimen/_415pxv"
             android:layout_marginEnd="@dimen/_21pxh"
             android:layout_marginStart="@dimen/_21pxh"
             android:layout_marginTop="@dimen/_12pxv"
-            android:layout_width="@dimen/_318pxh">
+            android:layout_width="@dimen/_318pxh"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:id="@+id/linearColumndescription"
-                android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_2pxh"
-                android:layout_marginTop="@dimen/_50pxv"
+                android:layout_marginTop="@dimen/_10pxv"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 style="@style/groupStylewhite_A700cornerRadius">
@@ -207,9 +206,8 @@
                     android:gravity="center_horizontal"
                     android:id="@+id/linearColumna"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_43pxv"
+                    android:layout_marginTop="@dimen/_10pxv"
                     android:layout_width="match_parent"
-                    android:orientation="horizontal"
                     style="@style/groupStylewhite_A700_cc">
 
                     <ImageButton
@@ -228,24 +226,14 @@
                         style="@style/txtMontserratsemibold15"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_26pxh"
-                        android:layout_marginTop="@dimen/_12pxv"
-                        android:layout_marginEnd="@dimen/_26pxh"
-                        android:layout_marginBottom="@dimen/_5pxv"
+                        android:layout_marginStart="@dimen/_25pxh"
+                        android:layout_marginTop="@dimen/_15pxv"
+                        android:layout_marginEnd="@dimen/_25pxh"
+                        android:layout_marginBottom="@dimen/_15pxv"
                         android:ellipsize="end"
-                        android:gravity="start"
+                        android:gravity="center_horizontal"
                         android:text="@string/msg_a"
                         tools:text="@string/msg_a" />
-                    <!--                        <android.widget.Button-->
-                    <!--                            android:layout_weight="0.5"-->
-                    <!--                            android:layout_width="wrap_content"-->
-                    <!--                            android:layout_height="wrap_content"-->
-                    <!--                            android:text="@string/msg_a"-->
-                    <!--                            tools:text="@string/msg_a"-->
-                    <!--                            android:layout_marginStart="@dimen/_10pxv"-->
-                    <!--                            android:textAlignment="viewStart"-->
-                    <!--                            android:background="@drawable/rectangle_bg_white_a700_cc"-->
-                    <!--                            style="@style/txtMontserratsemibold15"/>-->
                 </FrameLayout>
 
                 <FrameLayout
@@ -253,18 +241,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_3pxv"
                     android:layout_width="match_parent"
-                    android:orientation="horizontal"
                     style="@style/groupStylewhite_A700_cc">
-                    <!--                        <android.widget.Button-->
-                    <!--                            android:layout_weight="0.5"-->
-                    <!--                            android:layout_width="wrap_content"-->
-                    <!--                            android:layout_height="wrap_content"-->
-                    <!--                            android:text="@string/msg_a"-->
-                    <!--                            tools:text="@string/msg_a"-->
-                    <!--                            android:textAlignment="viewStart"-->
-                    <!--                            android:layout_marginStart="@dimen/_10pxv"-->
-                    <!--                            android:background="@drawable/rectangle_bg_white_a700_cc"-->
-                    <!--                            style="@style/txtMontserratsemibold15"/>-->
 
                     <ImageButton
                         android:layout_width="match_parent"
@@ -281,10 +258,12 @@
                         android:ellipsize="end"
                         android:id="@+id/txtB"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_19pxv"
-                        android:layout_marginStart="@dimen/_26pxh"
-                        android:layout_marginTop="@dimen/_17pxv"
+                        android:layout_marginStart="@dimen/_25pxh"
+                        android:layout_marginTop="@dimen/_15pxv"
+                        android:layout_marginEnd="@dimen/_25pxh"
+                        android:layout_marginBottom="@dimen/_15pxv"
                         android:layout_width="wrap_content"
+                        android:gravity="center_horizontal"
                         android:text="@string/msg_b"
                         style="@style/txtMontserratsemibold15"
                         tools:text="@string/msg_b" />
@@ -299,17 +278,6 @@
                     android:orientation="horizontal"
                     style="@style/groupStylewhite_A700_cccornerRadius">
 
-                    <!--                    <android.widget.Button-->
-                    <!--                        android:layout_weight="0.5"-->
-                    <!--                        android:layout_width="wrap_content"-->
-                    <!--                        android:layout_height="wrap_content"-->
-                    <!--                        android:text="@string/msg_a"-->
-                    <!--                        tools:text="@string/msg_a"-->
-                    <!--                        android:textAlignment="viewStart"-->
-                    <!--                        android:layout_marginStart="@dimen/_10pxv"-->
-                    <!--                        android:background="@drawable/rectangle_bg_white_a700_cc"-->
-                    <!--                        style="@style/txtMontserratsemibold15" />-->
-
                     <View
                         android:background="@color/black_900_14"
                         android:layout_height="3dp"
@@ -323,37 +291,19 @@
 
                     <TextView
                         android:ellipsize="end"
-                        android:gravity="start"
+                        android:gravity="center_horizontal"
                         android:id="@+id/txtC"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="@dimen/_19pxv"
-                        android:layout_marginEnd="@dimen/_27pxh"
-                        android:layout_marginStart="@dimen/_27pxh"
-                        android:layout_marginTop="@dimen/_14pxv"
-                        android:layout_width="match_parent"
+                        android:layout_marginStart="@dimen/_25pxh"
+                        android:layout_marginTop="@dimen/_15pxv"
+                        android:layout_marginEnd="@dimen/_25pxh"
+                        android:layout_marginBottom="@dimen/_15pxv"
+                        android:layout_width="wrap_content"
                         android:text="@string/msg_c"
                         style="@style/txtMontserratsemibold15"
                         tools:text="@string/msg_c" />
                 </FrameLayout>
             </LinearLayout>
-            <!--                <View android:background="@color/black_900_14"-->
-            <!--                    android:id="@+id/lineLineSeven"-->
-            <!--                    android:layout_gravity="bottom|start"-->
-            <!--                    android:layout_height="@dimen/_3pxv"-->
-            <!--                    android:layout_marginBottom="@dimen/_162pxv"-->
-            <!--                    android:layout_marginTop="@dimen/_162pxv" android:layout_width="@dimen/_318pxh"/>-->
-            <!--                <View android:background="@color/black_900_14"-->
-            <!--                    android:id="@+id/lineLineEight"-->
-            <!--                    android:layout_gravity="bottom|start"-->
-            <!--                    android:layout_height="@dimen/_3pxv"-->
-            <!--                    android:layout_marginBottom="@dimen/_106pxv"-->
-            <!--                    android:layout_marginTop="@dimen/_106pxv" android:layout_width="@dimen/_318pxh"/>-->
-            <!--                <View android:background="@color/black_900_14"-->
-            <!--                    android:id="@+id/lineLineNine"-->
-            <!--                    android:layout_gravity="bottom|start"-->
-            <!--                    android:layout_height="@dimen/_3pxv"-->
-            <!--                    android:layout_marginBottom="@dimen/_50pxv"-->
-            <!--                    android:layout_marginTop="@dimen/_50pxv" android:layout_width="@dimen/_318pxh"/>-->
         </ScrollView>
 
         <androidx.appcompat.widget.AppCompatButton

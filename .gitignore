@@ -3,6 +3,7 @@ __pycache__/
 # Environments
 .env
 .venv
+.gradle
 env/
 venv/
 ENV/
