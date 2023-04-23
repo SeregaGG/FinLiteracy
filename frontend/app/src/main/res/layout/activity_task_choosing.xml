@@ -394,7 +394,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:ellipsize="end"
             android:gravity="center"
-            android:id="@+id/btn"
+            android:id="@+id/btn_bank"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_22pxh"
             android:layout_marginStart="@dimen/_22pxh"

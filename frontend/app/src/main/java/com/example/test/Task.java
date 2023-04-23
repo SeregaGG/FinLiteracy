@@ -24,7 +24,7 @@ public class Task extends AppCompatActivity {
         }
 
         Bundle arguments = getIntent().getExtras();
-        location = arguments.get("location").toString();
+        location_ = arguments.get("location").toString();
 
         setContentView(R.layout.activity_task_choosing);
         QuestManager.updateCoins(this);
@@ -35,20 +35,20 @@ public class Task extends AppCompatActivity {
         setContentView(R.layout.activity_task);
         QuestManager.removeCoins(kQuestionPrice);
         QuestManager.updateCoins(this);
-        question = getQuestion(kEasyTaskReward, location);
+        question_ = getQuestion(kEasyTaskReward, location_);
 
         TextView textView = findViewById(R.id.taskDescription);
         TextView a = findViewById(R.id.txtA);
         TextView b = findViewById(R.id.txtB);
         TextView c = findViewById(R.id.txtC);
-        textView.setText(question.question);
-        a.setText(question.right_answer);
-        b.setText(question.wrong_answers[0]);
-        if (question.wrong_answers.length > 1) {
-            c.setText(question.wrong_answers[1]);
+        textView.setText(question_.question);
+        a.setText(question_.right_answer);
+        b.setText(question_.wrong_answers[0]);
+        if (question_.wrong_answers.length > 1) {
+            c.setText(question_.wrong_answers[1]);
         }
 
-        buffer = kEasyTaskReward;
+        buffer_ = kEasyTaskReward;
     }
 
     // activity_task_choosing
@@ -56,20 +56,20 @@ public class Task extends AppCompatActivity {
         setContentView(R.layout.activity_task);
         QuestManager.removeCoins(kQuestionPrice);
         QuestManager.updateCoins(this);
-        question = getQuestion(kMiddleTaskReward, location);
+        question_ = getQuestion(kMiddleTaskReward, location_);
 
         TextView textView = findViewById(R.id.taskDescription);
         TextView a = findViewById(R.id.txtA);
         TextView b = findViewById(R.id.txtB);
         TextView c = findViewById(R.id.txtC);
-        textView.setText(question.question);
-        a.setText(question.right_answer);
-        b.setText(question.wrong_answers[0]);
-        if (question.wrong_answers.length > 1) {
-            c.setText(question.wrong_answers[1]);
+        textView.setText(question_.question);
+        a.setText(question_.right_answer);
+        b.setText(question_.wrong_answers[0]);
+        if (question_.wrong_answers.length > 1) {
+            c.setText(question_.wrong_answers[1]);
         }
 
-        buffer = kMiddleTaskReward;
+        buffer_ = kMiddleTaskReward;
     }
 
     // activity_task_choosing
@@ -77,20 +77,20 @@ public class Task extends AppCompatActivity {
         setContentView(R.layout.activity_task);
         QuestManager.removeCoins(kQuestionPrice);
         QuestManager.updateCoins(this);
-        question = getQuestion(kHardTaskReward, location);
+        question_ = getQuestion(kHardTaskReward, location_);
 
         TextView textView = findViewById(R.id.taskDescription);
         TextView a = findViewById(R.id.txtA);
         TextView b = findViewById(R.id.txtB);
         TextView c = findViewById(R.id.txtC);
-        textView.setText(question.question);
-        a.setText(question.right_answer);
-        b.setText(question.wrong_answers[0]);
-        if (question.wrong_answers.length > 1) {
-            c.setText(question.wrong_answers[1]);
+        textView.setText(question_.question);
+        a.setText(question_.right_answer);
+        b.setText(question_.wrong_answers[0]);
+        if (question_.wrong_answers.length > 1) {
+            c.setText(question_.wrong_answers[1]);
         }
 
-        buffer = kHardTaskReward;
+        buffer_ = kHardTaskReward;
     }
 
     public void returnToMap(View view) {
@@ -101,35 +101,54 @@ public class Task extends AppCompatActivity {
     // activity_task
     public void onClickFirst(View view) {
         TextView a = findViewById(R.id.txtA);
-        answer = (String) a.getText();
+        answer_ = (String) a.getText();
         view.setBackgroundResource(R.drawable.rectangle_bg_gray_300);
     }
 
     // activity_task
     public void onClickSecond(View view) {
         TextView a = findViewById(R.id.txtB);
-        answer = (String) a.getText();
+        answer_ = (String) a.getText();
         view.setBackgroundResource(R.drawable.rectangle_bg_gray_300);
     }
 
     // activity_task
     public void onClickThird(View view) {
         TextView a = findViewById(R.id.txtC);
-        answer = (String) a.getText();
+        answer_ = (String) a.getText();
         view.setBackgroundResource(R.drawable.rectangle_bg_gray_300);
     }
 
     public void onClickAnswer(View view) {
-        if (answer.equals(question.right_answer)) {
-            QuestManager.addCoins(buffer);
+        if (answer_.equals(question_.right_answer)) {
+            QuestManager.addCoins(buffer_);
             QuestManager.updateCoins(this);
-            buffer = 0;
+            buffer_ = 0;
+            updateLocationStatuses(true);
             Intent intent = new Intent(this, Map.class);
             startActivity(intent);
         } else {
-            buffer = 0;
+            buffer_ = 0;
+            updateLocationStatuses(false);
             Intent intent = new Intent(this, Map.class);
             startActivity(intent);
+        }
+    }
+
+    private void updateLocationStatuses(boolean is_passed) {
+        var result = is_passed ? QuestManager.locationStatuses.CORRECT_ANSWER : QuestManager.locationStatuses.WRONG_ANSWER;
+        if (location_.equals("school")) {
+            QuestManager.school_status = result;
+        } else if (location_.equals("shop")) {
+            QuestManager.shop_status = result;
+        } else if (location_.equals("mall")) {
+            QuestManager.mall_status = result;
+        } else if (location_.equals("bank")) {
+            QuestManager.bank_status = result;
+        } else if (location_.equals("fin_org")) {
+            QuestManager.fin_org_status = result;
+        } else {
+            throw new IllegalArgumentException("bad location");
         }
     }
 
@@ -157,8 +176,8 @@ public class Task extends AppCompatActivity {
     private static final int kMiddleTaskReward = 300;
     private static final int kHardTaskReward = 400;
     private static final int kQuestionPrice = 100;
-    Question question;
-    String location = "";
-    String answer = "";
-    int buffer = 0;
+    Question question_;
+    String location_ = "";
+    String answer_ = "";
+    int buffer_ = 0;
 }
