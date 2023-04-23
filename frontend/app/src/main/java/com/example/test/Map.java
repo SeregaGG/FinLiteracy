@@ -41,9 +41,19 @@ public class Map extends AppCompatActivity {
         toTask("fin_org");
     }
 
-    private void toTask(String location) {
+    private void toTask(String location) {+
         Intent intent = new Intent(this, Task.class);
         intent.putExtra("location", location);
         startActivity(intent);
+    }
+
+    public void clickHelpButton(View view){
+        setContentView(R.layout.activity_rules_tab);
+        QuestManager.updateCoins(this);
+    }
+
+    public void returnFromHelp(View view){
+        setContentView(R.layout.activity_map);
+        QuestManager.updateCoins(this);
     }
 }

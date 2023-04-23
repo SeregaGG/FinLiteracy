@@ -20,10 +20,10 @@
         <LinearLayout
             android:id="@+id/linearRow"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_25pxv"
+            android:layout_marginBottom="@dimen/_23pxv"
             android:layout_marginEnd="@dimen/_42pxh"
             android:layout_marginStart="@dimen/_59pxh"
-            android:layout_marginTop="@dimen/_19pxv"
+            android:layout_marginTop="@dimen/_23pxv"
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:baselineAligned="false">
@@ -319,6 +319,7 @@
         android:paddingEnd="@dimen/_11pxh"
         android:paddingStart="@dimen/_10pxh"
         android:paddingTop="@dimen/_5pxv"
+        android:onClick="clickHelpButton"
         android:singleLine="true"
         android:text="@string/lbl60"
         style="@style/txtSolidRounded"
