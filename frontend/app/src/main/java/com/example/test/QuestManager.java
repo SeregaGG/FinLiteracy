@@ -36,4 +36,16 @@ public class QuestManager {
     }
 
     private static int coins_ = 0;
+
+    public static locationStatuses school_status = locationStatuses.NOT_PASSED;
+    public static locationStatuses bank_status = locationStatuses.NOT_PASSED;
+    public static locationStatuses mall_status = locationStatuses.NOT_PASSED;
+    public static locationStatuses shop_status = locationStatuses.NOT_PASSED;
+    public static locationStatuses fin_org_status = locationStatuses.NOT_PASSED;
+
+    public enum locationStatuses {
+        NOT_PASSED,
+        CORRECT_ANSWER,
+        WRONG_ANSWER
+    }
 }

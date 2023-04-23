@@ -124,7 +124,7 @@
             <android.widget.Button
                 android:ellipsize="end"
                 android:gravity="center"
-                android:id="@+id/btn"
+                android:id="@+id/btn_bank"
                 android:layout_gravity="top|start"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/_10pxv"
@@ -161,7 +161,7 @@
             <android.widget.Button
                 android:ellipsize="end"
                 android:gravity="center"
-                android:id="@+id/btn1"
+                android:id="@+id/btn_school"
                 android:layout_gravity="top|start"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/_10pxv"
@@ -201,7 +201,7 @@
         <android.widget.Button
             android:ellipsize="end"
             android:gravity="center"
-            android:id="@+id/btn2"
+            android:id="@+id/btn_mall"
             android:layout_gravity="top|start"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_10pxv"
@@ -249,7 +249,7 @@
         <android.widget.Button
             android:ellipsize="end"
             android:gravity="center"
-            android:id="@+id/btn3"
+            android:id="@+id/btn_shop"
             android:layout_gravity="top|start"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_10pxv"
@@ -288,7 +288,7 @@
         <android.widget.Button
             android:ellipsize="end"
             android:gravity="center"
-            android:id="@+id/btn4"
+            android:id="@+id/btn_fin_org"
             android:layout_gravity="top|start"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_10pxv"
