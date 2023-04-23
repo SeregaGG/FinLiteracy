@@ -20,7 +20,6 @@ public class Map extends AppCompatActivity {
 
         setContentView(R.layout.activity_map);
         QuestManager.updateCoins(this);
-        System.out.println("\n\n\n in onCreate \n\n\n");
         setLocationActualStatuses();
     }
 
@@ -62,8 +61,6 @@ public class Map extends AppCompatActivity {
     }
 
     private void setLocationActualStatuses() {
-        System.out.println("\n\n\n in setLocationActualStatuses " + QuestManager.bank_status + "\n\n\n");
-
         Button button;
 
         button = findViewById(R.id.btn_bank);
