@@ -41,7 +41,7 @@ public class Map extends AppCompatActivity {
         toTask("fin_org");
     }
 
-    private void toTask(String location) {+
+    private void toTask(String location) {
         Intent intent = new Intent(this, Task.class);
         intent.putExtra("location", location);
         startActivity(intent);
