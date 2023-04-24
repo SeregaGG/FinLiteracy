@@ -1,17 +1,21 @@
+import asyncpg
 from fastapi import FastAPI, Depends, File, UploadFile
 from fastapi.responses import JSONResponse, Response
 import string
 import random
-from db.db import init_db, get_session
-from db.models import Tokens, Statistics, Questions, Students, QuestionsCreate, TokenCreate, StudentsCreate
+from db.db import init_db, get_session, engine
+from db.models import Tokens, Statistics, Questions, Students, QuestionsCreate, TokenCreate, StudentsCreate, TokenView, QuestionsView
 from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession
 import pandas as pd
 from sqlalchemy.sql import func
 from itertools import chain
+from sqladmin import Admin, ModelView
 
 app = FastAPI()
-
+admin = Admin(app, engine=engine)
+admin.add_view(TokenView)
+admin.add_view(QuestionsView)
 tokens = dict()
 
 
@@ -49,7 +53,7 @@ async def get_token(token: str, student: StudentsCreate, session: AsyncSession =
 @app.get('/questions', response_model=list[QuestionsCreate])
 async def get_question(session: AsyncSession = Depends(get_session)):
     results = [
-        await session.execute(select(Questions).where(Questions.location == x).order_by(func.random()).limit(1))
+        await session.execute(select(Questions).where(Questions.location == x)) #.order_by(func.random()).limit(1))
         for x in ['bank', 'shop', 'fin_org', 'entertainment_center', 'school']
     ]
     # result = await session.execute(select(Questions).where(Questions.location == 'bank').order_by(func.random()).limit(1))
@@ -73,6 +77,11 @@ async def get_question(questions: UploadFile = File(...), session: AsyncSession 
             coins=r['coins'],
             location=r['location']
         )
-        session.add(questionss)
-    await session.commit()
+        try:
+            session.add(questionss)
+            await session.commit()
+        except Exception:
+            await session.rollback()
+            continue
+
     return 0

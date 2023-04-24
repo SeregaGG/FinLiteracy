@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+
+  db:
+    image: postgres
+    container_name: db
+    restart: always
+    environment:
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "pgpass"
+    command:
+      - "postgres"
+      - "-c"
+      - "port=5433"
+
+  app:
+    build: .
+    restart: always
+    environment:
+      POSTGRES_HOST: "db"
+      POSTGRES_PASSWORD: "pgpass"
+      POSTGRES_USER: "postgres"
+      POSTGRES_DB: "postgres"
+      POSTGRES_PORT: "5433"
+    ports:
+      - 8000:8000
+
+    depends_on:
+      - db
+
+#  bot:
+#    build:
+#    restart: always
+#      context: .
+#      dockerfile: ./bot/Dockerfile
+#
+#    depends_on:
+#      - db
