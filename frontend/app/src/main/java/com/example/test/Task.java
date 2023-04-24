@@ -125,13 +125,18 @@ public class Task extends AppCompatActivity {
             QuestManager.updateCoins(this);
             buffer_ = 0;
             updateLocationStatuses(true);
-            Intent intent = new Intent(this, Map.class);
-            startActivity(intent);
+            setContentView(R.layout.activity_right_answer);
+            TextView textView = findViewById(R.id.txtFiveHundredOne);
+            textView.setText("Твой счет: " + QuestManager.getCoins());
+            QuestManager.updateCoins(this);
         } else {
             buffer_ = 0;
             updateLocationStatuses(false);
-            Intent intent = new Intent(this, Map.class);
-            startActivity(intent);
+            setContentView(R.layout.activity_wrong_answer);
+            TextView textView = findViewById(R.id.txtFiveHundredOne);
+            textView.setText("Твой счет: " + QuestManager.getCoins());
+            QuestManager.updateCoins(this);
+
         }
     }
 

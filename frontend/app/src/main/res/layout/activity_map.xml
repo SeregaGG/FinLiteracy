@@ -137,7 +137,7 @@
                 android:onClick="bankToTask"
                 android:text="@string/lbl56"
                 android:textAllCaps="false"
-                style="@style/btnSolidRoundedOutline"
+                style="@style/not_passed_btn"
                 tools:text="@string/lbl56" />
         </FrameLayout>
 
@@ -214,7 +214,7 @@
             android:onClick="mallToTask"
             android:text="@string/lbl57"
             android:textAllCaps="false"
-            style="@style/btnSolidRoundedOutline"
+            style="@style/not_passed_btn"
             tools:text="@string/lbl57" />
     </FrameLayout>
 
@@ -262,7 +262,7 @@
             android:text="@string/lbl58"
             android:onClick="marketToTask"
             android:textAllCaps="false"
-            style="@style/btnSolidRoundedOutline"
+            style="@style/not_passed_btn"
             tools:text="@string/lbl58" />
     </FrameLayout>
 
@@ -301,9 +301,30 @@
             android:onClick="atmToTask"
             android:text="@string/lbl59"
             android:textAllCaps="false"
-            style="@style/btnSolidRoundedOutline"
+            style="@style/not_passed_btn"
             tools:text="@string/lbl59" />
     </FrameLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:ellipsize="end"
+        android:gravity="center"
+        android:id="@+id/btn_finish"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_20pxh"
+        android:layout_marginStart="@dimen/_20pxh"
+        android:layout_marginTop="@dimen/_60pxv"
+        android:layout_width="match_parent"
+        android:paddingBottom="@dimen/_15pxv"
+        android:paddingEnd="@dimen/_30pxh"
+        android:paddingStart="@dimen/_30pxh"
+        android:paddingTop="@dimen/_15pxv"
+        android:singleLine="true"
+        android:text="@string/lbl75"
+        android:textAllCaps="false"
+        android:visibility="invisible"
+        android:onClick="clickFinishBtn"
+        style="@style/btnSolidRounded_2"
+        tools:text="@string/lbl75" />
 
     <TextView
         android:ellipsize="end"

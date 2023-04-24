@@ -35,6 +35,15 @@ public class QuestManager {
         return coins_;
     }
 
+    public static void clear() {
+        locationStatuses bank_status = locationStatuses.NOT_PASSED;
+        locationStatuses school_status = locationStatuses.NOT_PASSED;
+        locationStatuses mall_status = locationStatuses.NOT_PASSED;
+        locationStatuses shop_status = locationStatuses.NOT_PASSED;
+        locationStatuses fin_org_status = locationStatuses.NOT_PASSED;
+        coins_ = 0;
+    }
+
     private static int coins_ = 0;
 
     public static locationStatuses school_status = locationStatuses.NOT_PASSED;
