@@ -41,10 +41,10 @@ public class QuestManager {
         locationStatuses mall_status = locationStatuses.NOT_PASSED;
         locationStatuses shop_status = locationStatuses.NOT_PASSED;
         locationStatuses fin_org_status = locationStatuses.NOT_PASSED;
-        coins_ = 0;
+        coins_ = 500;
     }
 
-    private static int coins_ = 0;
+    private static int coins_ = 500;
 
     public static locationStatuses school_status = locationStatuses.NOT_PASSED;
     public static locationStatuses bank_status = locationStatuses.NOT_PASSED;
