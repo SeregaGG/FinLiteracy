@@ -122,7 +122,8 @@
             android:ellipsize="end"
             android:id="@+id/txtFiveHundredOne"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_weight="0.88"
+            android:layout_width="0dp"
             android:singleLine="true"
             android:text="@string/lbl_5002"
             style="@style/txtMontserratbold18_1"
@@ -162,9 +163,9 @@
             android:layout_marginTop="@dimen/_57pxv"
             android:layout_width="match_parent"
             android:singleLine="true"
-            android:text="@string/lbl73"
+            android:text="@string/wrong"
             style="@style/txtMontserratbold30"
-            tools:text="@string/lbl73" />
+            tools:text="@string/wrong" />
 
         <ImageView
             android:id="@+id/imageCheckOne"
@@ -175,9 +176,9 @@
             android:layout_marginTop="@dimen/_14pxv"
             android:layout_width="@dimen/_43pxh"
             android:scaleType="fitXY"
-            android:src="@drawable/img_check"
+            android:src="@drawable/wrong"
             tools:ignore="ContentDescription"
-            tools:src="@drawable/img_check" />
+            tools:src="@drawable/wrong" />
 
         <TextView
             android:gravity="center_horizontal"

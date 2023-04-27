@@ -203,6 +203,12 @@
                     style="@style/txtMontserratsemibold15"
                     tools:text="@string/msg24" />
 
+                <ImageView
+                    android:layout_width="@dimen/_300pxv"
+                    android:layout_height="@dimen/_300pxv"
+                    android:layout_gravity="center"
+                    android:src="@drawable/wizard"/>
+
                 <FrameLayout
                     android:gravity="center_horizontal"
                     android:id="@+id/linearColumna"
