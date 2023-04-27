@@ -50,6 +50,7 @@
                 android:paddingHorizontal="@dimen/_14pxh"
                 android:paddingVertical="@dimen/_14pxv"
                 android:scaleType="fitCenter"
+                android:onClick="toHelp"
                 android:src="@drawable/component" />
 
             <LinearLayout

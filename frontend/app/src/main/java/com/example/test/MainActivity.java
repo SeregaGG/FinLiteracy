@@ -26,4 +26,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Map.class);
         startActivity(intent);
     }
+
+    public void toHelp(View view) {
+        setContentView(R.layout.activity_rules_tab);
+    }
+
+    public void returnFromHelp(View view) {
+        setContentView(R.layout.activity_start);
+    }
 }
