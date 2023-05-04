@@ -111,7 +111,8 @@
 
 Какой вариант ты выберешь?</string>
     <string name="lbl">Ф</string>
-    <string name="lbl34">Рекс</string>
+    <string name="seva">Сева</string>
+    <string name="reks">Рекс</string>
     <string name="msg23">Стоимость вопроса: </string>
     <string name="lbl_3002">Твой счет: 300</string>
     <string name="lbl35">ДАЛЕЕ</string>
