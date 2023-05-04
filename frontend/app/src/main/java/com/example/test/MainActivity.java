@@ -27,6 +27,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void toDialogBegin(View view) {
+        setContentView(R.layout.activity_dialog_begin);
+    }
+
+    public void toDialogEnd(View view) {
+        setContentView(R.layout.activity_dialog_end);
+    }
+
     public void toHelp(View view) {
         setContentView(R.layout.activity_rules_tab);
     }

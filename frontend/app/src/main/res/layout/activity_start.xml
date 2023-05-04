@@ -69,7 +69,7 @@
                     android:layout_width="match_parent"
                     android:scaleType="fitXY"
                     android:src="@drawable/play_button"
-                    android:onClick="toMap"
+                    android:onClick="toDialogBegin"
                     android:background="@null"
                     tools:ignore="ContentDescription"
                     tools:src="@drawable/play_button" />
