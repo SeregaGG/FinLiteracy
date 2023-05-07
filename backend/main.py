@@ -65,7 +65,7 @@ async def get_token(token: str, student: StudentsCreate = None, session: AsyncSe
     response_student = StudentsCreate(**current_student.dict())
 
     raw_statistic = await session.execute(select(Statistics).where(Statistics.student_id == current_student.student_id))
-    can_play: bool = raw_statistic.scalar_one_or_none() is None
+    can_play: bool = len(raw_statistic.all()) == 0
     return JSONResponse(status_code=200, content={**response_student.dict(), "can_play": can_play})
 
 
