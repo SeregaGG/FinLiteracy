@@ -1,6 +1,6 @@
 import random
 import string
-# from secrets import ACCESS_PASS, BOT_TOKEN
+from secrets import ACCESS_PASS, BOT_TOKEN
 
 import requests
 from aiogram import Bot, Dispatcher, executor, types
@@ -41,9 +41,6 @@ class5 = InlineKeyboardButton('5', callback_data='5')
 class_number_inline = InlineKeyboardMarkup(row_width=1).add(class1, class2, class3,
                                                       class4, class5)
 
-
-BOT_TOKEN ='5752954362:AAE0_BaG6xe8Vc_4OFIYLsTZpUzQjgiB0DI'
-ACCESS_PASS = 'ааа'
 
 bot = Bot(token=BOT_TOKEN)
 storage = MemoryStorage()
