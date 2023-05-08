@@ -6,8 +6,8 @@ import telebot
 from telebot import types
 
 from backend.models import serializers
+from secrets import BOT_TOKEN, ACCESS_PASS
 import backend.models.serializers
-BOT_TOKEN = '5752954362:AAE0_BaG6xe8Vc_4OFIYLsTZpUzQjgiB0DI'
 
 bot = telebot.TeleBot(BOT_TOKEN)
 
