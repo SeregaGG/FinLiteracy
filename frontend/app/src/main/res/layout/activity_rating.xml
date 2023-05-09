@@ -174,7 +174,7 @@
                 android:layout_marginTop="@dimen/_10pxv"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
-                style="@style/groupStylegray_300_cccornerRadius">
+                >
 
                 <TextView
                     android:ellipsize="end"

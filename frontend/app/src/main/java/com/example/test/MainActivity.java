@@ -1,14 +1,17 @@
 package com.example.test;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import java.util.Timer;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    ArrayList<RatingItem> ratingItems = new ArrayList<RatingItem>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +21,14 @@ public class MainActivity extends AppCompatActivity {
             this.getSupportActionBar().hide();
         } catch (NullPointerException e) {
         }
-
-        setContentView(R.layout.activity_start);
+        setContentView(R.layout.activity_rating);
+        for (int i = 0; i < 300; i++) {
+            ratingItems.add(new RatingItem(1, "Daniil", 1000));
+        }
+        RecyclerView recyclerView = findViewById(R.id.recyclerRating);
+        RatingAdapter ratingAdapter = new RatingAdapter(this, ratingItems);
+        recyclerView.setAdapter(ratingAdapter);
+//        setContentView(R.layout.activity_start);
     }
 
     public void toMap(View view) {
