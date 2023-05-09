@@ -74,12 +74,12 @@
         <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:textFontWeight" tools:targetApi="p">700</item>
     </style>
-<!--    <style name="groupStylebluegray_300cornerRadius">-->
-<!--        <item name="android:background">@drawable/rectangle_bg_bluegray_300_radius_tl_25_tr_25</item>-->
-<!--    </style>-->
-<!--    <style name="groupStylegray_100_cccornerRadius">-->
-<!--        <item name="android:background">@drawable/rectangle_bg_gray_100_cc_radius_16_5</item>-->
-<!--    </style>-->
+    <style name="groupStylebluegray_300cornerRadius">
+        <item name="android:background">@drawable/rectangle_bg_bluegray_300_radius_tl_25_tr_25</item>
+    </style>
+    <style name="groupStylegray_100_cccornerRadius">
+        <item name="android:background">@drawable/rectangle_bg_gray_100_cc_radius_16_5</item>
+    </style>
     <style name="not_passed_btn">
         <item name="android:textSize">@dimen/_14pxh</item>
         <item name="android:textColor">@color/black_900_cc</item>
@@ -217,12 +217,12 @@
         <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:textFontWeight" tools:targetApi="p">700</item>
     </style>
-<!--    <style name="txtMontserratbold13">-->
-<!--        <item name="android:textSize">@dimen/_13pxh</item>-->
-<!--        <item name="android:textColor">@color/black_900_66</item>-->
-<!--        <item name="android:fontFamily">@font/montserrat</item>-->
-<!--        <item name="android:textFontWeight" tools:targetApi="p">700</item>-->
-<!--    </style>-->
+    <style name="txtMontserratbold13">
+        <item name="android:textSize">@dimen/_13pxh</item>
+        <item name="android:textColor">@color/black_900_66</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textFontWeight" tools:targetApi="p">700</item>
+    </style>
     <style name="txtMontserratsemibold20">
         <item name="android:textSize">@dimen/_20pxh</item>
         <item name="android:textColor">@color/black_900_bf</item>
@@ -235,12 +235,12 @@
         <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:textFontWeight" tools:targetApi="p">700</item>
     </style>
-<!--    <style name="txtMontserratbold18">-->
-<!--        <item name="android:textSize">@dimen/_18pxh</item>-->
-<!--        <item name="android:textColor">@color/white_A700</item>-->
-<!--        <item name="android:fontFamily">@font/montserrat</item>-->
-<!--        <item name="android:textFontWeight" tools:targetApi="p">700</item>-->
-<!--    </style>-->
+    <style name="txtMontserratbold18">
+        <item name="android:textSize">@dimen/_18pxh</item>
+        <item name="android:textColor">@color/white_A700</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textFontWeight" tools:targetApi="p">700</item>
+    </style>
     <style name="btnSolidRoundedOutline_3">
         <item name="android:textSize">@dimen/_14pxh</item>
         <item name="android:textColor">@color/white_A700</item>
@@ -279,12 +279,12 @@
         <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:textFontWeight" tools:targetApi="p">600</item>
     </style>
-<!--    <style name="txtMontserratmedium15">-->
-<!--        <item name="android:textSize">@dimen/_15pxh</item>-->
-<!--        <item name="android:textColor">@color/black_900_bf</item>-->
-<!--        <item name="android:fontFamily">@font/montserrat</item>-->
-<!--        <item name="android:textFontWeight" tools:targetApi="p">500</item>-->
-<!--    </style>-->
+    <style name="txtMontserratmedium15">
+        <item name="android:textSize">@dimen/_15pxh</item>
+        <item name="android:textColor">@color/black_900_bf</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+    </style>
     <style name="txtMontserratmedium13">
         <item name="android:textSize">@dimen/_13pxh</item>
         <item name="android:textColor">@color/black_900_66</item>
@@ -343,9 +343,9 @@
 <!--        <item name="android:fontFamily">@font/montserrat</item>-->
 <!--        <item name="android:textFontWeight" tools:targetApi="p">600</item>-->
 <!--    </style>-->
-<!--    <style name="groupStylegray_300_cccornerRadius">-->
-<!--        <item name="android:background">@drawable/rectangle_bg_gray_300_cc_radius_bl_25_br_25</item>-->
-<!--    </style>-->
+    <style name="groupStylegray_300_cccornerRadius">
+        <item name="android:background">@drawable/rectangle_bg_gray_300_cc_radius_bl_25_br_25</item>
+    </style>
     <style name="txtMontserratsemibold13">
         <item name="android:textSize">@dimen/_13pxh</item>
         <item name="android:textColor">@color/black_900_e5</item>

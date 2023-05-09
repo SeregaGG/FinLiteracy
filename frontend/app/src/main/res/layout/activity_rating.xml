@@ -167,19 +167,6 @@
                 tools:itemCount="4"
                 tools:listitem="@layout/row_rating" />
 
-            <TextView
-                android:ellipsize="end"
-                android:id="@+id/txtThirtyTwo"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_22pxh"
-                android:layout_marginStart="@dimen/_22pxh"
-                android:layout_marginTop="@dimen/_27pxv"
-                android:layout_width="wrap_content"
-                android:singleLine="true"
-                android:text="@string/lbl48"
-                style="@style/txtMontserratsemibold15"
-                tools:text="@string/lbl48" />
-
             <LinearLayout
                 android:gravity="end"
                 android:id="@+id/linearRowtwenty"
@@ -240,73 +227,11 @@
                     android:layout_marginTop="@dimen/_13pxv"
                     android:layout_width="@dimen/_18pxh"
                     android:scaleType="fitXY"
-                    android:src="@drawable/img_coins2"
+                    android:src="@drawable/img_coins_2"
                     tools:ignore="ContentDescription"
-                    tools:src="@drawable/img_coins2" />
+                    tools:src="@drawable/img_coins_2" />
             </LinearLayout>
         </LinearLayout>
-
-        <View
-            android:background="@color/black_900_14"
-            android:id="@+id/lineLineTen"
-            android:layout_gravity="top|center"
-            android:layout_height="@dimen/_3pxv"
-            android:layout_marginBottom="@dimen/_57pxv"
-            android:layout_marginStart="@dimen/_2pxh"
-            android:layout_marginTop="@dimen/_57pxv"
-            android:layout_width="@dimen/_318pxh" />
-
-        <View
-            android:background="@color/black_900_14"
-            android:id="@+id/lineLineEleven"
-            android:layout_gravity="top|center"
-            android:layout_height="@dimen/_3pxv"
-            android:layout_marginBottom="@dimen/_102pxv"
-            android:layout_marginEnd="@dimen/_1pxh"
-            android:layout_marginStart="@dimen/_1pxh"
-            android:layout_marginTop="@dimen/_102pxv"
-            android:layout_width="@dimen/_318pxh" />
-
-        <View
-            android:background="@color/black_900_14"
-            android:id="@+id/lineLineTwelve"
-            android:layout_gravity="top|center"
-            android:layout_height="@dimen/_3pxv"
-            android:layout_marginBottom="@dimen/_147pxv"
-            android:layout_marginEnd="@dimen/_1pxh"
-            android:layout_marginStart="@dimen/_1pxh"
-            android:layout_marginTop="@dimen/_147pxv"
-            android:layout_width="@dimen/_318pxh" />
-
-        <View
-            android:background="@color/black_900_14"
-            android:id="@+id/lineLineThirteen"
-            android:layout_gravity="bottom|center"
-            android:layout_height="@dimen/_3pxv"
-            android:layout_marginBottom="@dimen/_135pxv"
-            android:layout_marginEnd="@dimen/_2pxh"
-            android:layout_marginTop="@dimen/_135pxv"
-            android:layout_width="@dimen/_318pxh" />
-
-        <View
-            android:background="@color/black_900_14"
-            android:id="@+id/lineLineFourteen"
-            android:layout_gravity="bottom|center"
-            android:layout_height="@dimen/_3pxv"
-            android:layout_marginBottom="@dimen/_90pxv"
-            android:layout_marginEnd="@dimen/_2pxh"
-            android:layout_marginTop="@dimen/_90pxv"
-            android:layout_width="@dimen/_318pxh" />
-
-        <View
-            android:background="@color/black_900_14"
-            android:id="@+id/lineLineFifteen"
-            android:layout_gravity="bottom|center"
-            android:layout_height="@dimen/_3pxv"
-            android:layout_marginBottom="@dimen/_45pxv"
-            android:layout_marginStart="@dimen/_2pxh"
-            android:layout_marginTop="@dimen/_45pxv"
-            android:layout_width="@dimen/_318pxh" />
     </FrameLayout>
 
     <TextView
@@ -358,8 +283,8 @@
             android:layout_marginTop="@dimen/_15pxv"
             android:layout_width="@dimen/_27pxh"
             android:scaleType="fitXY"
-            android:src="@drawable/img_next1"
+            android:src="@drawable/next_arrow"
             tools:ignore="ContentDescription"
-            tools:src="@drawable/img_next1" />
+            tools:src="@drawable/next_arrow" />
     </LinearLayout>
 </LinearLayout>
