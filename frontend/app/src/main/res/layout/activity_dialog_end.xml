@@ -174,7 +174,7 @@
                     android:layout_width="@dimen/_60pxh"
                     android:scaleType="fitXY"
                     android:src="@drawable/img_10"
-                    tools:ignore="ContentDescription" />
+                    tools:ignore="ContentDescription,DuplicateIds" />
 
                 <FrameLayout
                     android:layout_width="wrap_content"
@@ -282,7 +282,7 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/frameTechMessaging"
+                android:id="@+id/frameTechMessaging3"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20pxv"
                 android:layout_marginStart="@dimen/_25pxv"
@@ -292,7 +292,7 @@
 
                 <TextView
                     android:ellipsize="end"
-                    android:id="@+id/txtForty"
+                    android:id="@+id/txtForty3"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_marginStart="@dimen/_80pxv"
@@ -490,9 +490,9 @@
                     android:layout_marginTop="@dimen/_1pxv"
                     android:layout_width="wrap_content"
                     android:singleLine="true"
-                    android:text="@string/lbl34"
+                    android:text="@string/reks"
                     style="@style/txtMontserratmedium13"
-                    tools:text="@string/lbl34" />
+                    tools:text="@string/reks" />
 
                 <ImageView
                     android:id="@+id/imageTwo"
@@ -502,7 +502,7 @@
                     android:layout_width="@dimen/_60pxh"
                     android:scaleType="fitXY"
                     android:src="@drawable/img_3"
-                    tools:ignore="ContentDescription"
+                    tools:ignore="ContentDescription,DuplicateIds"
                     tools:src="@drawable/img_3" />
             </FrameLayout>
 

@@ -14,6 +14,7 @@ public class QuestManager {
 
     public static void putQuestions(List<Question> list) {
         questions_ = list;
+        System.out.println("\n\n\n" + questions_.size() + "\n\n\n");
     }
 
     private static List<Question> questions_ = new ArrayList<>();

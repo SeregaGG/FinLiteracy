@@ -9,6 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import okhttp3.Request;
+import okhttp3.Response;
+
 public class Map extends AppCompatActivity {
 
     @Override
@@ -19,6 +27,8 @@ public class Map extends AppCompatActivity {
             this.getSupportActionBar().hide();
         } catch (NullPointerException e) {
         }
+
+        QuestManager.putQuestions(getQuestionsFromServer());
 
         setContentView(R.layout.activity_map);
         QuestManager.updateCoins(this);
@@ -63,7 +73,7 @@ public class Map extends AppCompatActivity {
     }
 
     @SuppressLint("SetTextI18n")
-    public void clickFinishBtn(View view){
+    public void clickFinishBtn(View view) {
         setContentView(R.layout.activity_finish);
         TextView textView = findViewById(R.id.txtThreeHundredOne);
         textView.setText("Твой счет: " + QuestManager.getCoins());
@@ -128,10 +138,32 @@ public class Map extends AppCompatActivity {
             counter++;
         }
 
-        if(counter == 5){
+        if (counter == 5) {
             var btn = findViewById(R.id.btn_finish);
             btn.setVisibility(View.VISIBLE);
         }
+    }
+
+    private List<Question> getQuestionsFromServer() {
+
+        Request request = new Request.Builder()
+                .url("http://81.200.149.240:8000/questions")
+                .build();
+
+        List<Question> q = new ArrayList<>();
+        try (Response response = Constants.okHttpClient.newCall(request).execute()) {
+            if (!response.isSuccessful()) {
+                throw new IOException("Запрос к серверу не был успешен: " +
+                        response.code() + " " + response.message());
+            }
+            q = Arrays.asList(Constants.objectMapper.readValue(response.body().string(), Question[].class));
+            // пример получения конкретного заголовка ответа
+            // System.out.println("Server: " + response.header("Server"));
+        } catch (IOException e) {
+            System.out.println("Ошибка подключения: " + e);
+        }
+
+        return q;
     }
 
     private int counter = 0;

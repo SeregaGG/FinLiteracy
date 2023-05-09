@@ -148,7 +148,7 @@
 
             <TextView
                 android:ellipsize="end"
-                android:id="@+id/txtForty"
+                android:id="@+id/txtForty2"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_marginStart="@dimen/_80pxv"
@@ -158,7 +158,7 @@
                 tools:text="@string/lbl32" />
 
             <ImageView
-                android:id="@+id/imageTwo"
+                android:id="@+id/imageTwo2"
                 android:layout_gravity="bottom"
                 android:layout_height="@dimen/_60pxh"
                 android:layout_width="@dimen/_60pxh"
@@ -194,7 +194,7 @@
 
                 <TextView
                     android:gravity="center"
-                    android:id="@+id/txtLanguage"
+                    android:id="@+id/txtLanguage2"
                     android:layout_gravity="center"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
@@ -216,7 +216,7 @@
 
             <TextView
                 android:ellipsize="end"
-                android:id="@+id/txtForty2"
+                android:id="@+id/txtForty3"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_marginStart="@dimen/_80pxv"
@@ -225,7 +225,7 @@
                 style="@style/txtMontserratmedium13" />
 
             <ImageView
-                android:id="@+id/imageTwo2"
+                android:id="@+id/imageTwo3"
                 android:layout_gravity="bottom"
                 android:layout_height="@dimen/_60pxh"
                 android:layout_width="@dimen/_60pxh"
@@ -272,7 +272,7 @@
         </FrameLayout>
 
         <FrameLayout
-            android:id="@+id/frameTechMessaging"
+            android:id="@+id/frameTechMessaging3"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_20pxv"
             android:layout_marginStart="@dimen/_25pxv"
@@ -307,7 +307,7 @@
                 android:layout_marginStart="@dimen/_60pxh">
 
                 <ImageView
-                    android:id="@+id/imageCombinedShape"
+                    android:id="@+id/imageCombinedShape3"
                     android:layout_gravity="center"
                     android:layout_height="@dimen/_60pxh"
                     android:layout_width="@dimen/_246pxh"
@@ -317,7 +317,7 @@
                     tools:src="@drawable/img_combinedshape" />
 
                 <ImageView
-                    android:id="@+id/imageTail"
+                    android:id="@+id/imageTail3"
                     android:layout_gravity="bottom|start"
                     android:layout_height="@dimen/_14pxh"
                     android:layout_width="@dimen/_20pxh"

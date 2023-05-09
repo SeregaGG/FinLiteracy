@@ -1,7 +1,6 @@
 package com.example.test;
 
 public class Question {
-    public String question;
 
     public String getQuestion() {
         return question;
@@ -51,10 +50,12 @@ public class Question {
         this.location = location;
     }
 
+    public String question;
     public String[] wrong_answers;
     public String right_answer;
     public String quest_name;
     public int coins;
     public String location;
+    public int question_id;
 
 }
