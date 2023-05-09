@@ -9,6 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.util.Arrays;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+
 public class Map extends AppCompatActivity {
 
     @Override
@@ -20,29 +29,32 @@ public class Map extends AppCompatActivity {
         } catch (NullPointerException e) {
         }
 
+        getQuestionsFromServer();
+//        QuestManager.putQuestions(getQuestionsFromServer()); // TODO: Лучше делать в MainActivity.
+
         setContentView(R.layout.activity_map);
         QuestManager.updateCoins(this);
         setLocationActualStatuses();
     }
 
     public void schoolToTask(View view) {
-        toTask("school");
+        toTask(Constants.loc_school);
     }
 
     public void bankToTask(View view) {
-        toTask("bank");
+        toTask(Constants.loc_bank);
     }
 
     public void mallToTask(View view) {
-        toTask("mall");
+        toTask(Constants.loc_entertainment_center);
     }
 
     public void marketToTask(View view) {
-        toTask("shop");
+        toTask(Constants.loc_shop);
     }
 
     public void atmToTask(View view) {
-        toTask("fin_org");
+        toTask(Constants.loc_fin_org);
     }
 
     private void toTask(String location) {
@@ -63,7 +75,7 @@ public class Map extends AppCompatActivity {
     }
 
     @SuppressLint("SetTextI18n")
-    public void clickFinishBtn(View view){
+    public void clickFinishBtn(View view) {
         setContentView(R.layout.activity_finish);
         TextView textView = findViewById(R.id.txtThreeHundredOne);
         textView.setText("Твой счет: " + QuestManager.getCoins());
@@ -128,10 +140,38 @@ public class Map extends AppCompatActivity {
             counter++;
         }
 
-        if(counter == 5){
+        if (counter == 5) {
             var btn = findViewById(R.id.btn_finish);
             btn.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void getQuestionsFromServer() {
+
+        Request request = new Request.Builder()
+                .url(Constants.server_url + "/questions")
+                .build();
+
+        Constants.okHttp_client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try (ResponseBody responseBody = response.body()) {
+                    if (!response.isSuccessful()) {
+                        throw new IOException("Запрос к серверу не был успешен: " +
+                                response.code() + " " + response.message());
+                    }
+
+                    QuestManager.putQuestions(Arrays.asList(Constants.object_mapper.readValue(responseBody.string(), Question[].class)));
+                } catch (Exception e){
+                    System.out.println("Ошибка" + e);
+                }
+            }
+        });
     }
 
     private int counter = 0;
