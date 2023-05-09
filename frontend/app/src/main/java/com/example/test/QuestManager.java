@@ -9,12 +9,14 @@ import java.util.List;
 
 public class QuestManager {
     public static Question getQuestion(int coins, String location) {
-        return questions_.stream().filter(question -> question.coins == coins).findFirst().get();
+        return questions_.stream()
+                .filter(question -> question.coins == coins)
+                .filter(question -> question.location.equals(location))
+                .findAny().get();
     }
 
     public static void putQuestions(List<Question> list) {
         questions_ = list;
-        System.out.println("\n\n\n" + questions_.size() + "\n\n\n");
     }
 
     private static List<Question> questions_ = new ArrayList<>();
@@ -42,10 +44,10 @@ public class QuestManager {
         locationStatuses mall_status = locationStatuses.NOT_PASSED;
         locationStatuses shop_status = locationStatuses.NOT_PASSED;
         locationStatuses fin_org_status = locationStatuses.NOT_PASSED;
-        coins_ = 500;
+        coins_ = Constants.coins;
     }
 
-    private static int coins_ = 500;
+    private static int coins_ = Constants.coins;
 
     public static locationStatuses school_status = locationStatuses.NOT_PASSED;
     public static locationStatuses bank_status = locationStatuses.NOT_PASSED;

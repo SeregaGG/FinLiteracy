@@ -10,12 +10,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class Map extends AppCompatActivity {
 
@@ -28,7 +29,8 @@ public class Map extends AppCompatActivity {
         } catch (NullPointerException e) {
         }
 
-        QuestManager.putQuestions(getQuestionsFromServer());
+        getQuestionsFromServer();
+//        QuestManager.putQuestions(getQuestionsFromServer()); // TODO: Лучше делать в MainActivity.
 
         setContentView(R.layout.activity_map);
         QuestManager.updateCoins(this);
@@ -36,23 +38,23 @@ public class Map extends AppCompatActivity {
     }
 
     public void schoolToTask(View view) {
-        toTask("school");
+        toTask(Constants.loc_school);
     }
 
     public void bankToTask(View view) {
-        toTask("bank");
+        toTask(Constants.loc_bank);
     }
 
     public void mallToTask(View view) {
-        toTask("mall");
+        toTask(Constants.loc_entertainment_center);
     }
 
     public void marketToTask(View view) {
-        toTask("shop");
+        toTask(Constants.loc_shop);
     }
 
     public void atmToTask(View view) {
-        toTask("fin_org");
+        toTask(Constants.loc_fin_org);
     }
 
     private void toTask(String location) {
@@ -144,26 +146,32 @@ public class Map extends AppCompatActivity {
         }
     }
 
-    private List<Question> getQuestionsFromServer() {
+    private void getQuestionsFromServer() {
 
         Request request = new Request.Builder()
-                .url("http://81.200.149.240:8000/questions")
+                .url(Constants.server_url + "/questions")
                 .build();
 
-        List<Question> q = new ArrayList<>();
-        try (Response response = Constants.okHttpClient.newCall(request).execute()) {
-            if (!response.isSuccessful()) {
-                throw new IOException("Запрос к серверу не был успешен: " +
-                        response.code() + " " + response.message());
+        Constants.okHttp_client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
             }
-            q = Arrays.asList(Constants.objectMapper.readValue(response.body().string(), Question[].class));
-            // пример получения конкретного заголовка ответа
-            // System.out.println("Server: " + response.header("Server"));
-        } catch (IOException e) {
-            System.out.println("Ошибка подключения: " + e);
-        }
 
-        return q;
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try (ResponseBody responseBody = response.body()) {
+                    if (!response.isSuccessful()) {
+                        throw new IOException("Запрос к серверу не был успешен: " +
+                                response.code() + " " + response.message());
+                    }
+
+                    QuestManager.putQuestions(Arrays.asList(Constants.object_mapper.readValue(responseBody.string(), Question[].class)));
+                } catch (Exception e){
+                    System.out.println("Ошибка" + e);
+                }
+            }
+        });
     }
 
     private int counter = 0;

@@ -302,7 +302,7 @@
                     tools:text="@string/lbl32" />
 
                 <ImageView
-                    android:id="@+id/imageTwo"
+                    android:id="@+id/imageTwo3"
                     android:layout_gravity="bottom"
                     android:layout_height="@dimen/_60pxh"
                     android:layout_width="@dimen/_60pxh"
@@ -317,7 +317,7 @@
                     android:layout_marginStart="@dimen/_60pxh">
 
                     <ImageView
-                        android:id="@+id/imageCombinedShape"
+                        android:id="@+id/imageCombinedShape3"
                         android:layout_gravity="center"
                         android:layout_height="@dimen/_60pxh"
                         android:layout_width="@dimen/_246pxh"
@@ -327,7 +327,7 @@
                         tools:src="@drawable/img_combinedshape" />
 
                     <ImageView
-                        android:id="@+id/imageTail"
+                        android:id="@+id/imageTail3"
                         android:layout_gravity="bottom|start"
                         android:layout_height="@dimen/_14pxh"
                         android:layout_width="@dimen/_20pxh"
@@ -338,7 +338,7 @@
 
                     <TextView
                         android:gravity="center"
-                        android:id="@+id/txtLanguage"
+                        android:id="@+id/txtLanguage2"
                         android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_width="match_parent"
@@ -495,7 +495,7 @@
                     tools:text="@string/reks" />
 
                 <ImageView
-                    android:id="@+id/imageTwo"
+                    android:id="@+id/imageTwo4"
                     android:layout_gravity="start"
                     android:layout_height="@dimen/_60pxh"
                     android:layout_marginEnd="@dimen/_10pxh"
@@ -1053,6 +1053,7 @@
                 android:paddingEnd="@dimen/_30pxh"
                 android:paddingStart="@dimen/_30pxh"
                 android:paddingTop="@dimen/_14pxv"
+                android:onClick="toMap"
                 android:singleLine="true"
                 android:text="@string/lbl68"
                 android:textAllCaps="false"
