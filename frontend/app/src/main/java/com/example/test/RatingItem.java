@@ -1,37 +1,37 @@
 package com.example.test;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class RatingItem {
-    private String position;
-    private String name;
-    private String score;
+    @JsonProperty("first_name")
+    private String firstName;
+    @JsonProperty("second_name")
+    private String secondName;
+    @JsonProperty("score")
+    private int score;
 
-    public RatingItem(int position, String name, int score) {
-        this.position = Integer.toString(position);
-        this.name = name;
-        this.score = Integer.toString(score);
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(int position) {
-        this.position = Integer.toString(position);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getScore() {
+    public int getScore() {
         return score;
     }
 
     public void setScore(int score) {
-        this.score = Integer.toString(score);
+        this.score = score;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
     }
 }

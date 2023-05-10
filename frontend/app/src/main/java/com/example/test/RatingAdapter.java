@@ -1,5 +1,6 @@
 package com.example.test;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class RatingAdapter extends RecyclerView.Adapter<RatingAdapter.ViewHolder>{
+public class RatingAdapter extends RecyclerView.Adapter<RatingAdapter.ViewHolder> {
 
     private final LayoutInflater inflater;
     private final List<RatingItem> ratingItems;
@@ -27,12 +28,13 @@ public class RatingAdapter extends RecyclerView.Adapter<RatingAdapter.ViewHolder
         return new ViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(RatingAdapter.ViewHolder holder, int position) {
         RatingItem ratingItem = ratingItems.get(position);
-        holder.positionView.setText(ratingItem.getPosition());
-        holder.nameView.setText(ratingItem.getName());
-        holder.scoreView.setText(ratingItem.getScore());
+        holder.positionView.setText(Integer.toString(position));
+        holder.nameView.setText(ratingItem.getFirstName() + " " + ratingItem.getSecondName());
+        holder.scoreView.setText(Integer.toString(ratingItem.getScore()));
     }
 
     @Override
@@ -42,7 +44,8 @@ public class RatingAdapter extends RecyclerView.Adapter<RatingAdapter.ViewHolder
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         final TextView positionView, nameView, scoreView;
-        ViewHolder(View view){
+
+        ViewHolder(View view) {
             super(view);
             positionView = view.findViewById(R.id.txtPosition);
             nameView = view.findViewById(R.id.txtName);
