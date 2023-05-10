@@ -137,7 +137,7 @@ async def post_results(token: str, results: list[StatisticsCreate], session: Asy
     raw_tokens = await session.execute(select(Tokens).where(Tokens.id == token))
     current_token: Tokens = raw_tokens.scalar_one_or_none()
     if current_token is None:
-        return Response(status_code=304)
+        return JSONResponse(content={"message": "Forbidden"}, status_code=403)
 
     raw_students = await session.execute(select(Students).where(Students.token_id == current_token.id))
     current_student: Students = raw_students.scalar_one_or_none()
@@ -157,7 +157,7 @@ async def get_results(token: str, session: AsyncSession = Depends(get_session)):
     raw_tokens = await session.execute(select(Tokens).where(Tokens.id == token))
     current_token: Tokens = raw_tokens.scalar_one_or_none()
     if current_token is None:
-        return Response(status_code=304)
+        return JSONResponse(content={"message": "Forbidden"}, status_code=403)
 
     raw_students = await session.execute(select(Students).where(Students.token_id == current_token.id))
     current_student: Students = raw_students.scalar_one_or_none()
