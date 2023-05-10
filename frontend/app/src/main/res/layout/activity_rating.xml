@@ -211,7 +211,7 @@
                     android:layout_marginBottom="@dimen/_16pxv"
                     android:layout_marginStart="@dimen/_41pxh"
                     android:layout_marginTop="@dimen/_12pxv"
-                    android:layout_weight="0.05"
+                    android:layout_weight="0.3"
                     android:layout_width="0dp"
                     android:singleLine="true"
                     android:text="@string/lbl_0"

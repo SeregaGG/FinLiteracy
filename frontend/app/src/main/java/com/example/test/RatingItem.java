@@ -10,6 +10,12 @@ public class RatingItem {
     private String secondName;
     @JsonProperty("score")
     private int score;
+    @JsonProperty("city")
+    private String city;
+    @JsonProperty("school")
+    private String school;
+    @JsonProperty("class_name")
+    private String className;
 
     public int getScore() {
         return score;
@@ -33,5 +39,29 @@ public class RatingItem {
 
     public void setSecondName(String secondName) {
         this.secondName = secondName;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
     }
 }
