@@ -66,6 +66,10 @@ async def auth(token: str, student: StudentsCreate = None, session: AsyncSession
 
     raw_students = await session.execute(select(Students).where(Students.token_id == current_token.id))
     current_student: Students = raw_students.scalar_one_or_none()
+
+    if current_student is None and student is None:
+        return JSONResponse(content={"message": "Body should be not empty to create"}, status_code=400)
+
     if current_student is None:
         new_student = Students(token_id=current_token.id, **student.dict())
         session.add(new_student)
