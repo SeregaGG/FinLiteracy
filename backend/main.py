@@ -52,7 +52,7 @@ async def get_token(token: str, student: StudentsCreate = None, session: AsyncSe
     raw_tokens = await session.execute(select(Tokens).where(Tokens.id == token))
     current_token: Tokens = raw_tokens.scalar_one_or_none()
     if current_token is None:
-        return Response(status_code=304)
+        return JSONResponse(content={"message": "Forbidden"}, status_code=403)
 
     raw_students = await session.execute(select(Students).where(Students.token_id == current_token.id))
     current_student: Students = raw_students.scalar_one_or_none()
@@ -117,6 +117,23 @@ async def get_question(questions: UploadFile = File(...), session: AsyncSession 
 
 @app.post('/results')
 async def post_results(token: str, results: list[StatisticsCreate], session: AsyncSession = Depends(get_session)):
+
+    if len(results) != 5:
+        return JSONResponse(content={"message": "Bad questions count. Should be 5"}, status_code=400)
+
+    questions_ids = [x.question_id for x in results]
+    if len(questions_ids) != len(set(questions_ids)):
+        return JSONResponse(content={"message": "Bad content, only uniq ids"}, status_code=400)
+
+    raw_students = await session.execute(select(Students).where(Students.token_id == token))
+    current_student: Students = raw_students.scalar_one_or_none()
+
+    raw_statistic = await session.execute(select(Statistics).where(Statistics.student_id == current_student.student_id))
+    can_play: bool = len(raw_statistic.all()) == 0
+
+    if not can_play:
+        return JSONResponse(content={"message": "Only one attempt"}, status_code=403)
+
     raw_tokens = await session.execute(select(Tokens).where(Tokens.id == token))
     current_token: Tokens = raw_tokens.scalar_one_or_none()
     if current_token is None:
