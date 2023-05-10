@@ -114,6 +114,9 @@ class Results(SQLModel):
     first_name: str = Field(sa_column=Column(String, nullable=False))
     second_name: str = Field(sa_column=Column(String, nullable=False))
     score: int = Field(sa_column=Column(Integer, nullable=False))
+    city: str = Field(sa_column=Column(String, nullable=False))
+    school: str = Field(sa_column=Column(String, nullable=False))
+    class_name: str = Field(sa_column=Column(String, nullable=False))
 
     class Config:
         arbitrary_types_allowed = True

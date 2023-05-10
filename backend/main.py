@@ -66,7 +66,13 @@ async def get_token(token: str, student: StudentsCreate = None, session: AsyncSe
 
     raw_statistic = await session.execute(select(Statistics).where(Statistics.student_id == current_student.student_id))
     can_play: bool = len(raw_statistic.all()) == 0
-    return JSONResponse(status_code=200, content={**response_student.dict(), "can_play": can_play})
+    return JSONResponse(status_code=200, content={
+        **response_student.dict(),
+        "city": current_token.city,
+        "school": current_token.school,
+        "class_name": current_token.class_name,
+        "can_play": can_play
+    })
 
 
 @app.get('/questions', response_model=list[QuestionsCreate])
@@ -157,13 +163,15 @@ async def get_all_results(session: AsyncSession = Depends(get_session)):
     #         .join_from(Questions, Statistics, Statistics.question_id == Questions.question_id)
     #         .where(Statistics.was_answer_right == True)
     #         .group_by(Statistics.student_id))
+    #TODO выдавать школу/город/класс
     all_students_res = await session.execute(text(
-        "SELECT students.first_name, students.second_name, sum_1 "
+        "SELECT students.first_name, students.second_name, sum_1, tokens.city, tokens.school, tokens.class_name "
         "FROM (SELECT statistics.student_id as cs_id, sum(questions.coins) AS sum_1 "
         "FROM questions JOIN statistics ON statistics.question_id = questions.question_id "
         "WHERE statistics.was_answer_right = true GROUP BY statistics.student_id) as TempTable "
-        "INNER JOIN students ON students.student_id = TempTable.cs_id"
+        "INNER JOIN students ON students.student_id = TempTable.cs_id "
+        "INNER JOIN tokens ON students.token_id = tokens.id"
     ))
-    result: list = [Results(first_name=x[0], second_name=x[1], score=x[2]).dict() for x in all_students_res.all()]
+    result: list = [Results(first_name=x[0], second_name=x[1], score=x[2], city=x[3], school=x[4], class_name=x[5]).dict() for x in all_students_res.all()]
     result = sorted(result, key=lambda x: x.get('score'), reverse=True)
-    return JSONResponse(status_code=200, content={"Results": result})
+    return JSONResponse(status_code=200, content=result)
