@@ -47,8 +47,18 @@ async def create_token(token_data: TokenCreate, students_count: int, session: As
     return JSONResponse(status_code=200, content={"tokens": result})
 
 
+@app.get('/token/info')
+async def get_token(token: str, session: AsyncSession = Depends(get_session)):
+    raw_tokens = await session.execute(select(Tokens).where(Tokens.id == token))
+    current_token: Tokens = raw_tokens.scalar_one_or_none()
+    if current_token is None:
+        return JSONResponse(content={"message": "Forbidden"}, status_code=403)
+
+    return JSONResponse(status_code=200, content=current_token.dict())
+
+
 @app.post('/auth')
-async def get_token(token: str, student: StudentsCreate = None, session: AsyncSession = Depends(get_session)):
+async def auth(token: str, student: StudentsCreate = None, session: AsyncSession = Depends(get_session)):
     raw_tokens = await session.execute(select(Tokens).where(Tokens.id == token))
     current_token: Tokens = raw_tokens.scalar_one_or_none()
     if current_token is None:
@@ -117,7 +127,6 @@ async def get_question(questions: UploadFile = File(...), session: AsyncSession 
 
 @app.post('/results')
 async def post_results(token: str, results: list[StatisticsCreate], session: AsyncSession = Depends(get_session)):
-
     if len(results) != 5:
         return JSONResponse(content={"message": "Bad questions count. Should be 5"}, status_code=400)
 
@@ -180,7 +189,7 @@ async def get_all_results(session: AsyncSession = Depends(get_session)):
     #         .join_from(Questions, Statistics, Statistics.question_id == Questions.question_id)
     #         .where(Statistics.was_answer_right == True)
     #         .group_by(Statistics.student_id))
-    #TODO выдавать школу/город/класс
+    # TODO выдавать школу/город/класс
     all_students_res = await session.execute(text(
         "SELECT students.first_name, students.second_name, sum_1, tokens.city, tokens.school, tokens.class_name "
         "FROM (SELECT statistics.student_id as cs_id, sum(questions.coins) AS sum_1 "
@@ -189,6 +198,8 @@ async def get_all_results(session: AsyncSession = Depends(get_session)):
         "INNER JOIN students ON students.student_id = TempTable.cs_id "
         "INNER JOIN tokens ON students.token_id = tokens.id"
     ))
-    result: list = [Results(first_name=x[0], second_name=x[1], score=x[2], city=x[3], school=x[4], class_name=x[5]).dict() for x in all_students_res.all()]
+    result: list = [
+        Results(first_name=x[0], second_name=x[1], score=x[2], city=x[3], school=x[4], class_name=x[5]).dict() for x in
+        all_students_res.all()]
     result = sorted(result, key=lambda x: x.get('score'), reverse=True)
     return JSONResponse(status_code=200, content=result)
