@@ -7,7 +7,7 @@ from sqlalchemy import text
 
 from db.db import init_db, get_session, engine
 from db.models import Tokens, Statistics, Questions, Students, QuestionsCreate, TokenCreate, StudentsCreate, TokenView, \
-    QuestionsView, StudentView, StatisticsCreate, StatisticsView, Results
+    QuestionsView, StudentView, StatisticsCreate, StatisticsView, Results, School, City, SchoolView, CityView
 from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import Query
@@ -21,6 +21,8 @@ admin.add_view(TokenView)
 admin.add_view(QuestionsView)
 admin.add_view(StudentView)
 admin.add_view(StatisticsView)
+admin.add_view(SchoolView)
+admin.add_view(CityView)
 tokens = dict()
 
 
@@ -35,7 +37,7 @@ async def create_token(token_data: TokenCreate, students_count: int, session: As
     while students_count > 0:
         try:
             random_str = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(5)).upper()
-            token = Tokens(**token_data.dict(), current_token="random_str", id=random_str)
+            token = Tokens(**token_data.dict(), id=random_str)
             session.add(token)
             await session.commit()
             await session.refresh(token)
@@ -49,12 +51,16 @@ async def create_token(token_data: TokenCreate, students_count: int, session: As
 
 @app.get('/token/info')
 async def get_token(token: str, session: AsyncSession = Depends(get_session)):
-    raw_tokens = await session.execute(select(Tokens).where(Tokens.id == token))
-    current_token: Tokens = raw_tokens.scalar_one_or_none()
+    raw_tokens = await session.execute(
+        select(Tokens.teacher_phone, City.city, School.school, Tokens.class_name, Tokens.id)
+        .where(Tokens.id == token, School.id == Tokens.school_id, City.id == School.city_id)
+    )
+
+    current_token = raw_tokens.one()
     if current_token is None:
         return JSONResponse(content={"message": "Forbidden"}, status_code=403)
 
-    return JSONResponse(status_code=200, content=current_token.dict())
+    return current_token
 
 
 @app.post('/auth')
@@ -80,10 +86,17 @@ async def auth(token: str, student: StudentsCreate = None, session: AsyncSession
 
     raw_statistic = await session.execute(select(Statistics).where(Statistics.student_id == current_student.student_id))
     can_play: bool = len(raw_statistic.all()) == 0
+
+    raw_school = await session.execute(
+        select(City.city, School.school)
+        .where(Tokens.id == token, School.id == Tokens.school_id, City.id == School.city_id)
+    )
+    school_info = raw_school.one()
+
     return JSONResponse(status_code=200, content={
         **response_student.dict(),
-        "city": current_token.city,
-        "school": current_token.school,
+        "city": school_info[0],
+        "school": school_info[1],
         "class_name": current_token.class_name,
         "can_play": can_play
     })
@@ -195,15 +208,31 @@ async def get_all_results(session: AsyncSession = Depends(get_session)):
     #         .group_by(Statistics.student_id))
     # TODO выдавать школу/город/класс
     all_students_res = await session.execute(text(
-        "SELECT students.first_name, students.second_name, sum_1, tokens.city, tokens.school, tokens.class_name "
+        "SELECT students.first_name, students.second_name, sum_1, cities.city, schools.school, tokens.class_name "
         "FROM (SELECT statistics.student_id as cs_id, sum(questions.coins) AS sum_1 "
         "FROM questions JOIN statistics ON statistics.question_id = questions.question_id "
         "WHERE statistics.was_answer_right = true GROUP BY statistics.student_id) as TempTable "
         "INNER JOIN students ON students.student_id = TempTable.cs_id "
-        "INNER JOIN tokens ON students.token_id = tokens.id"
+        "INNER JOIN tokens ON students.token_id = tokens.id "
+        "INNER JOIN schools ON tokens.school_id = schools.id "
+        "INNER JOIN cities ON cities.id = schools.city_id"
     ))
     result: list = [
-        Results(first_name=x[0], second_name=x[1], score=x[2], city=x[3], school=x[4], class_name=x[5]).dict() for x in
+        {"first_name": x[0], "second_name": x[1], "score": x[2], "city": x[3], "school": x[4], "class_name": x[5]} for x in
         all_students_res.all()]
     result = sorted(result, key=lambda x: x.get('score'), reverse=True)
     return JSONResponse(status_code=200, content=result)
+
+
+@app.get('/cities', response_model=list[City])
+async def get_cities(session: AsyncSession = Depends(get_session)):
+    raw_cities = await session.execute(select(City))
+    current_cities: list[City] = raw_cities.scalars().all()
+    return current_cities
+
+
+@app.get('/schools', response_model=list[School])
+async def get_schools(city_id: int, session: AsyncSession = Depends(get_session)):
+    raw_schools = await session.execute(select(School).where(School.city_id == city_id))
+    current_schools: list[City] = raw_schools.scalars().all()
+    return current_schools
