@@ -35,7 +35,7 @@
     <string name="msg16">Напиши о минусах...</string>
     <string name="lbl20">Регистрация</string>
     <string name="msg11">Надеемся еще встретиться с тобой в нашей игре!</string>
-    <string name="lbl21">Екатеринбург</string>
+    <string name="lbl21">СОЗДАТЬ</string>
     <string name="msg10">Задания и правильные ответы к ним можно посмотреть, вернувшись на карту города. </string>
     <string name="lbl22">Введи имя</string>
     <string name="msg13">Нам очень важно знать, что ты думаешь об игре. Насколько тебе понравилось играть?</string>
@@ -61,7 +61,7 @@
     <string name="lbl13">е</string>
     <string name="lbl14">т</string>
     <string name="lbl15">Введи пароль</string>
-    <string name="lbl16">Забыл пароль?</string>
+    <string name="reg">Регистрация</string>
     <string name="lbl17">ВОЙТИ</string>
     <string name="lbl18">Зарегистрируйся</string>
     <string name="lbl19">ВВЕСТИ</string>
@@ -149,11 +149,11 @@
     <string name="lbl_161">Гимназия 161</string>
     <string name="lbl_00_00">00:00</string>
     <string name="msg4">Нажимая на кнопку «Создать», вы соглашаетесь с условиями политики обработки персональных данных </string>
-    <string name="msg3">Ещё нет профиля? </string>
+    <string name="msg3">Для продолжения регистрации попроси родителей ознакомиться с политикой обработки персональных данных. </string>
     <string name="msg2">Ещё нет профиля? Зарегистрируйся</string>
     <string name="msg8">Спасибо, что помогал нам! К сожалению. тебе не удалось заработать игровых рублей, но зато ты узнал много нового, и нам было весело!</string>
     <string name="msg7">Выбери один из трёх вопросов. Стоимость зависит от выбранной сложности.</string>
-    <string name="msg6">политики обработки персональных данных </string>
+    <string name="msg6">Принимаю условия политики обработки персональных данных </string>
     <string name="msg5">Нажимая на кнопку «Создать», вы соглашаетесь с условиями </string>
     <string name="msg51">В ходе игры ты можешь посетить </string>
     <string name="msg50">В ходе игры ты можешь посетить 5 зданий: школу, банкомат, торговый центр, магазин, банк. </string>
