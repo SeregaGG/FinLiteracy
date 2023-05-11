@@ -10,5 +10,6 @@ ENV/
 env.bak/
 venv.bak/
 
+frontend/.gradle/
 .idea/
 .ipynb_checkpoints/

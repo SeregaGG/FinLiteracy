@@ -55,7 +55,7 @@
 
                     <TextView
                         android:ellipsize="end"
-                        android:id="@+id/txtFiveHundred"
+                        android:id="@+id/txtScore"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/_1pxv"
                         android:layout_marginStart="@dimen/_11pxh"

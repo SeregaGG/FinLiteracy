@@ -147,7 +147,6 @@ public class Map extends AppCompatActivity {
     }
 
     private void getQuestionsFromServer() {
-
         Request request = new Request.Builder()
                 .url(Constants.server_url + "/questions")
                 .build();

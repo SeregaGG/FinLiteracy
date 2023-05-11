@@ -22,7 +22,7 @@ public class QuestManager {
     private static List<Question> questions_ = new ArrayList<>();
 
     public static void updateCoins(AppCompatActivity activity) {
-        TextView textView = activity.findViewById(R.id.txtFiveHundred);
+        TextView textView = activity.findViewById(R.id.txtScore);
         textView.setText(Integer.toString(coins_));
     }
 
