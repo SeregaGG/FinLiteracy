@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center_horizontal"
+    android:id="@+id/linearColumnlanguage"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    style="@style/groupStylegray_100_cccornerRadius">
+
+    <TextView
+        android:gravity="center_horizontal"
+        android:id="@+id/txtLanguage"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10pxh"
+        android:layout_marginStart="@dimen/_10pxh"
+        android:layout_marginTop="@dimen/_26pxv"
+        android:layout_width="match_parent"
+        android:lineSpacingExtra="@dimen/_3pxh"
+        android:text="@{codeVM.codeModel.txtLanguage}"
+        style="@style/txtRibeyeRUSBYLYAJKAribeyeregular33"
+        tools:text="@string/msg" />
+
+    <TextView
+        android:gravity="center_horizontal"
+        android:id="@+id/txtOne"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10pxh"
+        android:layout_marginStart="@dimen/_10pxh"
+        android:layout_marginTop="@dimen/_30pxv"
+        android:layout_width="match_parent"
+        android:text="@{codeVM.codeModel.txtOne}"
+        style="@style/txtMontserratsemibold16"
+        tools:text="@string/msg2" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50pxv" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:ellipsize="end"
+        android:gravity="center"
+        android:id="@+id/btn"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10pxh"
+        android:layout_marginStart="@dimen/_10pxh"
+        android:layout_marginTop="@dimen/_28pxv"
+        android:layout_width="match_parent"
+        android:paddingBottom="@dimen/_14pxv"
+        android:paddingEnd="@dimen/_30pxh"
+        android:paddingStart="@dimen/_30pxh"
+        android:paddingTop="@dimen/_14pxv"
+        android:singleLine="true"
+        android:text="@string/lbl15"
+        android:textAllCaps="false"
+        style="@style/btnSolidRounded"
+        tools:text="@string/lbl15" />
+
+    <ImageView
+        android:id="@+id/imageBiruzafOne"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="@dimen/_340pxh"
+        android:layout_marginBottom="@dimen/_17pxv"
+        android:layout_marginEnd="@dimen/_10pxh"
+        android:layout_marginStart="@dimen/_10pxh"
+        android:layout_marginTop="@dimen/_30pxv"
+        android:layout_width="@dimen/_340pxh"
+        android:scaleType="fitXY"
+        android:src="@drawable/img_biruzaf"
+        tools:ignore="ContentDescription" />
+</LinearLayout>

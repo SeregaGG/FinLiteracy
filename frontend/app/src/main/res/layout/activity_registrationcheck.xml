@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="registrationcheckVM"
+            type="com.daniiltropolsapplication.app.modules.registrationcheck.data.viewmodel.RegistrationcheckVM" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/frameStackleftarrowone"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        style="@style/groupStylegray_100">
+
+        <LinearLayout
+            android:id="@+id/linearColumnleftarrowone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_marginTop="@dimen/_9pxv"
+            android:layout_marginBottom="@dimen/_10pxv"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                app:contentInsetStart="0dp">
+
+                <LinearLayout
+                    android:id="@+id/linearRowleftarrowone"
+                    style="@style/groupStylegray_300"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageLeftarrowOne"
+                        android:layout_width="@dimen/_25pxh"
+                        android:layout_height="@dimen/_25pxh"
+                        android:layout_marginStart="@dimen/_22pxh"
+                        android:layout_marginTop="@dimen/_21pxv"
+                        android:layout_marginBottom="@dimen/_25pxv"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_leftarrow1"
+                        tools:ignore="ContentDescription"
+                        tools:src="@drawable/img_leftarrow1" />
+
+                    <TextView
+                        android:id="@+id/txtTwo"
+                        style="@style/txtMontserratbold20"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_53pxh"
+                        android:layout_marginTop="@dimen/_21pxv"
+                        android:layout_marginEnd="@dimen/_100pxh"
+                        android:layout_marginBottom="@dimen/_24pxv"
+                        android:layout_weight="0.86"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="@{registrationcheckVM.registrationcheckModel.txtTwo}"
+                        android:textAllCaps="true"
+                        tools:text="@string/reg" />
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+            <EditText
+                android:id="@+id/etGroupEight"
+                style="@style/etSolidRounded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_39pxv"
+                android:layout_marginEnd="@dimen/_20pxh"
+                android:background="@drawable/rectangle_bg_gray_300_b2_radius_25"
+                android:ellipsize="end"
+                android:hint="@string/lbl17"
+                android:inputType="text"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_20pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_17pxv"
+                android:singleLine="true"
+                android:text="@={registrationcheckVM.registrationcheckModel.etGroupEightValue}"
+                android:textColorHint="@color/black_900_66"
+                tools:ignore="Autofill" />
+
+            <EditText
+                android:id="@+id/etGroupSeven"
+                style="@style/etSolidRounded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_19pxv"
+                android:layout_marginEnd="@dimen/_20pxh"
+                android:background="@drawable/rectangle_bg_gray_300_b2_radius_25"
+                android:ellipsize="end"
+                android:hint="@string/lbl_161"
+                android:inputType="text"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_18pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_19pxv"
+                android:singleLine="true"
+                android:text="@={registrationcheckVM.registrationcheckModel.etGroupSevenValue}"
+                android:textColorHint="@color/black_900_66"
+                tools:ignore="Autofill" />
+
+            <TextView
+                android:id="@+id/txtGroupSix"
+                style="@style/txtSolidRounded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_19pxv"
+                android:layout_marginEnd="@dimen/_20pxh"
+                android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_18pxv"
+                android:paddingBottom="@dimen/_19pxv"
+                android:singleLine="true"
+                android:text="@{registrationcheckVM.registrationcheckModel.txtGroupSix}"
+                tools:text="@string/lbl_52" />
+
+            <EditText
+                android:id="@+id/etGroupFive"
+                style="@style/etSolidRounded_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_19pxv"
+                android:layout_marginEnd="@dimen/_20pxh"
+                android:background="@drawable/rectangle_bg_white_a700_radius_25"
+                android:ellipsize="end"
+                android:hint="@string/lbl18"
+                android:inputType="text"
+                android:paddingStart="@dimen/_28pxh"
+                android:paddingTop="@dimen/_19pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_18pxv"
+                android:singleLine="true"
+                android:text="@={registrationcheckVM.registrationcheckModel.etGroupFiveValue}"
+                android:textColorHint="@color/black_900_66"
+                tools:ignore="Autofill" />
+
+            <EditText
+                android:id="@+id/etGroupNine"
+                style="@style/etSolidRounded_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_19pxv"
+                android:layout_marginEnd="@dimen/_20pxh"
+                android:background="@drawable/rectangle_bg_white_a700_radius_25"
+                android:ellipsize="end"
+                android:hint="@string/lbl19"
+                android:inputType="text"
+                android:paddingStart="@dimen/_28pxh"
+                android:paddingTop="@dimen/_20pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_17pxv"
+                android:singleLine="true"
+                android:text="@={registrationcheckVM.registrationcheckModel.etGroupNineValue}"
+                android:textColorHint="@color/black_900_66"
+                tools:ignore="Autofill" />
+
+            <TextView
+                android:id="@+id/txtLanguage"
+                style="@style/txtMontserratmedium12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_29pxv"
+                android:layout_marginEnd="@dimen/_20pxh"
+                android:gravity="center_horizontal"
+                android:text="@{registrationcheckVM.registrationcheckModel.txtLanguage}"
+                tools:text="@string/msg3" />
+
+            <LinearLayout
+                android:id="@+id/linearRowlanguageOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_43pxh"
+                android:layout_marginTop="@dimen/_16pxv"
+                android:layout_marginEnd="@dimen/_43pxh"
+                android:gravity="start"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageCheckbox"
+                    android:layout_width="@dimen/_20pxh"
+                    android:layout_height="@dimen/_20pxh"
+                    android:layout_marginTop="@dimen/_1pxv"
+                    android:layout_marginBottom="@dimen/_10pxv"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_checkbox"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_checkbox" />
+
+                <TextView
+                    android:id="@+id/txtLanguageOne"
+                    style="@style/txtMontserratsemibold12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15pxh"
+                    android:layout_weight="0.92"
+                    android:text="@{registrationcheckVM.registrationcheckModel.txtLanguageOne}"
+                    tools:text="@string/msg6" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn"
+                style="@style/btnSolidRounded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_27pxv"
+                android:layout_marginEnd="@dimen/_20pxh"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_14pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_14pxv"
+                android:singleLine="true"
+                android:text="@string/lbl21"
+                android:textAllCaps="false"
+                tools:text="@string/lbl21" />
+        </LinearLayout>
+    </FrameLayout>
+</layout>
