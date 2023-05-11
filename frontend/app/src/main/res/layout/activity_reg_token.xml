@@ -18,7 +18,7 @@
         android:layout_marginTop="@dimen/_26pxv"
         android:layout_width="match_parent"
         android:lineSpacingExtra="@dimen/_3pxh"
-        android:text="@{codeVM.codeModel.txtLanguage}"
+        android:text="@string/msg"
         style="@style/txtRibeyeRUSBYLYAJKAribeyeregular33"
         tools:text="@string/msg" />
 
@@ -30,11 +30,12 @@
         android:layout_marginStart="@dimen/_10pxh"
         android:layout_marginTop="@dimen/_30pxv"
         android:layout_width="match_parent"
-        android:text="@{codeVM.codeModel.txtOne}"
+        android:text="@string/msg2"
         style="@style/txtMontserratsemibold16"
         tools:text="@string/msg2" />
 
     <EditText
+        android:id="@+id/tokenText"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50pxv" />
 
@@ -51,11 +52,11 @@
         android:paddingEnd="@dimen/_30pxh"
         android:paddingStart="@dimen/_30pxh"
         android:paddingTop="@dimen/_14pxv"
+        android:onClick="onEnterToken"
         android:singleLine="true"
-        android:text="@string/lbl15"
+        android:text="@string/enter"
         android:textAllCaps="false"
-        style="@style/btnSolidRounded"
-        tools:text="@string/lbl15" />
+        style="@style/btnSolidRounded" />
 
     <ImageView
         android:id="@+id/imageBiruzafOne"

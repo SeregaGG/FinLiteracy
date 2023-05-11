@@ -63,8 +63,9 @@
     <string name="lbl15">Введи пароль</string>
     <string name="reg">Регистрация</string>
     <string name="lbl17">ВОЙТИ</string>
-    <string name="lbl18">Зарегистрируйся</string>
-    <string name="lbl19">ВВЕСТИ</string>
+    <string name="lbl18">Введите имя</string>
+    <string name="lbl19">Введите фамилию</string>
+    <string name="enter">ВВЕСТИ</string>
     <string name="msg">Финансовая
 игра-квест </string>
     <string name="lbl_32_54">32:54</string>
