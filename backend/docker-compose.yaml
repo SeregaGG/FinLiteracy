@@ -14,6 +14,8 @@ services:
       - "postgres"
       - "-c"
       - "port=5433"
+    ports:
+      - 5433:5433
 
   app:
     build: .
@@ -24,6 +26,7 @@ services:
       POSTGRES_USER: "postgres"
       POSTGRES_DB: "postgres"
       POSTGRES_PORT: "5433"
+      HOST: "0.0.0.0"
     ports:
       - 8000:8000
 
