@@ -14,9 +14,12 @@ public class Constants {
     public final static String loc_bank = "bank";
     public final static String loc_shop = "shop";
     public final static String loc_fin_org = "fin_org";
-
     public final static int coins = 500;
-    public static String token = "EQWLI";
+
+    public static String token = "NONE";
     public static String first_name = "NONE";
     public static String second_name = "NONE";
+    public static String city = "NONE";
+    public static String school = "NONE";
+    public static String class_name = "NONE";
 }

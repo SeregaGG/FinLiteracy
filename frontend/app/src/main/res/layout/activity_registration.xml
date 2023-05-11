@@ -63,7 +63,7 @@
             android:background="@drawable/rectangle_bg_gray_300_b2_radius_25"
             android:ellipsize="end"
             android:hint="@string/lbl17"
-            android:id="@+id/etGroupEight"
+            android:id="@+id/txtCity"
             android:inputType="text"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_20pxh"
@@ -84,7 +84,7 @@
             android:background="@drawable/rectangle_bg_gray_300_b2_radius_25"
             android:ellipsize="end"
             android:hint="@string/lbl_161"
-            android:id="@+id/etGroupSeven"
+            android:id="@+id/txtSchool"
             android:inputType="text"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_20pxh"
@@ -103,8 +103,7 @@
 
         <TextView
             android:ellipsize="end"
-            android:gravity="center_horizontal"
-            android:id="@+id/txtGroupSix"
+            android:id="@+id/txtClassGrade"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_20pxh"
             android:layout_marginStart="@dimen/_20pxh"
@@ -112,16 +111,16 @@
             android:layout_width="match_parent"
             android:paddingBottom="@dimen/_18pxv"
             android:paddingTop="@dimen/_18pxv"
+            android:paddingStart="@dimen/_30pxh"
             android:singleLine="true"
-            android:text="lbl_52"
-            style="@style/txtSolidRounded"
-            tools:text="@string/lbl_52" />
+            android:text="@string/lbl_52"
+            style="@style/txtSolidRounded" />
 
         <EditText
             android:background="@drawable/rectangle_bg_white_a700_radius_25"
             android:ellipsize="end"
             android:hint="@string/lbl18"
-            android:id="@+id/etGroupFive"
+            android:id="@+id/enterFirstName"
             android:inputType="text"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_20pxh"
@@ -133,7 +132,6 @@
             android:paddingStart="@dimen/_28pxh"
             android:paddingTop="@dimen/_19pxv"
             android:singleLine="true"
-            android:text="@={registrationVM.registrationModel.etGroupFiveValue}"
             android:textColorHint="@color/black_900_66"
             style="@style/etSolidRounded_1"
             tools:ignore="Autofill" />
@@ -142,7 +140,7 @@
             android:background="@drawable/rectangle_bg_white_a700_radius_25"
             android:ellipsize="end"
             android:hint="@string/lbl19"
-            android:id="@+id/etGroupNine"
+            android:id="@+id/enterSecondName"
             android:inputType="text"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_20pxh"
@@ -154,7 +152,6 @@
             android:paddingStart="@dimen/_28pxh"
             android:paddingTop="@dimen/_20pxv"
             android:singleLine="true"
-            android:text="@={registrationVM.registrationModel.etGroupNineValue}"
             android:textColorHint="@color/black_900_66"
             style="@style/etSolidRounded_1"
             tools:ignore="Autofill" />
@@ -217,6 +214,7 @@
             android:paddingTop="@dimen/_14pxv"
             android:singleLine="true"
             android:text="@string/lbl21"
+            android:onClick="onEnterFullName"
             android:textAllCaps="false"
             style="@style/btnSolidRounded_1"
             tools:text="@string/lbl21" />
