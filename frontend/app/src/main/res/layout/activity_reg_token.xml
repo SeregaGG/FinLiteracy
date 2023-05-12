@@ -31,8 +31,7 @@
         android:layout_marginTop="@dimen/_30pxv"
         android:layout_width="match_parent"
         android:text="@string/msg2"
-        style="@style/txtMontserratsemibold16"
-        tools:text="@string/msg2" />
+        style="@style/txtMontserratsemibold16" />
 
     <EditText
         android:id="@+id/tokenText"

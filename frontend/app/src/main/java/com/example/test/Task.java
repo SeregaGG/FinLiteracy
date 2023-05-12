@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
 public class Task extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +115,7 @@ public class Task extends AppCompatActivity {
         view.setBackgroundResource(R.drawable.rectangle_bg_gray_300);
     }
 
-    public void onClickAnswer(View view) {
+    public void onClickAnswer(View view) throws JsonProcessingException {
         if (answer_.equals(question_.right_answer)) {
             QuestManager.addCoins(buffer_);
             QuestManager.updateCoins(this);
@@ -123,6 +125,7 @@ public class Task extends AppCompatActivity {
             TextView textView = findViewById(R.id.txtFiveHundredOne);
             textView.setText("Твой счет: " + QuestManager.getCoins());
             QuestManager.updateCoins(this);
+            QuestManager.addQuestionResult(question_.question_id, true);
         } else {
             buffer_ = 0;
             updateLocationStatuses(false);
@@ -130,7 +133,7 @@ public class Task extends AppCompatActivity {
             TextView textView = findViewById(R.id.txtFiveHundredOne);
             textView.setText("Твой счет: " + QuestManager.getCoins());
             QuestManager.updateCoins(this);
-
+            QuestManager.addQuestionResult(question_.question_id, false);
         }
     }
 

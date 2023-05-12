@@ -9,12 +9,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+
 import java.io.IOException;
 import java.util.Arrays;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.MediaType;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
@@ -64,7 +69,13 @@ public class Map extends AppCompatActivity {
     }
 
     public void clickHelpButton(View view) {
-        setContentView(R.layout.activity_rules_tab);
+        Intent intent = new Intent(this, Rating.class);
+        startActivity(intent);
+    }
+
+    public void toRating(View view) {
+        setContentView(R.layout.activity_map);
+        setLocationActualStatuses();
         QuestManager.updateCoins(this);
     }
 
@@ -76,6 +87,9 @@ public class Map extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     public void clickFinishBtn(View view) {
+        is_finished = false;
+        sendResultsToServer();
+        while (!is_finished){}
         setContentView(R.layout.activity_finish);
         TextView textView = findViewById(R.id.txtThreeHundredOne);
         textView.setText("Твой счет: " + QuestManager.getCoins());
@@ -173,6 +187,42 @@ public class Map extends AppCompatActivity {
         });
     }
 
+    private void sendResultsToServer(){
+        MediaType JSON = MediaType.get("application/json; charset=utf-8");
+        RequestBody body = RequestBody.create(QuestManager.getJsonQuestionResults(), JSON);
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.server_url + "/results").newBuilder();
+        urlBuilder.addQueryParameter("token", Constants.token);
+        Request request = new Request.Builder()
+                .url(urlBuilder.build().toString())
+                .post(body)
+                .build();
+
+        System.out.println(request.toString());
+        System.out.println(QuestManager.getJsonQuestionResults());
+
+        Constants.okHttp_client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try (ResponseBody responseBody = response.peekBody(2048)) { // TODO: Проверить на правильность.
+                    if (!response.isSuccessful()) {
+                        throw new IOException("Запрос к серверу не был успешен: " +
+                                response.code() + " " + response.message());
+                    }
+
+                    is_finished = true;
+                } catch (Exception e) {
+                    System.out.println("Ошибка 2 " + e);
+                }
+            }
+        });
+    }
+
+    private boolean is_finished = true;
     private int counter = 0;
 
 }

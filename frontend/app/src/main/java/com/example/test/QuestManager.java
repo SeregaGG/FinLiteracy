@@ -4,8 +4,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 public class QuestManager {
     public static Question getQuestion(int coins, String location) {
@@ -38,6 +42,24 @@ public class QuestManager {
         return coins_;
     }
 
+    public static void addQuestionResult(int question_id, boolean was_answer_right) throws JsonProcessingException {
+        Map json_template = Map.of(
+                "question_id", question_id,
+                "was_answer_right", was_answer_right);
+        String json = Constants.object_mapper.writeValueAsString(json_template);
+        json_question_results = json_question_results.concat(json);
+        json_counter++;
+        if (json_counter < 5) {
+            json_question_results = json_question_results.concat(",");
+        } else {
+            json_question_results = json_question_results.concat("]");
+        }
+    }
+
+    public static String getJsonQuestionResults() {
+        return json_question_results;
+    }
+
     public static void clear() {
         locationStatuses bank_status = locationStatuses.NOT_PASSED;
         locationStatuses school_status = locationStatuses.NOT_PASSED;
@@ -60,4 +82,7 @@ public class QuestManager {
         CORRECT_ANSWER,
         WRONG_ANSWER
     }
+
+    private static String json_question_results = "[";
+    private static int json_counter = 0;
 }
