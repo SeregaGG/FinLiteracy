@@ -7,7 +7,7 @@ from aiogram import Bot, Dispatcher, executor, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputFile
 
-HOST = "127.0.0.1"
+HOST = "81.200.149.240"
 PORT = "8000"
 
 bot = Bot(token=BOT_TOKEN)
@@ -133,7 +133,7 @@ async def set_liter(callback: types.CallbackQuery):
     current_user_data['liter'] = liter
     user_data.update(current_user_data)
 
-    tokens = requests.post(f"http://{HOST}:{PORT}/token?students_count={20}", data=json.dumps({
+    tokens = requests.post(f"http://{HOST}:{PORT}/token?students_count={int(current_user_data['count'])}", data=json.dumps({
         "school_id": int(current_user_data['school'][1]),
         "class_name": f"{current_user_data['number']}{current_user_data['liter']}",
         "teacher_phone":  current_user_data['phone']
@@ -162,14 +162,31 @@ async def get_text_messages(message):
             'Введите пароль, который вам предоставили',
         )
         return 0
-    access_ids.add(message.from_user.id)
-    user_data.update({message.from_user.id: {}})
+
+    if message.from_user.id not in access_ids:
+        access_ids.add(message.from_user.id)
+        user_data.update({message.from_user.id: {}})
+        await bot.send_message(
+            message.from_user.id,
+            'Введите количествое учеников',
+        )
+        return 0
+
+    current_user_data = user_data.get(message.from_user.id)
+    try:
+        current_user_data['count'] = int(message.text.lower())
+    except ValueError:
+        await bot.send_message(
+            message.from_user.id,
+            'Введите количествое учеников',
+        )
+        return 0
 
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
     markup.add(types.KeyboardButton(text='Send phone', request_contact=True))
     await bot.send_message(
         message.from_user.id,
-        'Разрешите доступ к вашим личным данным',
+        f'Кол-во учеников - {int(message.text.lower())}.\nРазрешите доступ к вашим личным данным',
         reply_markup=markup,
     )
 
