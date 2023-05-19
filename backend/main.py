@@ -218,7 +218,8 @@ async def get_all_results(session: AsyncSession = Depends(get_session)):
         "INNER JOIN cities ON cities.id = schools.city_id"
     ))
     result: list = [
-        {"first_name": x[0], "second_name": x[1], "score": x[2], "city": x[3], "school": x[4], "class_name": x[5]} for x in
+        {"first_name": x[0], "second_name": x[1], "score": x[2], "city": x[3], "school": x[4], "class_name": x[5]} for x
+        in
         all_students_res.all()]
     result = sorted(result, key=lambda x: x.get('score'), reverse=True)
     return JSONResponse(status_code=200, content=result)
@@ -236,3 +237,28 @@ async def get_schools(city_id: int, session: AsyncSession = Depends(get_session)
     raw_schools = await session.execute(select(School).where(School.city_id == city_id))
     current_schools: list[City] = raw_schools.scalars().all()
     return current_schools
+
+
+@app.get('/bot/results')
+async def get_bot_results(phone: str, session: AsyncSession = Depends(get_session)):
+    raw_tokens = await session.execute(select(Tokens).where(Tokens.teacher_phone == phone))
+    current_tokens: list[Tokens] = raw_tokens.scalars().all()
+    if len(current_tokens) == 0:
+        return JSONResponse(content={"message": "Empty"}, status_code=404)
+
+    raw_result = await session.execute(text(
+        "SELECT first_name, second_name, was_answer_right, class_name, "
+        "questions.question, questions.right_answer, token FROM "
+        "(SELECT students.first_name as first_name, students.second_name as second_name, "
+        "statistics.question_id as qid, statistics.was_answer_right as was_answer_right, "
+        "tokens.class_name as class_name, tokens.id as token "
+        "FROM students, statistics, tokens "
+        f"WHERE tokens.teacher_phone = '{phone}' "
+        "AND tokens.id = students.token_id "
+        "AND statistics.student_id = students.student_id) "
+        "as TempTable INNER JOIN questions ON questions.question_id = TempTable.qid"
+    ))
+
+    current_result: list = raw_result.all()
+
+    return current_result
