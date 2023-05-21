@@ -20,6 +20,8 @@ public class Task extends AppCompatActivity {
         Bundle arguments = getIntent().getExtras();
         location_ = arguments.get("location").toString();
 
+        QuestManager.subject.subscribe(v -> setTimerClock(v));
+
         setContentView(R.layout.activity_task_choosing);
         QuestManager.updateCoins(this);
     }
@@ -149,6 +151,21 @@ public class Task extends AppCompatActivity {
         } else {
             throw new IllegalArgumentException("bad location");
         }
+    }
+
+    private void setTimerClock(int new_time) {
+        if(new_time == 0){
+            setContentView(R.layout.activity_timeout);
+            TextView textView = findViewById(R.id.txtThreeHundredOne);
+            textView.setText("Твой счет: " + QuestManager.getCoins());
+            QuestManager.subject.onComplete();
+            return;
+        }
+        TextView timer = findViewById(R.id.txtTime);
+        System.out.println("TASK" + new_time);
+        String minutes = Integer.toString(new_time / 60);
+        String seconds = Integer.toString(new_time % 60);
+        timer.setText(minutes + ":" + seconds);
     }
 
     private static final int kEasyTaskReward = 200;

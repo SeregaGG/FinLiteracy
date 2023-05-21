@@ -15,6 +15,7 @@ public class Constants {
     public final static String loc_shop = "shop";
     public final static String loc_fin_org = "fin_org";
     public final static int coins = 500;
+    public final static int time = 2700; // Время игры в секундах
 
     public static String token = "NONE";
     public static String first_name = "NONE";

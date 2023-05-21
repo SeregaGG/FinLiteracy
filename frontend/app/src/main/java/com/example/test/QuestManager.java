@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.rxjava3.subjects.PublishSubject;
+
 public class QuestManager {
     public static Question getQuestion(int coins, String location) {
         return questions_.stream()
@@ -38,6 +40,15 @@ public class QuestManager {
         return coins_;
     }
 
+    public static void tickTime() {
+        time_ -= 1;
+        subject.onNext(time_);
+    }
+
+    public static int getTime() {
+        return time_;
+    }
+
     public static void clear() {
         locationStatuses bank_status = locationStatuses.NOT_PASSED;
         locationStatuses school_status = locationStatuses.NOT_PASSED;
@@ -45,9 +56,13 @@ public class QuestManager {
         locationStatuses shop_status = locationStatuses.NOT_PASSED;
         locationStatuses fin_org_status = locationStatuses.NOT_PASSED;
         coins_ = Constants.coins;
+        time_ = Constants.time;
     }
 
+    public static PublishSubject<Integer> subject = PublishSubject.create();
+
     private static int coins_ = Constants.coins;
+    private static int time_ = Constants.time;
 
     public static locationStatuses school_status = locationStatuses.NOT_PASSED;
     public static locationStatuses bank_status = locationStatuses.NOT_PASSED;
