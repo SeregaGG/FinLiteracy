@@ -131,9 +131,20 @@
             android:layout_marginTop="@dimen/_22pxv"
             android:layout_width="@dimen/_150pxh"
             android:scaleType="fitXY"
-            imageRes="@{@drawable/img_sandtimer1}"
-            tools:ignore="ContentDescription"
-            tools:src="@drawable/img_sandtimer" />
+            android:src="@drawable/timer"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:ellipsize="end"
+            android:id="@+id/txtThreeHundredOne"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/_15pxv"
+            android:singleLine="true"
+            android:text="@string/lbl_3002"
+            style="@style/txtMontserratsemibold20"
+            tools:text="@string/lbl_3002" />
 
         <TextView
             android:gravity="center_horizontal"
@@ -166,6 +177,7 @@
         android:singleLine="true"
         android:text="@string/lbl75"
         android:textAllCaps="false"
-        style="@style/btnSolidRounded_1"
+        android:onClick="toRating"
+        style="@style/btnSolidRounded"
         tools:text="@string/lbl75" />
 </LinearLayout>
