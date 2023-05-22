@@ -37,6 +37,8 @@ public class Map extends AppCompatActivity {
         getQuestionsFromServer();
 //        QuestManager.putQuestions(getQuestionsFromServer()); // TODO: Лучше делать в MainActivity.
 
+        QuestManager.subject.subscribe(v -> setTimerClock(v));
+
         setContentView(R.layout.activity_map);
         QuestManager.updateCoins(this);
         setLocationActualStatuses();
@@ -68,17 +70,6 @@ public class Map extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void clickHelpButton(View view) {
-        Intent intent = new Intent(this, Rating.class);
-        startActivity(intent);
-    }
-
-    public void toRating(View view) {
-        setContentView(R.layout.activity_map);
-        setLocationActualStatuses();
-        QuestManager.updateCoins(this);
-    }
-
     public void returnFromHelp(View view) {
         setContentView(R.layout.activity_map);
         setLocationActualStatuses();
@@ -94,6 +85,11 @@ public class Map extends AppCompatActivity {
         TextView textView = findViewById(R.id.txtThreeHundredOne);
         textView.setText("Твой счет: " + QuestManager.getCoins());
         QuestManager.updateCoins(this);
+    }
+
+    public void toRating(View view) {
+        Intent intent = new Intent(this, Rating.class);
+        startActivity(intent);
     }
 
     private void setLocationActualStatuses() {
@@ -160,6 +156,21 @@ public class Map extends AppCompatActivity {
         }
     }
 
+    private void setTimerClock(int new_time) {
+        if(new_time == 0){
+            setContentView(R.layout.activity_timeout);
+            TextView textView = findViewById(R.id.txtThreeHundredOne);
+            textView.setText("Твой счет: " + QuestManager.getCoins());
+            QuestManager.subject.onComplete();
+            return;
+        }
+        TextView timer = findViewById(R.id.txtTime);
+        System.out.println("MAP" + new_time);
+        String minutes = Integer.toString(new_time / 60);
+        String seconds = Integer.toString(new_time % 60);
+        timer.setText(minutes + ":" + seconds);
+    }
+
     private void getQuestionsFromServer() {
         Request request = new Request.Builder()
                 .url(Constants.server_url + "/questions")
@@ -180,7 +191,7 @@ public class Map extends AppCompatActivity {
                     }
 
                     QuestManager.putQuestions(Arrays.asList(Constants.object_mapper.readValue(responseBody.string(), Question[].class)));
-                } catch (Exception e){
+                } catch (Exception e) {
                     System.out.println("Ошибка" + e);
                 }
             }

@@ -173,7 +173,7 @@
         android:paddingStart="@dimen/_30pxh"
         android:paddingTop="@dimen/_14pxv"
         android:singleLine="true"
-        android:onClick="clickHelpButton"
+        android:onClick="toRating"
         android:text="@string/lbl35"
         android:textAllCaps="false"
         style="@style/btnSolidRounded"
