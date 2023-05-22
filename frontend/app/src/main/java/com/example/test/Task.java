@@ -98,23 +98,38 @@ public class Task extends AppCompatActivity {
 
     // activity_task
     public void onClickFirst(View view) {
+        clearAllAnswers();
         TextView a = findViewById(R.id.txtA);
         answer_ = (String) a.getText();
-        view.setBackgroundResource(R.drawable.rectangle_bg_gray_300);
+        View view1 = findViewById(R.id.linearColumna);
+        view1.setBackgroundResource(R.drawable.rectangle_bg_gray_300);
     }
 
     // activity_task
     public void onClickSecond(View view) {
+        clearAllAnswers();
         TextView a = findViewById(R.id.txtB);
         answer_ = (String) a.getText();
-        view.setBackgroundResource(R.drawable.rectangle_bg_gray_300);
+        View view1 = findViewById(R.id.linearRowb);
+        view1.setBackgroundResource(R.drawable.rectangle_bg_gray_300);
     }
 
     // activity_task
     public void onClickThird(View view) {
+        clearAllAnswers();
         TextView a = findViewById(R.id.txtC);
         answer_ = (String) a.getText();
-        view.setBackgroundResource(R.drawable.rectangle_bg_gray_300);
+        View view1 = findViewById(R.id.linearColumnc);
+        view1.setBackgroundResource(R.drawable.rectangle_bg_gray_300);
+    }
+
+    private void clearAllAnswers() {
+        View view = findViewById(R.id.linearColumna);
+        view.setBackgroundResource(R.drawable.rectangle_bg_white_a700_cc);
+        view = findViewById(R.id.linearRowb);
+        view.setBackgroundResource(R.drawable.rectangle_bg_white_a700_cc);
+        view = findViewById(R.id.linearColumnc);
+        view.setBackgroundResource(R.drawable.rectangle_bg_white_a700_cc_radius_bl_25_br_25);
     }
 
     public void onClickAnswer(View view) throws JsonProcessingException {
@@ -157,7 +172,7 @@ public class Task extends AppCompatActivity {
     }
 
     private void setTimerClock(int new_time) {
-        if(new_time == 0){
+        if (new_time == 0) {
             setContentView(R.layout.activity_timeout);
             TextView textView = findViewById(R.id.txtThreeHundredOne);
             textView.setText("Твой счет: " + QuestManager.getCoins());
