@@ -12,7 +12,6 @@
         android:gravity="start"
         android:id="@+id/toolbarToolbar"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_9pxv"
         android:layout_width="match_parent"
         app:contentInsetStart="0dp"
         style="@style/groupStylegray_300">
@@ -96,234 +95,133 @@
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
-        android:id="@+id/linearRowlineone"
+
+    <android.widget.Button
+        android:id="@+id/btn_school"
+        style="@style/btnSolidRoundedOutline_1"
+        android:layout_width="@dimen/_120pxh"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_20pxh"
-        android:layout_marginStart="@dimen/_20pxh"
-        android:layout_marginTop="@dimen/_54pxv"
-        android:layout_width="match_parent"
-        android:orientation="horizontal">
-
-        <FrameLayout
-            android:id="@+id/frameStacklineone"
-            android:layout_height="@dimen/_83pxv"
-            android:layout_marginTop="@dimen/_56pxv"
-            android:layout_width="@dimen/_119pxh">
-
-            <View
-                android:background="@color/gray_100"
-                android:id="@+id/lineLineOne"
-                android:layout_gravity="bottom|end"
-                android:layout_height="@dimen/_44pxv"
-                android:layout_marginEnd="@dimen/_55pxh"
-                android:layout_marginStart="@dimen/_55pxh"
-                android:layout_marginTop="@dimen/_10pxv"
-                android:layout_width="@dimen/_4pxh" />
-
-            <android.widget.Button
-                android:ellipsize="end"
-                android:gravity="center"
-                android:id="@+id/btn_bank"
-                android:layout_gravity="top|start"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_10pxv"
-                android:layout_width="match_parent"
-                android:paddingBottom="@dimen/_12pxv"
-                android:paddingEnd="@dimen/_30pxh"
-                android:paddingStart="@dimen/_30pxh"
-                android:paddingTop="@dimen/_12pxv"
-                android:singleLine="true"
-                android:onClick="bankToTask"
-                android:text="@string/lbl56"
-                android:textAllCaps="false"
-                style="@style/not_passed_btn"
-                tools:text="@string/lbl56" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/frameStacklinetwo"
-            android:layout_height="@dimen/_74pxv"
-            android:layout_marginBottom="@dimen/_65pxv"
-            android:layout_marginStart="@dimen/_68pxh"
-            android:layout_width="@dimen/_119pxh">
-
-            <View
-                android:background="@color/gray_100"
-                android:id="@+id/lineLineTwo"
-                android:layout_gravity="bottom|end"
-                android:layout_height="@dimen/_44pxv"
-                android:layout_marginEnd="@dimen/_55pxh"
-                android:layout_marginStart="@dimen/_55pxh"
-                android:layout_marginTop="@dimen/_10pxv"
-                android:layout_width="@dimen/_4pxh" />
-
-            <android.widget.Button
-                android:ellipsize="end"
-                android:gravity="center"
-                android:id="@+id/btn_school"
-                android:layout_gravity="top|start"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_10pxv"
-                android:layout_width="match_parent"
-                android:paddingBottom="@dimen/_12pxv"
-                android:paddingEnd="@dimen/_29pxh"
-                android:paddingStart="@dimen/_30pxh"
-                android:paddingTop="@dimen/_12pxv"
-                android:singleLine="true"
-                android:text="@string/lbl26"
-                android:textAllCaps="false"
-                android:onClick="schoolToTask"
-                style="@style/btnSolidRoundedOutline_1"
-                tools:text="@string/lbl26" />
-        </FrameLayout>
-    </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/frameStacklinefive"
-        android:layout_gravity="end"
-        android:layout_height="@dimen/_71pxv"
-        android:layout_marginEnd="@dimen/_25pxh"
-        android:layout_marginStart="@dimen/_25pxh"
-        android:layout_marginTop="@dimen/_13pxv"
-        android:layout_width="@dimen/_119pxh">
-
-        <View
-            android:background="@color/gray_100"
-            android:id="@+id/lineLineFive"
-            android:layout_gravity="bottom|end"
-            android:layout_height="@dimen/_32pxv"
-            android:layout_marginEnd="@dimen/_55pxh"
-            android:layout_marginStart="@dimen/_55pxh"
-            android:layout_marginTop="@dimen/_10pxv"
-            android:layout_width="@dimen/_4pxh" />
-
-        <android.widget.Button
-            android:ellipsize="end"
-            android:gravity="center"
-            android:id="@+id/btn_mall"
-            android:layout_gravity="top|start"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_10pxv"
-            android:layout_width="match_parent"
-            android:paddingBottom="@dimen/_12pxv"
-            android:paddingEnd="@dimen/_30pxh"
-            android:paddingStart="@dimen/_30pxh"
-            android:paddingTop="@dimen/_12pxv"
-            android:singleLine="true"
-            android:onClick="mallToTask"
-            android:text="@string/lbl57"
-            android:textAllCaps="false"
-            style="@style/not_passed_btn"
-            tools:text="@string/lbl57" />
-    </FrameLayout>
-
-    <View
-        android:background="@color/gray_100"
-        android:id="@+id/lineLineSix"
-        android:layout_gravity="end"
-        android:layout_height="@dimen/_4pxv"
-        android:layout_marginEnd="@dimen/_86pxh"
-        android:layout_marginStart="@dimen/_86pxh"
-        android:layout_width="@dimen/_32pxh" />
-
-    <FrameLayout
-        android:id="@+id/frameStacklinethree"
-        android:layout_gravity="start"
-        android:layout_height="@dimen/_83pxv"
-        android:layout_marginEnd="@dimen/_41pxh"
-        android:layout_marginStart="@dimen/_41pxh"
-        android:layout_marginTop="@dimen/_26pxv"
-        android:layout_width="@dimen/_119pxh">
-
-        <View
-            android:background="@color/gray_100"
-            android:id="@+id/lineLineThree"
-            android:layout_gravity="bottom|end"
-            android:layout_height="@dimen/_44pxv"
-            android:layout_marginEnd="@dimen/_55pxh"
-            android:layout_marginStart="@dimen/_55pxh"
-            android:layout_marginTop="@dimen/_10pxv"
-            android:layout_width="@dimen/_4pxh" />
-
-        <android.widget.Button
-            android:ellipsize="end"
-            android:gravity="center"
-            android:id="@+id/btn_shop"
-            android:layout_gravity="top|start"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_10pxv"
-            android:layout_width="match_parent"
-            android:paddingBottom="@dimen/_12pxv"
-            android:paddingEnd="@dimen/_21pxh"
-            android:paddingStart="@dimen/_23pxh"
-            android:paddingTop="@dimen/_12pxv"
-            android:singleLine="true"
-            android:text="@string/lbl58"
-            android:onClick="marketToTask"
-            android:textAllCaps="false"
-            style="@style/not_passed_btn"
-            tools:text="@string/lbl58" />
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/frameStacklinefour"
-        android:layout_gravity="end"
-        android:layout_height="@dimen/_74pxv"
-        android:layout_marginEnd="@dimen/_75pxh"
-        android:layout_marginStart="@dimen/_75pxh"
-        android:layout_marginTop="@dimen/_17pxv"
-        android:layout_width="@dimen/_119pxh">
-
-        <View
-            android:background="@color/gray_100"
-            android:id="@+id/lineLineFour"
-            android:layout_gravity="bottom|end"
-            android:layout_height="@dimen/_44pxv"
-            android:layout_marginEnd="@dimen/_55pxh"
-            android:layout_marginStart="@dimen/_55pxh"
-            android:layout_marginTop="@dimen/_10pxv"
-            android:layout_width="@dimen/_4pxh" />
-
-        <android.widget.Button
-            android:ellipsize="end"
-            android:gravity="center"
-            android:id="@+id/btn_fin_org"
-            android:layout_gravity="top|start"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_10pxv"
-            android:layout_width="match_parent"
-            android:paddingBottom="@dimen/_12pxv"
-            android:paddingEnd="@dimen/_15pxh"
-            android:paddingStart="@dimen/_16pxh"
-            android:paddingTop="@dimen/_12pxv"
-            android:singleLine="true"
-            android:onClick="atmToTask"
-            android:text="@string/lbl59"
-            android:textAllCaps="false"
-            style="@style/not_passed_btn"
-            tools:text="@string/lbl59" />
-    </FrameLayout>
-
-    <androidx.appcompat.widget.AppCompatButton
+        android:layout_gravity="top|start"
+        android:layout_marginBottom="@dimen/_10pxv"
+        android:layout_marginTop="@dimen/_15pxv"
+        android:layout_marginStart="@dimen/_240pxv"
+        android:layout_marginEnd="@dimen/_40pxv"
         android:ellipsize="end"
         android:gravity="center"
-        android:id="@+id/btn_finish"
+        android:onClick="schoolToTask"
+        android:paddingStart="@dimen/_30pxh"
+        android:paddingTop="@dimen/_12pxv"
+        android:paddingEnd="@dimen/_29pxh"
+        android:paddingBottom="@dimen/_12pxv"
+        android:singleLine="true"
+        android:text="@string/lbl26"
+        android:textAllCaps="false"
+        tools:text="@string/lbl26" />
+
+    <android.widget.Button
+        android:id="@+id/btn_mall"
+        style="@style/not_passed_btn"
+        android:layout_width="@dimen/_120pxh"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_20pxh"
+        android:layout_gravity="top|start"
+        android:layout_marginBottom="@dimen/_10pxv"
+        android:layout_marginTop="@dimen/_50pxv"
+        android:layout_marginStart="@dimen/_270pxv"
+        android:layout_marginEnd="@dimen/_10pxv"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:onClick="mallToTask"
+        android:paddingStart="@dimen/_30pxh"
+        android:paddingTop="@dimen/_12pxv"
+        android:paddingEnd="@dimen/_30pxh"
+        android:paddingBottom="@dimen/_12pxv"
+        android:singleLine="true"
+        android:text="@string/lbl57"
+        android:textAllCaps="false"
+        tools:text="@string/lbl57" />
+
+    <android.widget.Button
+        android:id="@+id/btn_shop"
+        style="@style/not_passed_btn"
+        android:layout_width="@dimen/_120pxh"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_marginBottom="@dimen/_10pxv"
+        android:layout_marginTop="@dimen/_85pxv"
+        android:ellipsize="end"
+        android:layout_marginStart="@dimen/_15pxv"
+        android:gravity="center"
+        android:onClick="marketToTask"
+        android:paddingStart="@dimen/_23pxh"
+        android:paddingTop="@dimen/_12pxv"
+        android:paddingEnd="@dimen/_21pxh"
+        android:paddingBottom="@dimen/_12pxv"
+        android:singleLine="true"
+        android:text="@string/lbl58"
+        android:textAllCaps="false"
+        tools:text="@string/lbl58" />
+
+    <android.widget.Button
+        android:id="@+id/btn_fin_org"
+        style="@style/not_passed_btn"
+        android:layout_width="@dimen/_120pxh"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_marginBottom="@dimen/_10pxv"
+        android:layout_marginTop="@dimen/_30pxv"
+        android:layout_marginStart="@dimen/_220pxh"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:onClick="atmToTask"
+        android:paddingStart="@dimen/_16pxh"
+        android:paddingTop="@dimen/_12pxv"
+        android:paddingEnd="@dimen/_15pxh"
+        android:paddingBottom="@dimen/_12pxv"
+        android:singleLine="true"
+        android:text="@string/lbl59"
+        android:textAllCaps="false"
+        tools:text="@string/lbl59" />
+
+    <android.widget.Button
+        android:id="@+id/btn_bank"
+        style="@style/not_passed_btn"
+        android:layout_width="@dimen/_120pxh"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_marginBottom="@dimen/_10pxv"
+        android:layout_marginTop="@dimen/_30pxh"
+        android:layout_marginStart="@dimen/_20pxv"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:onClick="bankToTask"
+        android:paddingStart="@dimen/_30pxv"
+        android:paddingTop="@dimen/_12pxv"
+        android:paddingEnd="@dimen/_30pxh"
+        android:paddingBottom="@dimen/_12pxv"
+        android:singleLine="true"
+        android:text="@string/lbl56"
+        android:textAllCaps="false"
+        tools:text="@string/lbl56" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_finish"
+        style="@style/btnSolidRounded_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_20pxh"
         android:layout_marginTop="@dimen/_60pxv"
-        android:layout_width="match_parent"
-        android:paddingBottom="@dimen/_15pxv"
-        android:paddingEnd="@dimen/_30pxh"
+        android:layout_marginEnd="@dimen/_20pxh"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:onClick="clickFinishBtn"
         android:paddingStart="@dimen/_30pxh"
         android:paddingTop="@dimen/_15pxv"
+        android:paddingEnd="@dimen/_30pxh"
+        android:paddingBottom="@dimen/_15pxv"
         android:singleLine="true"
         android:text="@string/lbl75"
         android:textAllCaps="false"
         android:visibility="invisible"
-        android:onClick="clickFinishBtn"
-        style="@style/btnSolidRounded_2"
         tools:text="@string/lbl75" />
 
     <TextView

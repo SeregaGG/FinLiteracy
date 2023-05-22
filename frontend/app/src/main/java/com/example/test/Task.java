@@ -22,7 +22,7 @@ public class Task extends AppCompatActivity {
         Bundle arguments = getIntent().getExtras();
         location_ = arguments.get("location").toString();
 
-        QuestManager.subject.subscribe(v -> setTimerClock(v));
+        QuestManager.subject.subscribe(v -> setTimerClock(v)); // TODO: Подписывается каждый раз, как создается
 
         setContentView(R.layout.activity_task_choosing);
         QuestManager.updateCoins(this);
@@ -165,7 +165,6 @@ public class Task extends AppCompatActivity {
             return;
         }
         TextView timer = findViewById(R.id.txtTime);
-        System.out.println("TASK" + new_time);
         String minutes = Integer.toString(new_time / 60);
         String seconds = Integer.toString(new_time % 60);
         timer.setText(minutes + ":" + seconds);

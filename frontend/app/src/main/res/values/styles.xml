@@ -317,7 +317,7 @@
         <item name="android:textFontWeight" tools:targetApi="p">500</item>
     </style>
     <style name="map_back">
-        <item name="android:background">@drawable/back</item>
+        <item name="android:background">@drawable/map_magic</item>
     </style>
     <style name="sky_back">
         <item name="android:background">@drawable/back_sky</item>

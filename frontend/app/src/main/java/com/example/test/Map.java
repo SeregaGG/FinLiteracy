@@ -37,7 +37,7 @@ public class Map extends AppCompatActivity {
         getQuestionsFromServer();
 //        QuestManager.putQuestions(getQuestionsFromServer()); // TODO: Лучше делать в MainActivity.
 
-        QuestManager.subject.subscribe(v -> setTimerClock(v));
+        QuestManager.subject.subscribe(v -> setTimerClock(v)); // TODO: Подписывается каждый раз, как создается
 
         setContentView(R.layout.activity_map);
         QuestManager.updateCoins(this);
@@ -165,7 +165,6 @@ public class Map extends AppCompatActivity {
             return;
         }
         TextView timer = findViewById(R.id.txtTime);
-        System.out.println("MAP" + new_time);
         String minutes = Integer.toString(new_time / 60);
         String seconds = Integer.toString(new_time % 60);
         timer.setText(minutes + ":" + seconds);
