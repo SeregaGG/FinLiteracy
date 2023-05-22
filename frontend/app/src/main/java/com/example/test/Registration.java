@@ -112,9 +112,9 @@ public class Registration extends AppCompatActivity {
         });
     }
 
-    private void registerCharacter(String firstNname, String secondName) throws JsonProcessingException {
+    private void registerCharacter(String first_name, String second_name) throws JsonProcessingException {
         MediaType JSON = MediaType.get("application/json; charset=utf-8");
-        Map<String, String> json_template = Map.of("first_name", firstNname, "second_name", secondName);
+        Map<String, String> json_template = Map.of("first_name", first_name, "second_name", second_name);
         String json = Constants.object_mapper.writeValueAsString(json_template);
         RequestBody body = RequestBody.create(json, JSON);
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.server_url + "/auth").newBuilder();
@@ -141,6 +141,8 @@ public class Registration extends AppCompatActivity {
                     }
                     Map<String, String> response_map = Constants.object_mapper.readValue(responseBody.string(), new TypeReference<>() {
                     });
+                    Constants.first_name = first_name;
+                    Constants.second_name = second_name;
                     response_finished = true;
                 } catch (Exception e) {
                     response_finished = true;
