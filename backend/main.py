@@ -60,6 +60,20 @@ async def get_token(token: str, session: AsyncSession = Depends(get_session)):
     if current_token is None:
         return JSONResponse(content={"message": "Forbidden"}, status_code=403)
 
+    current_token = {key: value for key, value in zip(current_token.keys(), current_token)}
+
+    raw_students = await session.execute(select(Students).where(Students.token_id == token))
+    current_student: Students = raw_students.scalar_one_or_none()
+
+    can_play: bool = current_student is None
+
+    if not can_play:
+        raw_statistic = await session.execute(
+            select(Statistics).where(Statistics.student_id == current_student.student_id))
+        can_play = len(raw_statistic.all()) == 0
+
+    current_token.update({"can_play": can_play})
+
     return current_token
 
 
