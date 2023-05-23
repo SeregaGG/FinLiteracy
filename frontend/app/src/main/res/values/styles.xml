@@ -321,6 +321,7 @@
     </style>
     <style name="sky_back">
         <item name="android:background">@drawable/back_sky</item>
+        <item name="android:scaleType">fitXY</item>
     </style>
 
     <style name="groupStylegray_300">
