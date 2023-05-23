@@ -27,6 +27,9 @@
     <color name="purple_300">#ab70df</color>
     <color name="black_900_bf">#bf000000</color>
     <color name="black_900_4c">#4c000000</color>
+    <color name="easy_task">#77B29F</color>
+    <color name="middle_task">#F2B41D</color>
+    <color name="hard_task">#F46140</color>
     <color name="gray_400">#b4b4b4</color>
     <color name="orange_A200">#eb9f4a</color>
     <color name="black_900_e5">#e5000000</color>

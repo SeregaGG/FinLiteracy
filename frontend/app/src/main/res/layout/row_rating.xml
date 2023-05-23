@@ -38,6 +38,7 @@
         android:layout_weight="0.62"
         android:layout_width="0dp"
         android:singleLine="true"
+        android:gravity="end"
         android:text="@string/lbl_500"
         style="@style/txtMontserratbold15_1"
         tools:text="@string/lbl_500" />

@@ -141,54 +141,39 @@
     </LinearLayout>
 
     <LinearLayout
-        android:gravity="center_horizontal"
         android:id="@+id/linearColumneightyseven"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_22pxh"
-        android:layout_marginStart="@dimen/_22pxh"
-        android:layout_marginTop="@dimen/_48pxv"
+        style="@style/groupStylewhite_A700cornerRadius"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        style="@style/groupStylewhite_A700cornerRadius">
-
-        <TextView
-            android:ellipsize="end"
-            android:gravity="center_horizontal"
-            android:id="@+id/txtEightySeven"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_29pxh"
-            android:layout_marginStart="@dimen/_29pxh"
-            android:layout_marginTop="@dimen/_57pxv"
-            android:layout_width="match_parent"
-            android:singleLine="true"
-            android:text="@string/lbl73"
-            style="@style/txtMontserratbold30"
-            tools:text="@string/lbl73" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_22pxh"
+        android:layout_marginTop="@dimen/_30pxv"
+        android:layout_marginEnd="@dimen/_22pxh"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/imageCheckOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_height="@dimen/_43pxh"
-            android:layout_marginEnd="@dimen/_29pxh"
             android:layout_marginStart="@dimen/_29pxh"
             android:layout_marginTop="@dimen/_14pxv"
-            android:layout_width="@dimen/_43pxh"
+            android:layout_marginEnd="@dimen/_29pxh"
             android:scaleType="fitXY"
-            android:src="@drawable/img_check"
-            tools:ignore="ContentDescription"
-            tools:src="@drawable/img_check" />
+            android:src="@drawable/correct_answer_pic"
+            tools:ignore="ContentDescription" />
 
         <TextView
-            android:gravity="center_horizontal"
             android:id="@+id/txtLanguage"
+            style="@style/txtMontserratsemibold15"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_52pxv"
-            android:layout_marginEnd="@dimen/_29pxh"
             android:layout_marginStart="@dimen/_29pxh"
             android:layout_marginTop="@dimen/_23pxv"
-            android:layout_width="match_parent"
+            android:layout_marginEnd="@dimen/_29pxh"
+            android:layout_marginBottom="@dimen/_30pxv"
+            android:gravity="center_horizontal"
             android:text="@string/msg45"
-            style="@style/txtMontserratsemibold15"
             tools:text="@string/msg45" />
     </LinearLayout>
 
@@ -200,7 +185,7 @@
         android:layout_marginBottom="@dimen/_20pxv"
         android:layout_marginEnd="@dimen/_22pxh"
         android:layout_marginStart="@dimen/_22pxh"
-        android:layout_marginTop="@dimen/_59pxv"
+        android:layout_marginTop="@dimen/_30pxv"
         android:layout_width="match_parent"
         android:paddingBottom="@dimen/_14pxv"
         android:paddingEnd="@dimen/_30pxh"

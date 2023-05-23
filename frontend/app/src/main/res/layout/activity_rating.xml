@@ -10,6 +10,36 @@
     android:background="@drawable/blured_back">
 
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        app:contentInsetStart="0dp">
+
+        <FrameLayout
+            android:id="@+id/linearRowleftarrowone"
+            style="@style/groupStylegray_300"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtEightySeven"
+                style="@style/txtMontserratbold20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_22pxv"
+                android:layout_marginBottom="@dimen/_22pxv"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:layout_gravity="center"
+                android:text="@string/rating"
+                android:textAllCaps="true" />
+        </FrameLayout>
+    </androidx.appcompat.widget.Toolbar>
+
     <LinearLayout
         android:gravity="start"
         android:id="@+id/linearColumntwentyeight"
@@ -31,23 +61,13 @@
             style="@style/txtMontserratbold15"
             tools:text="@string/lbl40" />
 
-        <EditText
-            android:background="@drawable/rectangle_bg_white_a700_radius_25"
-            android:ellipsize="end"
-            android:hint="@string/lbl21"
-            android:id="@+id/etTableHead"
-            android:inputType="text"
+        <Spinner
+            android:background="@drawable/layer_list_bg_white_a700_radius_25"
+            android:id="@+id/spinnerGroup1061"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_7pxv"
             android:layout_width="match_parent"
-            android:paddingBottom="@dimen/_17pxv"
-            android:paddingEnd="@dimen/_30pxh"
-            android:paddingStart="@dimen/_26pxh"
-            android:paddingTop="@dimen/_19pxv"
-            android:singleLine="true"
-            android:textColorHint="@color/black_900_b2"
-            style="@style/etSolidRounded_3"
-            tools:ignore="Autofill" />
+            android:layout_marginTop="@dimen/_3pxh"
+            tools:listitem="@layout/spinner_item" />
 
         <LinearLayout
             android:gravity="start"
@@ -148,9 +168,8 @@
                     android:layout_marginTop="@dimen/_16pxv"
                     android:layout_width="match_parent"
                     android:singleLine="true"
-                    android:text="@string/lbl43"
-                    style="@style/txtMontserratbold18"
-                    tools:text="@string/lbl43" />
+                    android:text="@string/rating_leaders"
+                    style="@style/txtMontserratbold18" />
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -163,7 +182,6 @@
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                itemSpace="@{@dimen/_24pxh}"
                 tools:itemCount="4"
                 tools:listitem="@layout/row_rating" />
 
@@ -214,6 +232,7 @@
                     android:layout_weight="0.3"
                     android:layout_width="0dp"
                     android:singleLine="true"
+                    android:gravity="end"
                     android:text="@string/lbl_0"
                     style="@style/txtMontserratbold15_1"
                     tools:text="@string/lbl_0" />

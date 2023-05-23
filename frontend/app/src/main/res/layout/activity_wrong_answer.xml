@@ -93,7 +93,8 @@
                     tools:text="@string/lbl_40_03"
                     tools:ignore="NestedWeights" />
             </LinearLayout>
-        </LinearLayout>    </androidx.appcompat.widget.Toolbar>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:ellipsize="end"
@@ -147,43 +148,51 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_22pxh"
         android:layout_marginStart="@dimen/_22pxh"
-        android:layout_marginTop="@dimen/_48pxv"
+        android:layout_marginTop="@dimen/_30pxv"
         android:layout_width="match_parent"
         android:orientation="vertical"
         style="@style/groupStylewhite_A700cornerRadius">
 
-        <TextView
-            android:ellipsize="end"
-            android:gravity="center_horizontal"
-            android:id="@+id/txtEightySeven"
+        <LinearLayout
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_29pxh"
-            android:layout_marginStart="@dimen/_29pxh"
-            android:layout_marginTop="@dimen/_57pxv"
-            android:layout_width="match_parent"
-            android:singleLine="true"
-            android:text="@string/wrong"
-            style="@style/txtMontserratbold30"
-            tools:text="@string/wrong" />
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_15pxh">
+
+            <ImageView
+                android:id="@+id/imageCheckOne"
+                android:layout_width="@dimen/_28pxh"
+                android:layout_height="@dimen/_28pxh"
+                android:layout_marginStart="@dimen/_29pxh"
+                android:layout_marginTop="@dimen/_7pxv"
+                android:scaleType="fitXY"
+                android:src="@drawable/wrong"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:ellipsize="end"
+                android:id="@+id/txtEightySeven"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_29pxh"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@string/wrong"
+                style="@style/txtMontserratbold30"
+                tools:text="@string/wrong" />
+
+        </LinearLayout>
 
         <ImageView
-            android:id="@+id/imageCheckOne"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="@dimen/_43pxh"
-            android:layout_marginEnd="@dimen/_29pxh"
-            android:layout_marginStart="@dimen/_29pxh"
-            android:layout_marginTop="@dimen/_14pxv"
-            android:layout_width="@dimen/_43pxh"
-            android:scaleType="fitXY"
-            android:src="@drawable/wrong"
-            tools:ignore="ContentDescription"
-            tools:src="@drawable/wrong" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/wrong_answer_dragon"/>
 
         <TextView
             android:gravity="center_horizontal"
             android:id="@+id/txtLanguage"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_52pxv"
+            android:layout_marginBottom="@dimen/_30pxv"
             android:layout_marginEnd="@dimen/_29pxh"
             android:layout_marginStart="@dimen/_29pxh"
             android:layout_marginTop="@dimen/_23pxv"
@@ -201,7 +210,7 @@
         android:layout_marginBottom="@dimen/_20pxv"
         android:layout_marginEnd="@dimen/_22pxh"
         android:layout_marginStart="@dimen/_22pxh"
-        android:layout_marginTop="@dimen/_59pxv"
+        android:layout_marginTop="@dimen/_20pxv"
         android:layout_width="match_parent"
         android:paddingBottom="@dimen/_14pxv"
         android:paddingEnd="@dimen/_30pxh"

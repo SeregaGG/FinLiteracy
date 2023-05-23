@@ -22,7 +22,7 @@
     <string name="lbl71">Рейтинг</string>
     <string name="lbl72">Твой счёт: </string>
     <string name="lbl73">Правильно!</string>
-    <string name="wrong">Неверно!</string>
+    <string name="wrong">Неверно :(</string>
     <string name="lbl74">Время вышло!</string>
     <string name="lbl75">ЗАВЕРШИТЬ ИГРУ</string>
     <string name="lbl76">Новый пароль</string>
@@ -82,7 +82,8 @@
     <string name="lbl42">Класс</string>
     <string name="msg33">:  школу, банкомат, торговый центр, магазин, банк. </string>
     <string name="lbl_500">0</string>
-    <string name="lbl43">Лидеры рейтинга</string>
+    <string name="rating">Рейтинг игроков</string>
+    <string name="rating_leaders">Лидеры рейтинга</string>
     <string name="msg32">Отлично! Мы очень рады, что ты решил помочь. В ходе игры мы посетим </string>
     <string name="lbl44">Аня Корюкова</string>
     <string name="msg35">В начале игры у тебя есть </string>

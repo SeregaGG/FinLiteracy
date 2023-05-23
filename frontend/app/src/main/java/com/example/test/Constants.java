@@ -23,4 +23,5 @@ public class Constants {
     public static String city = "NONE";
     public static String school = "NONE";
     public static String class_name = "NONE";
+    public static boolean can_play = false;
 }

@@ -198,7 +198,7 @@
                         android:layout_width="wrap_content"
                         android:singleLine="true"
                         android:text="@string/lbl27"
-                        style="@style/txtMontserratbold14"
+                        style="@style/easy_task"
                         tools:text="@string/lbl27" />
                 </FrameLayout>
 
@@ -234,7 +234,7 @@
                         android:layout_width="match_parent"
                         android:singleLine="true"
                         android:text="@string/lbl28"
-                        style="@style/txtMontserratbold14"
+                        style="@style/middle_task"
                         tools:text="@string/lbl28" />
                 </FrameLayout>
             </LinearLayout>
@@ -349,7 +349,7 @@
                     android:layout_width="match_parent"
                     android:singleLine="true"
                     android:text="@string/lbl29"
-                    style="@style/txtMontserratbold14"
+                    style="@style/hard_task"
                     tools:text="@string/lbl29" />
             </FrameLayout>
 

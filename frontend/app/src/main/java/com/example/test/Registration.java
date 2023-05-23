@@ -52,10 +52,12 @@ public class Registration extends AppCompatActivity {
         TextView city = findViewById(R.id.txtCity);
         TextView school = findViewById(R.id.txtSchool);
         TextView grade = findViewById(R.id.txtClassGrade);
+        TextView token = findViewById(R.id.txtCity1);
 
         city.setText(Constants.city);
         school.setText(Constants.school);
         grade.setText(Constants.class_name);
+        token.setText(Constants.token);
     }
 
     public void onEnterFullName(View view) throws JsonProcessingException {
@@ -143,6 +145,7 @@ public class Registration extends AppCompatActivity {
                     });
                     Constants.first_name = first_name;
                     Constants.second_name = second_name;
+                    Constants.can_play = Boolean.parseBoolean(response_map.get("can_play"));
                     response_finished = true;
                 } catch (Exception e) {
                     response_finished = true;

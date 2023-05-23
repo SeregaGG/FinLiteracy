@@ -102,7 +102,6 @@
         android:layout_width="@dimen/_120pxh"
         android:layout_height="wrap_content"
         android:layout_gravity="top|start"
-        android:layout_marginBottom="@dimen/_10pxv"
         android:layout_marginTop="@dimen/_15pxv"
         android:layout_marginStart="@dimen/_240pxv"
         android:layout_marginEnd="@dimen/_40pxv"
@@ -118,14 +117,20 @@
         android:textAllCaps="false"
         tools:text="@string/lbl26" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_280pxv"
+        android:layout_marginTop="@dimen/_2pxh"
+        android:src="@drawable/minus_100"/>
+
     <android.widget.Button
         android:id="@+id/btn_mall"
         style="@style/not_passed_btn"
         android:layout_width="@dimen/_120pxh"
         android:layout_height="wrap_content"
         android:layout_gravity="top|start"
-        android:layout_marginBottom="@dimen/_10pxv"
-        android:layout_marginTop="@dimen/_50pxv"
+        android:layout_marginTop="@dimen/_30pxv"
         android:layout_marginStart="@dimen/_260pxv"
         android:layout_marginEnd="@dimen/_10pxv"
         android:ellipsize="end"
@@ -140,14 +145,19 @@
         android:textAllCaps="false"
         tools:text="@string/lbl57" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_300pxv"
+        android:layout_marginTop="@dimen/_2pxh"
+        android:src="@drawable/minus_100"/>
+
     <android.widget.Button
         android:id="@+id/btn_shop"
         style="@style/not_passed_btn"
         android:layout_width="@dimen/_120pxh"
         android:layout_height="wrap_content"
         android:layout_gravity="top|start"
-        android:layout_marginBottom="@dimen/_10pxv"
-        android:layout_marginTop="@dimen/_45pxv"
         android:ellipsize="end"
         android:layout_marginStart="@dimen/_15pxv"
         android:gravity="center"
@@ -161,14 +171,20 @@
         android:textAllCaps="false"
         tools:text="@string/lbl58" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_55pxv"
+        android:layout_marginTop="@dimen/_2pxh"
+        android:src="@drawable/minus_100"/>
+
     <android.widget.Button
         android:id="@+id/btn_fin_org"
         style="@style/not_passed_btn"
         android:layout_width="@dimen/_120pxh"
         android:layout_height="wrap_content"
         android:layout_gravity="top|start"
-        android:layout_marginBottom="@dimen/_10pxv"
-        android:layout_marginTop="@dimen/_75pxv"
+        android:layout_marginTop="@dimen/_60pxv"
         android:layout_marginStart="@dimen/_220pxh"
         android:ellipsize="end"
         android:gravity="center"
@@ -182,14 +198,20 @@
         android:textAllCaps="false"
         tools:text="@string/lbl59" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_300pxv"
+        android:layout_marginTop="@dimen/_2pxh"
+        android:src="@drawable/minus_100"/>
+
     <android.widget.Button
         android:id="@+id/btn_bank"
         style="@style/not_passed_btn"
         android:layout_width="@dimen/_120pxh"
         android:layout_height="wrap_content"
         android:layout_gravity="top|start"
-        android:layout_marginBottom="@dimen/_10pxv"
-        android:layout_marginTop="@dimen/_30pxh"
+        android:layout_marginTop="@dimen/_20pxh"
         android:layout_marginStart="@dimen/_20pxv"
         android:ellipsize="end"
         android:gravity="center"
@@ -202,6 +224,13 @@
         android:text="@string/lbl56"
         android:textAllCaps="false"
         tools:text="@string/lbl56" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_60pxv"
+        android:layout_marginTop="@dimen/_2pxh"
+        android:src="@drawable/minus_100"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_finish"
