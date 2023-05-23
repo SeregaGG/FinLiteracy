@@ -211,12 +211,13 @@ async def set_liter(callback: types.CallbackQuery):
 
     new_list = json.loads(tokens.content).get('tokens')
 
-    with xlsxwriter.Workbook(f'{current_user_data["phone"]}_tokens.xlsx') as workbook:
+    results_file = f'{current_user_data["phone"]}_tokens_{current_user_data["number"]}{current_user_data["liter"]}.xlsx'
+    with xlsxwriter.Workbook(results_file) as workbook:
         worksheet = workbook.add_worksheet()
         for row_num, data in enumerate(new_list):
             worksheet.write(row_num, 0, data)
 
-    file = InputFile(path_or_bytesio=f'{current_user_data["phone"]}_tokens_{current_user_data["class_name"]}.xlsx')
+    file = InputFile(path_or_bytesio=results_file)
     await bot.send_document(
         callback.from_user.id,
         file
