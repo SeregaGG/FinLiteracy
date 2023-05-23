@@ -70,7 +70,7 @@ async def get_result(message: types.Message):
     worksheets = [workbook.add_worksheet(x) for x in teacher_classes]
     for worksheet in worksheets:
         row = 0
-        worksheet.write_row(row, 0, result[0].keys())
+        worksheet.write_row(row, 0, ("Имя", "Фамилия", "Правильно ли ответил ребенок", "Класс", "Вопрос", "Правильный ответ", "Токен"))#result[0].keys())
         row += 1
         for item in result:
             if item.get("class_name") == worksheet.name:
@@ -216,7 +216,7 @@ async def set_liter(callback: types.CallbackQuery):
         for row_num, data in enumerate(new_list):
             worksheet.write(row_num, 0, data)
 
-    file = InputFile(path_or_bytesio=f'{current_user_data["phone"]}_tokens.xlsx')
+    file = InputFile(path_or_bytesio=f'{current_user_data["phone"]}_tokens_{current_user_data["class_name"]}.xlsx')
     await bot.send_document(
         callback.from_user.id,
         file

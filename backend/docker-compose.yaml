@@ -38,11 +38,12 @@ services:
     depends_on:
       - db
 
-#  bot:
-#    build:
-#    restart: always
-#      context: .
-#      dockerfile: ./bot/Dockerfile
-#
-#    depends_on:
-#      - db
+  bot:
+    build:
+      context: .
+      dockerfile: ./bot/Dockerfile
+
+    restart: always
+
+    depends_on:
+      - db
