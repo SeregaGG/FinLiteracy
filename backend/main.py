@@ -276,3 +276,11 @@ async def get_bot_results(phone: str, session: AsyncSession = Depends(get_sessio
     current_result: list = raw_result.all()
 
     return current_result
+
+
+@app.get('/bot/classes')
+async def get_teacher_classes(phone: str, session: AsyncSession = Depends(get_session)):
+    raw_tokens = await session.execute(select(Tokens).where(Tokens.teacher_phone == phone))
+    current_tokens: list[Tokens] = raw_tokens.scalars().all()
+    teacher_classes = set([x.class_name for x in current_tokens])
+    return teacher_classes

@@ -56,12 +56,12 @@ async def get_result(message: types.Message):
             'Вы еще не создавали токенов'
         )
 
-    current_user_data = user_data.get(message.from_user.id)
-
     result = requests.get(f"http://{HOST}:{PORT}/bot/results?phone=%2B{get_phone_by_id(message.from_user.id)[1:]}")
     result = json.loads(result.content)
 
-    teacher_classes = set([x.get("class_name") for x in result])
+    teacher_classes = requests.get(f"http://{HOST}:{PORT}/bot/classes?phone=%2B{get_phone_by_id(message.from_user.id)[1:]}")
+    teacher_classes = json.loads(teacher_classes.content)
+
     workbook = xlsxwriter.Workbook(f'{get_phone_by_id(message.from_user.id)}_results.xlsx')
 
     format_green = workbook.add_format({'bg_color': 'green'})
