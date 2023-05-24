@@ -5,8 +5,7 @@ from pydantic import BaseModel, Field as PdField
 
 
 class TokensBase(SQLModel):
-    city: str = Field(sa_column=Column(String(50), nullable=False))
-    school: str = Field(sa_column=Column(String(200), nullable=False))
+    school_id: int = Field(sa_column=Column(Integer, ForeignKey('schools.id', ondelete="CASCADE"), nullable=False))
     class_name: str = Field(sa_column=Column(String(200), nullable=False))
     teacher_phone: str = Field(sa_column=Column(String(200), nullable=False))
 
@@ -26,7 +25,7 @@ class TokenCreate(TokensBase):
 
 
 class TokenView(ModelView, model=Tokens):
-    column_list = [Tokens.id, Tokens.city]
+    column_list = [Tokens.id, Tokens.school_id]
     form_include_pk = True
 
 
@@ -114,9 +113,44 @@ class Results(SQLModel):
     first_name: str = Field(sa_column=Column(String, nullable=False))
     second_name: str = Field(sa_column=Column(String, nullable=False))
     score: int = Field(sa_column=Column(Integer, nullable=False))
-    city: str = Field(sa_column=Column(String, nullable=False))
-    school: str = Field(sa_column=Column(String, nullable=False))
+    school: int = Field(sa_column=Column(Integer, ForeignKey('schools.id', ondelete="CASCADE"), nullable=False))
     class_name: str = Field(sa_column=Column(String, nullable=False))
 
     class Config:
         arbitrary_types_allowed = True
+
+
+class City(SQLModel, table=True):
+    __tablename__ = 'cities'
+    id: int = Field(sa_column=Column(Integer, primary_key=True, autoincrement=True))
+    city: str = Field(sa_column=Column(String, nullable=False))
+    schools: Optional["School"] = Relationship(back_populates="city")
+
+    class Config:
+        arbitrary_types_allowed = True
+
+
+class School(SQLModel, table=True):
+    __tablename__ = 'schools'
+    id: int = Field(sa_column=Column(Integer, primary_key=True, autoincrement=True))
+    school: str = Field(sa_column=Column(String, nullable=False))
+    city: Optional[City] = Relationship(back_populates="schools")
+    city_id: int = Field(sa_column=Column(Integer, ForeignKey('cities.id', ondelete="CASCADE"), nullable=False))
+
+    class Config:
+        arbitrary_types_allowed = True
+
+
+class SchoolView(ModelView, model=School):
+    column_list = [School.school, School.id, School.city]
+    column_searchable_list = [School.city]
+    form_ajax_refs = {
+        'city': {
+            'fields': ('city',)
+        }
+    }
+
+
+class CityView(ModelView, model=City):
+    column_list = [City.city]
+    column_searchable_list = [City.schools]
