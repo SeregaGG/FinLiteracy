@@ -9,23 +9,22 @@
     android:orientation="vertical"
     style="@style/groupStylegray_100_cccornerRadius">
 
-    <TextView
+    <ImageView
         android:gravity="center_horizontal"
         android:id="@+id/txtLanguage"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_10pxh"
-        android:layout_marginStart="@dimen/_10pxh"
-        android:layout_marginTop="@dimen/_26pxv"
-        android:layout_width="match_parent"
-        android:lineSpacingExtra="@dimen/_3pxh"
-        android:text="@string/msg"
-        style="@style/txtRibeyeRUSBYLYAJKAribeyeregular33"
-        tools:text="@string/msg" />
+        android:layout_marginEnd="@dimen/_38pxh"
+        android:layout_marginStart="@dimen/_38pxh"
+        android:layout_marginTop="@dimen/_40pxh"
+        android:layout_width="wrap_content"
+        android:lineSpacingExtra="@dimen/_5pxh"
+        android:layout_gravity="center"
+        android:background="@drawable/start_txt" />
 
     <TextView
         android:gravity="center_horizontal"
         android:id="@+id/txtOne"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_55pxh"
         android:layout_marginEnd="@dimen/_10pxh"
         android:layout_marginStart="@dimen/_10pxh"
         android:layout_marginTop="@dimen/_30pxv"
@@ -35,7 +34,7 @@
 
     <EditText
         android:id="@+id/tokenText"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/_300pxh"
         android:layout_height="@dimen/_50pxv" />
 
     <androidx.appcompat.widget.AppCompatButton

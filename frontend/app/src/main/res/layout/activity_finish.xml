@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    style="@style/background">
+    style="@style/map_blured">
 
     <androidx.appcompat.widget.Toolbar
         android:gravity="start"
@@ -172,7 +172,7 @@
         android:paddingStart="@dimen/_30pxh"
         android:paddingTop="@dimen/_14pxv"
         android:singleLine="true"
-        android:onClick="toRating"
+        android:onClick="toDialog"
         android:text="@string/lbl35"
         android:textAllCaps="false"
         style="@style/btnSolidRounded"

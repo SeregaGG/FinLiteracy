@@ -1,6 +1,7 @@
 package com.example.test;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -57,6 +58,11 @@ public class Rating extends AppCompatActivity {
         textView2.setText(score);
     }
 
+    public void toStart(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
     private void updateRating() {
         Request request = new Request.Builder()
                 .url(Constants.server_url + "/results/all")
@@ -111,6 +117,8 @@ public class Rating extends AppCompatActivity {
                     temp_flag2 = true;
                 } catch (Exception e) {
                     System.out.println("Ошибка 2 " + e);
+                    score = "0";
+                    temp_flag2 = true;
                 }
             }
         });

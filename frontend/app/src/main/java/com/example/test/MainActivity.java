@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
                 // код, который нужно выполнить каждую секунду
                 // например, вывод на экран сообщения
                 QuestManager.tickTime();
-                System.out.println(QuestManager.getTime());
                 handler.postDelayed(this, 1000);
             }
         };
@@ -39,11 +38,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toDialogBegin(View view) {
-        setContentView(R.layout.activity_dialog_begin);
+        System.out.println(Constants.can_play);
+        if (!Constants.can_play) {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Вы уже прошли игру", Toast.LENGTH_SHORT);
+            toast.show();
+        } else {
+            setContentView(R.layout.activity_dialog_begin);
+        }
     }
 
     public void toDialogEnd(View view) {
         setContentView(R.layout.activity_dialog_end);
+    }
+
+    public void toRating(View view) {
+        Intent intent = new Intent(this, Rating.class);
+        startActivity(intent);
     }
 
     public void toHelp(View view) {

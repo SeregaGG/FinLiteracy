@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
+    <string-array name="cities">
+        <item>Екатеринбург</item>
+    </string-array>
+    <string-array name="schools">
+        <item>Гимназия 108</item>
+    </string-array>
+    <string-array name="classes">
+        <item> </item>
+    </string-array>
+
     <string name="app_name">Fin game</string>
     <string name="loading">Loading…</string>
     <string name="no_internet_connection">No internet connection!</string>
@@ -97,7 +107,7 @@
     <string name="lbl_40_03">00:00</string>
     <string name="msg31">Отлично! Мы очень рады, что ты решил помочь. В ходе игры мы посетим 5 зданий:  школу, банкомат, торговый центр, магазин, банк. </string>
     <string name="msg30">*радостное фырканье*</string>
-    <string name="msg26">Спасибо, что помогал нам! Ты заработал целых 500 игровых рублей. Теперь нам хватит на новенькие крылья для Рекса!</string>
+    <string name="msg26">Спасибо, что помогал нам! Теперь нам хватит на новенькие крылья для Рекса!</string>
     <string name="msg25">Чтобы увидеть, сколько денег заработали другие игроки, нажми на кнопку \u201cДалее\u201d.</string>
     <string name="msg28">. Теперь нам хватит на новенькие крылья для Рекса!</string>
     <string name="lbl30">ВЫБРАТЬ</string>
@@ -153,7 +163,7 @@
     <string name="msg4">Нажимая на кнопку «Создать», вы соглашаетесь с условиями политики обработки персональных данных </string>
     <string name="msg3">Для продолжения регистрации попроси родителей ознакомиться с политикой обработки персональных данных. </string>
     <string name="msg2">Введи код, который выдал тебе учитель</string>
-    <string name="msg8">Спасибо, что помогал нам! К сожалению. тебе не удалось заработать игровых рублей, но зато ты узнал много нового, и нам было весело!</string>
+    <string name="msg8">Спасибо, что помогал нам! К сожалению, тебе не удалось заработать игровых рублей, но зато ты узнал много нового, и нам было весело!</string>
     <string name="msg7">Выбери один из трёх вопросов. Стоимость зависит от выбранной сложности.</string>
     <string name="msg6">Принимаю условия политики обработки персональных данных </string>
     <string name="msg5">Нажимая на кнопку «Создать», вы соглашаетесь с условиями </string>
@@ -164,7 +174,7 @@
     <string name="msg52">: школу, банкомат, торговый центр, магазин, банк. </string>
     <string name="lbl_45_00">45:00</string>
     <string name="msg48">Пароли не совпадают</string>
-    <string name="lbl50">НАЗАД В МЕНЮ</string>
+    <string name="lbl50">В МЕНЮ</string>
     <string name="msg47">Подтверди новый пароль</string>
     <string name="lbl51">РЕКС</string>
     <string name="lbl52">СЕВА</string>
@@ -172,7 +182,7 @@
     <string name="lbl53">АНЯ</string>
     <string name="msg44">Ура! Рекс наконец-то сможет летать. Давай начинать!</string>
     <string name="lbl54">ПРАВИЛА ИГРЫ</string>
-    <string name="msg43">Почти. Запомни, что на всё про всё у тебя 45 минут.  Если вдруг забудешь правила, нажимай на знак вопроса внизу карты.</string>
+    <string name="msg43">Запомни, что на всё про всё у тебя 45 минут.  Если вдруг забудешь правила, нажимай на знак вопроса внизу карты.</string>
     <string name="lbl55">ПОМОЧЬ</string>
     <string name="msg46">Введи свой новый пароль</string>
     <string name="lbl56">БАНК</string>

@@ -5,7 +5,7 @@
     android:id="@+id/frameStackprofitone"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    style="@style/groupStyle_3">
+    style="@style/map_blured">
 
     <LinearLayout
         android:id="@+id/linearColumnprofitone"

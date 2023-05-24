@@ -131,6 +131,7 @@
                     android:layout_width="@dimen/_75pxh"
                     android:layout_marginTop="@dimen/_100pxv"
                     android:layout_gravity="start"
+                    android:onClick="toRating"
                     android:scaleType="fitXY"
                     android:src="@drawable/start_img_rating" />
 

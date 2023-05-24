@@ -13,6 +13,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Objects;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -141,11 +142,13 @@ public class Registration extends AppCompatActivity {
                         throw new IOException("Запрос к серверу не был успешен: " +
                                 response.code() + " " + response.message());
                     }
-                    Map<String, String> response_map = Constants.object_mapper.readValue(responseBody.string(), new TypeReference<>() {
+                    Map<String, Object> response_map = Constants.object_mapper.readValue(responseBody.string(), new TypeReference<>() {
                     });
                     Constants.first_name = first_name;
                     Constants.second_name = second_name;
-                    Constants.can_play = Boolean.parseBoolean(response_map.get("can_play"));
+                    Constants.can_play = (boolean) response_map.get("can_play");
+                    System.out.println("!!!" + response_map.get("can_play"));
+                    System.out.println(Constants.can_play);
                     response_finished = true;
                 } catch (Exception e) {
                     response_finished = true;

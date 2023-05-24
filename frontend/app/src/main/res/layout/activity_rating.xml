@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/blured_back">
+    style="@style/map_blured">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -62,12 +62,12 @@
             tools:text="@string/lbl40" />
 
         <Spinner
-            android:background="@drawable/layer_list_bg_white_a700_radius_25"
             android:id="@+id/spinnerGroup1061"
-            android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_3pxh"
-            tools:listitem="@layout/spinner_item" />
+            android:background="@drawable/layer_list_bg_white_a700_radius_25"
+            android:entries="@array/cities" />
 
         <LinearLayout
             android:gravity="start"
@@ -117,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.68"
                 android:layout_width="0dp"
-                tools:listitem="@layout/spinner_item" />
+                android:entries="@array/schools"/>
 
             <Spinner
                 android:background="@drawable/layer_list_bg_white_a700_radius_25"
@@ -126,7 +126,7 @@
                 android:layout_marginStart="@dimen/_13pxh"
                 android:layout_weight="0.32"
                 android:layout_width="0dp"
-                tools:listitem="@layout/spinner_item" />
+                android:entries="@array/classes" />
         </LinearLayout>
     </LinearLayout>
 
@@ -267,43 +267,43 @@
         style="@style/txtMontserratbold13"
         tools:text="@string/lbl49" />
 
-    <LinearLayout
-        android:gravity="center_vertical"
-        android:id="@+id/linearRowthirtyfive"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_34pxv"
-        android:layout_marginEnd="@dimen/_20pxh"
-        android:layout_marginStart="@dimen/_20pxh"
-        android:layout_marginTop="@dimen/_17pxv"
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
+    <FrameLayout
+        android:id="@+id/frameStacknextone"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="@dimen/_58pxh"
+        android:layout_marginEnd="@dimen/_21pxh"
+        android:layout_marginStart="@dimen/_21pxh"
+        android:layout_marginTop="@dimen/_25pxh"
+        android:layout_width="@dimen/_316pxh"
         style="@style/groupStyleorange_A200cornerRadius">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="toStart"
+            android:visibility="invisible" />
 
         <TextView
             android:ellipsize="end"
-            android:id="@+id/txtThirtyFive"
+            android:id="@+id/txtFifteen"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_14pxv"
-            android:layout_marginStart="@dimen/_42pxh"
-            android:layout_marginTop="@dimen/_16pxv"
-            android:layout_weight="0.88"
-            android:layout_width="0dp"
+            android:layout_marginBottom="@dimen/_15pxh"
+            android:layout_marginStart="@dimen/_99pxh"
+            android:layout_marginTop="@dimen/_15pxh"
+            android:layout_width="wrap_content"
             android:singleLine="true"
             android:text="@string/lbl50"
-            style="@style/txtMontserratsemibold22"
-            tools:text="@string/lbl50" />
+            style="@style/txtMontserratsemibold22" />
 
         <ImageView
-            android:id="@+id/imageNextOne"
+            android:id="@+id/imageNextTwo"
             android:layout_height="@dimen/_27pxh"
-            android:layout_marginBottom="@dimen/_16pxv"
-            android:layout_marginEnd="@dimen/_45pxh"
-            android:layout_marginStart="@dimen/_10pxh"
-            android:layout_marginTop="@dimen/_15pxv"
+            android:layout_marginBottom="@dimen/_15pxh"
+            android:layout_marginStart="@dimen/_200pxh"
+            android:layout_marginTop="@dimen/_15pxh"
             android:layout_width="@dimen/_27pxh"
             android:scaleType="fitXY"
             android:src="@drawable/next_arrow"
-            tools:ignore="ContentDescription"
-            tools:src="@drawable/next_arrow" />
-    </LinearLayout>
+            tools:ignore="ContentDescription" />
+    </FrameLayout>
 </LinearLayout>

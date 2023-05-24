@@ -80,11 +80,20 @@ public class Map extends AppCompatActivity {
     public void clickFinishBtn(View view) {
         is_finished = false;
         sendResultsToServer();
-        while (!is_finished){}
+        while (!is_finished) {
+        }
         setContentView(R.layout.activity_finish);
         TextView textView = findViewById(R.id.txtThreeHundredOne);
         textView.setText("Твой счет: " + QuestManager.getCoins());
         QuestManager.updateCoins(this);
+    }
+
+    public void toDialog(View view) {
+        if (QuestManager.getCoins() <= 0) {
+            setContentView(R.layout.activity_final_talk_negative);
+        } else {
+            setContentView(R.layout.activity_final_talk_positive);
+        }
     }
 
     public void toRating(View view) {
@@ -157,7 +166,7 @@ public class Map extends AppCompatActivity {
     }
 
     private void setTimerClock(int new_time) {
-        if(new_time == 0){
+        if (new_time == 0) {
             setContentView(R.layout.activity_timeout);
             TextView textView = findViewById(R.id.txtThreeHundredOne);
             textView.setText("Твой счет: " + QuestManager.getCoins());
@@ -197,7 +206,7 @@ public class Map extends AppCompatActivity {
         });
     }
 
-    private void sendResultsToServer(){
+    private void sendResultsToServer() {
         MediaType JSON = MediaType.get("application/json; charset=utf-8");
         RequestBody body = RequestBody.create(QuestManager.getJsonQuestionResults(), JSON);
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.server_url + "/results").newBuilder();

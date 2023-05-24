@@ -5,7 +5,7 @@
     android:id="@+id/frameOne"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:background="@drawable/blured_back">
+    style="@style/map_blured">
 
     <LinearLayout
         android:id="@+id/linearColumnleftarrowone"
