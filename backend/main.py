@@ -65,14 +65,16 @@ async def get_token(token: str, session: AsyncSession = Depends(get_session)):
     raw_students = await session.execute(select(Students).where(Students.token_id == token))
     current_student: Students = raw_students.scalar_one_or_none()
 
-    can_play: bool = current_student is None
+    in_use: bool = not (current_student is None)
 
-    if not can_play:
+    can_play: bool = True
+
+    if in_use:
         raw_statistic = await session.execute(
             select(Statistics).where(Statistics.student_id == current_student.student_id))
         can_play = len(raw_statistic.all()) == 0
 
-    current_token.update({"can_play": can_play})
+    current_token.update({"can_play": can_play, "in_use": in_use})
 
     return current_token
 
