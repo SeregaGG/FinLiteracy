@@ -179,7 +179,7 @@
         android:src="@drawable/minus_100"/>
 
     <android.widget.Button
-        android:id="@+id/btn_fin_org"
+        android:id="@+id/btn_bank"
         style="@style/not_passed_btn"
         android:layout_width="@dimen/_120pxh"
         android:layout_height="wrap_content"
@@ -206,7 +206,7 @@
         android:src="@drawable/minus_100"/>
 
     <android.widget.Button
-        android:id="@+id/btn_bank"
+        android:id="@+id/btn_fin_org"
         style="@style/not_passed_btn"
         android:layout_width="@dimen/_120pxh"
         android:layout_height="wrap_content"

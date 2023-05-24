@@ -49,7 +49,7 @@ public class Map extends AppCompatActivity {
     }
 
     public void bankToTask(View view) {
-        toTask(Constants.loc_bank);
+        toTask(Constants.loc_fin_org);
     }
 
     public void mallToTask(View view) {
@@ -61,7 +61,7 @@ public class Map extends AppCompatActivity {
     }
 
     public void atmToTask(View view) {
-        toTask(Constants.loc_fin_org);
+        toTask(Constants.loc_bankomat);
     }
 
     private void toTask(String location) {

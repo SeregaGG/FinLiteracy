@@ -202,6 +202,7 @@
                     tools:text="@string/msg24" />
 
                 <ImageView
+                    android:id="@+id/img_task"
                     android:layout_width="@dimen/_300pxv"
                     android:layout_height="@dimen/_300pxv"
                     android:layout_gravity="center"

@@ -3,6 +3,7 @@ package com.example.test;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,6 +36,19 @@ public class Task extends AppCompatActivity {
         QuestManager.updateCoins(this);
         question_ = QuestManager.getQuestion(kEasyTaskReward, location_);
 
+        ImageView imageView = findViewById(R.id.img_task);
+        if (location_.equals(Constants.loc_fin_org)) {
+            imageView.setImageResource(R.drawable.q6);
+        } else if (location_.equals(Constants.loc_shop)) {
+            imageView.setImageResource(R.drawable.q2);
+        } else if (location_.equals(Constants.loc_school)) {
+            imageView.setImageResource(R.drawable.q4);
+        } else if (location_.equals(Constants.loc_entertainment_center)) {
+            imageView.setImageResource(R.drawable.q10);
+        } else if (location_.equals(Constants.loc_bankomat)) {
+            imageView.setImageResource(R.drawable.wizard);
+        }
+
         TextView textView = findViewById(R.id.taskDescription);
         TextView a = findViewById(R.id.txtA);
         TextView b = findViewById(R.id.txtB);
@@ -56,6 +70,18 @@ public class Task extends AppCompatActivity {
         QuestManager.updateCoins(this);
         question_ = QuestManager.getQuestion(kMiddleTaskReward, location_);
 
+        ImageView imageView = findViewById(R.id.img_task);
+        if (location_.equals(Constants.loc_school)) {
+            imageView.setImageResource(R.drawable.q11);
+        } else if (location_.equals(Constants.loc_shop)) {
+            imageView.setImageResource(R.drawable.q7);
+        } else if (location_.equals(Constants.loc_fin_org)) {
+            imageView.setImageResource(R.drawable.q8);
+        } else if (location_.equals(Constants.loc_bankomat)) {
+            imageView.setImageResource(R.drawable.q7);
+        } else if (location_.equals(Constants.loc_entertainment_center)) {
+            imageView.setImageResource(R.drawable.q9);
+        }
         TextView textView = findViewById(R.id.taskDescription);
         TextView a = findViewById(R.id.txtA);
         TextView b = findViewById(R.id.txtB);
@@ -76,6 +102,19 @@ public class Task extends AppCompatActivity {
         QuestManager.removeCoins(kQuestionPrice);
         QuestManager.updateCoins(this);
         question_ = QuestManager.getQuestion(kHardTaskReward, location_);
+
+        ImageView imageView = findViewById(R.id.img_task);
+        if (location_.equals(Constants.loc_fin_org)) {
+            imageView.setImageResource(R.drawable.q5);
+        } else if (location_.equals(Constants.loc_school)) {
+            imageView.setImageResource(R.drawable.q11);
+        } else if (location_.equals(Constants.loc_entertainment_center)) {
+            imageView.setImageResource(R.drawable.q1);
+        } else if (location_.equals(Constants.loc_bankomat)) {
+            imageView.setImageResource(R.drawable.q3);
+        } else if (location_.equals(Constants.loc_shop)) {
+            imageView.setImageResource(R.drawable.q11);
+        }
 
         TextView textView = findViewById(R.id.taskDescription);
         TextView a = findViewById(R.id.txtA);
@@ -162,7 +201,7 @@ public class Task extends AppCompatActivity {
             QuestManager.shop_status = result;
         } else if (location_.equals(Constants.loc_entertainment_center)) {
             QuestManager.mall_status = result;
-        } else if (location_.equals(Constants.loc_bank)) {
+        } else if (location_.equals(Constants.loc_bankomat)) {
             QuestManager.bank_status = result;
         } else if (location_.equals(Constants.loc_fin_org)) {
             QuestManager.fin_org_status = result;

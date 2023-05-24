@@ -274,14 +274,13 @@
         android:layout_marginEnd="@dimen/_21pxh"
         android:layout_marginStart="@dimen/_21pxh"
         android:layout_marginTop="@dimen/_25pxh"
-        android:layout_width="@dimen/_316pxh"
-        style="@style/groupStyleorange_A200cornerRadius">
+        android:layout_width="@dimen/_316pxh" >
 
-        <Button
+        <ImageButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:onClick="toStart"
-            android:visibility="invisible" />
+            style="@style/groupStyleorange_A200cornerRadius" />
 
         <TextView
             android:ellipsize="end"
