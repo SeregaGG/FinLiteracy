@@ -11,4 +11,5 @@ asyncpg
 python-multipart
 pyTelegramBotAPI
 sqladmin
-
+aiogram
+XlsxWriter
