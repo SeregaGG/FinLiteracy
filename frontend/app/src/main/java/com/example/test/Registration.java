@@ -44,7 +44,12 @@ public class Registration extends AppCompatActivity {
         }
         if (!is_response_success) return;
 
-        beginRegistration();
+        if (Constants.in_use) {
+            Intent intent = new Intent(this, com.example.test.MainActivity.class);
+            startActivity(intent);
+        } else {
+            beginRegistration();
+        }
     }
 
     private void beginRegistration() {
@@ -99,12 +104,16 @@ public class Registration extends AppCompatActivity {
                         throw new IOException("Запрос к серверу не был успешен: " +
                                 response.code() + " " + response.message());
                     }
-                    Map<String, String> response_map = Constants.object_mapper.readValue(responseBody.string(), new TypeReference<>() {
+                    Map<String, Object> response_map = Constants.object_mapper.readValue(responseBody.string(), new TypeReference<>() {
                     });
                     Constants.city = response_map.get("city").toString();
                     Constants.school = response_map.get("school").toString();
                     Constants.class_name = response_map.get("class_name").toString();
                     Constants.token = token;
+                    Constants.in_use = (boolean) response_map.get("in_use");
+                    Constants.can_play = (boolean) response_map.get("can_play");
+                    System.out.println("!!!" + response_map.get("can_play"));
+                    System.out.println(Constants.can_play);
                     response_finished = true;
                 } catch (Exception e) {
                     response_finished = true;
@@ -146,9 +155,6 @@ public class Registration extends AppCompatActivity {
                     });
                     Constants.first_name = first_name;
                     Constants.second_name = second_name;
-                    Constants.can_play = (boolean) response_map.get("can_play");
-                    System.out.println("!!!" + response_map.get("can_play"));
-                    System.out.println(Constants.can_play);
                     response_finished = true;
                 } catch (Exception e) {
                     response_finished = true;

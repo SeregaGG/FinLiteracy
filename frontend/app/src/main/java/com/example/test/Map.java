@@ -94,6 +94,7 @@ public class Map extends AppCompatActivity {
         } else {
             setContentView(R.layout.activity_final_talk_positive);
         }
+        QuestManager.updateCoins(this);
     }
 
     public void toRating(View view) {

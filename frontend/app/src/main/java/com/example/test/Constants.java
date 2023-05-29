@@ -11,7 +11,7 @@ public class Constants {
     public final static String server_url = "http://81.200.149.240:8000";
     public final static String loc_entertainment_center = "entertainment_center";
     public final static String loc_school = "school";
-    public final static String loc_bank = "bank";
+    public final static String loc_bankomat = "bank";
     public final static String loc_shop = "shop";
     public final static String loc_fin_org = "fin_org";
     public final static int coins = 500;
@@ -24,4 +24,5 @@ public class Constants {
     public static String school = "NONE";
     public static String class_name = "NONE";
     public static boolean can_play = false;
+    public static boolean in_use = false;
 }

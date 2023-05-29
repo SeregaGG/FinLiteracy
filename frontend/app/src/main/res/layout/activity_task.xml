@@ -126,7 +126,7 @@
 
             <TextView
                 android:ellipsize="end"
-                android:id="@+id/txtFortyFour"
+                android:id="@+id/txtLoc"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_44pxh"
                 android:layout_weight="0.85"

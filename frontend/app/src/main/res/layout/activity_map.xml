@@ -176,7 +176,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_55pxv"
         android:layout_marginTop="@dimen/_2pxh"
-        android:src="@drawable/minus_100"/>
+        android:src="@drawable/minus_100" />
 
     <android.widget.Button
         android:id="@+id/btn_bank"

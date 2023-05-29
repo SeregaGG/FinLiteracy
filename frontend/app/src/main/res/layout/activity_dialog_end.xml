@@ -521,7 +521,7 @@
             <FrameLayout
                 android:id="@+id/frameStacktailSix"
                 android:layout_gravity="center_horizontal"
-                android:layout_height="@dimen/_106pxv"
+                android:layout_height="@dimen/_116pxv"
                 android:layout_marginEnd="@dimen/_7pxh"
                 android:layout_marginTop="@dimen/_2pxv"
                 android:layout_width="@dimen/_314pxh">
@@ -529,14 +529,14 @@
                 <FrameLayout
                     android:id="@+id/frameTechMessaging6"
                     android:layout_gravity="end"
-                    android:layout_height="@dimen/_106pxv"
+                    android:layout_height="@dimen/_116pxv"
                     android:layout_marginStart="@dimen/_10pxh"
                     android:layout_width="@dimen/_256pxh">
 
                     <FrameLayout
                         android:id="@+id/frameStackcombinedshapeSix"
                         android:layout_gravity="center"
-                        android:layout_height="@dimen/_106pxv"
+                        android:layout_height="@dimen/_116pxv"
                         android:layout_marginStart="@dimen/_5pxh"
                         android:layout_width="@dimen/_251pxh">
 
@@ -628,26 +628,26 @@
 
                         <ImageView
                             android:id="@+id/imageCombinedShapeSeven"
-                            android:layout_gravity="start"
-                            android:layout_height="@dimen/_94pxh"
                             android:layout_width="match_parent"
+                            android:layout_height="@dimen/_94pxh"
+                            android:layout_gravity="start"
                             android:scaleType="fitXY"
                             android:src="@drawable/img_combinedshape"
                             tools:ignore="ContentDescription"
                             tools:src="@drawable/img_combinedshape" />
 
                         <TextView
-                            android:gravity="top|start"
                             android:id="@+id/txtSeventyThree"
+                            style="@style/txtMontserratsemibold14_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
                             android:layout_gravity="bottom|center"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/_8pxv"
-                            android:layout_marginEnd="@dimen/_17pxh"
                             android:layout_marginStart="@dimen/_17pxh"
                             android:layout_marginTop="@dimen/_10pxv"
-                            android:layout_width="match_parent"
+                            android:layout_marginEnd="@dimen/_17pxh"
+                            android:layout_marginBottom="@dimen/_8pxv"
+                            android:gravity="top|start"
                             android:text="@string/msg34"
-                            style="@style/txtMontserratsemibold14_2"
                             tools:text="@string/msg34" />
                     </FrameLayout>
 
@@ -693,7 +693,7 @@
             <FrameLayout
                 android:id="@+id/frameStacktailEight"
                 android:layout_gravity="center_horizontal"
-                android:layout_height="@dimen/_106pxv"
+                android:layout_height="@dimen/_116pxv"
                 android:layout_marginEnd="@dimen/_7pxh"
                 android:layout_marginTop="@dimen/_2pxv"
                 android:layout_width="@dimen/_314pxh">
@@ -701,21 +701,21 @@
                 <FrameLayout
                     android:id="@+id/frameTechMessaging8"
                     android:layout_gravity="end"
-                    android:layout_height="@dimen/_106pxv"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10pxh"
                     android:layout_width="@dimen/_256pxh">
 
                     <FrameLayout
                         android:id="@+id/frameStackcombinedshapeEight"
                         android:layout_gravity="center"
-                        android:layout_height="@dimen/_106pxv"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_5pxh"
                         android:layout_width="@dimen/_251pxh">
 
                         <ImageView
                             android:id="@+id/imageCombinedShapeEight"
                             android:layout_gravity="start"
-                            android:layout_height="@dimen/_106pxh"
+                            android:layout_height="@dimen/_116pxh"
                             android:layout_width="match_parent"
                             android:scaleType="fitXY"
                             android:src="@drawable/img_combinedshape"
@@ -723,17 +723,17 @@
                             tools:src="@drawable/img_combinedshape" />
 
                         <TextView
-                            android:gravity="top|start"
                             android:id="@+id/txtLanguageThree"
+                            style="@style/txtMontserratmedium14_1"
+                            android:layout_width="249dp"
+                            android:layout_height="@dimen/_145pxh"
                             android:layout_gravity="start"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/_7pxv"
-                            android:layout_marginEnd="@dimen/_17pxh"
                             android:layout_marginStart="@dimen/_17pxh"
                             android:layout_marginTop="@dimen/_10pxv"
-                            android:layout_width="match_parent"
+                            android:layout_marginEnd="@dimen/_17pxh"
+                            android:layout_marginBottom="@dimen/_7pxv"
+                            android:gravity="top|start"
                             android:text="@string/msg37"
-                            style="@style/txtMontserratmedium14_1"
                             tools:text="@string/msg37" />
                     </FrameLayout>
 
@@ -797,13 +797,13 @@
 
                 <FrameLayout
                     android:id="@+id/frameTechMessaging9"
-                    android:layout_height="@dimen/_130pxv"
+                    android:layout_height="wrap_content"
                     android:layout_width="@dimen/_256pxh">
 
                     <FrameLayout
                         android:id="@+id/frameStackcombinedshapeNine"
                         android:layout_gravity="center"
-                        android:layout_height="@dimen/_130pxv"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_5pxh"
                         android:layout_width="@dimen/_251pxh">
 

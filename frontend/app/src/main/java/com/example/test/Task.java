@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import org.w3c.dom.Text;
+
 public class Task extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,8 @@ public class Task extends AppCompatActivity {
         QuestManager.removeCoins(kQuestionPrice);
         QuestManager.updateCoins(this);
         question_ = QuestManager.getQuestion(kEasyTaskReward, location_);
+
+        updateTxtLoc();
 
         ImageView imageView = findViewById(R.id.img_task);
         if (location_.equals(Constants.loc_fin_org)) {
@@ -70,6 +74,8 @@ public class Task extends AppCompatActivity {
         QuestManager.updateCoins(this);
         question_ = QuestManager.getQuestion(kMiddleTaskReward, location_);
 
+        updateTxtLoc();
+
         ImageView imageView = findViewById(R.id.img_task);
         if (location_.equals(Constants.loc_school)) {
             imageView.setImageResource(R.drawable.q11);
@@ -102,6 +108,8 @@ public class Task extends AppCompatActivity {
         QuestManager.removeCoins(kQuestionPrice);
         QuestManager.updateCoins(this);
         question_ = QuestManager.getQuestion(kHardTaskReward, location_);
+
+        updateTxtLoc();
 
         ImageView imageView = findViewById(R.id.img_task);
         if (location_.equals(Constants.loc_fin_org)) {
@@ -222,6 +230,20 @@ public class Task extends AppCompatActivity {
         String minutes = Integer.toString(new_time / 60);
         String seconds = Integer.toString(new_time % 60);
         timer.setText(minutes + ":" + seconds);
+    }
+    private void updateTxtLoc(){
+        TextView textView = findViewById(R.id.txtLoc);
+        if (location_.equals(Constants.loc_fin_org)) {
+            textView.setText("БАНК");
+        } else if (location_.equals(Constants.loc_school)) {
+            textView.setText("ШКОЛА");
+        } else if (location_.equals(Constants.loc_entertainment_center)) {
+            textView.setText("РЫНОК");
+        } else if (location_.equals(Constants.loc_bankomat)) {
+            textView.setText("БАНКОМАТ");
+        } else if (location_.equals(Constants.loc_shop)) {
+            textView.setText("ЛАВКА");
+        }
     }
 
     private static final int kEasyTaskReward = 200;
