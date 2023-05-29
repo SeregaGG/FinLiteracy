@@ -35,7 +35,9 @@
     <EditText
         android:id="@+id/tokenText"
         android:layout_width="@dimen/_300pxh"
-        android:layout_height="@dimen/_50pxv" />
+        android:layout_height="@dimen/_50pxv"
+        android:hint="Для ввода кода нажми сюда"
+        android:gravity="center"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:ellipsize="end"

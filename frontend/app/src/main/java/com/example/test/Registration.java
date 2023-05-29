@@ -4,6 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -32,6 +36,19 @@ public class Registration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg_token);
+
+        EditText editText = findViewById(R.id.tokenText);
+        editText.setFilters(new InputFilter[]{new InputFilter.AllCaps(), new InputFilter.LengthFilter(5), new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                for (int i = start; i < end; i++) {
+                    if (!Character.isLetterOrDigit(source.charAt(i))) {
+                        return "";
+                    }
+                }
+                return null;
+            }
+        }});
     }
 
     public void onEnterToken(View view) {
@@ -40,8 +57,7 @@ public class Registration extends AppCompatActivity {
 
         response_finished = false;
         updateStudentInfoByToken(token);
-        while (!response_finished) {
-        }
+        while (!response_finished) ;
         if (!is_response_success) return;
 
         if (Constants.in_use) {
@@ -55,15 +71,47 @@ public class Registration extends AppCompatActivity {
     private void beginRegistration() {
         setContentView(R.layout.activity_registration);
 
-        TextView city = findViewById(R.id.txtCity);
-        TextView school = findViewById(R.id.txtSchool);
-        TextView grade = findViewById(R.id.txtClassGrade);
-        TextView token = findViewById(R.id.txtCity1);
+        // TODO: Сделать что-то с фильтром первой буквы
+//
+//        EditText editText = findViewById(R.id.enterFirstName);
+//        EditText editText1 = findViewById(R.id.enterSecondName);
+//
+//        editText.setFilters(new InputFilter[]{new InputFilter() {
+//            @Override
+//            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+//                boolean keepOriginal = true;
+//                StringBuilder sb = new StringBuilder(end - start);
+//                String s = "Тест";
+//                boolean cyrillic = s.chars()
+//                        .mapToObj(Character.UnicodeBlock::of)
+//                        .anyMatch(b -> b.equals(Character.UnicodeBlock.CYRILLIC));
+//                for (int i = start; i < end; i++) {
+//                    if(source.charAt(i) != Character.UnicodeBlock.CYRILLIC)
+//                    char c = source.charAt(i);
+//                    if (i == 0) {
+//                        char a = source.charAt(i);
+//                        a = Character.toUpperCase(a);
+//                        System.out.println(a);
+//                        sb.append(a);
+//                    } else {
+//                        keepOriginal = true;
+//                        sb.append(source.charAt(i));
+//                    }
+//                }
+//                return null;
+//                else return sb;
+//            }
+//        }});
 
-        city.setText(Constants.city);
-        school.setText(Constants.school);
-        grade.setText(Constants.class_name);
-        token.setText(Constants.token);
+//        TextView city = findViewById(R.id.txtCity);
+//        TextView school = findViewById(R.id.txtSchool);
+//        TextView grade = findViewById(R.id.txtClassGrade);
+//        TextView token = findViewById(R.id.txtCity1);
+
+//        city.setText(Constants.city);
+//        school.setText(Constants.school);
+//        grade.setText(Constants.class_name);
+//        token.setText(Constants.token);
     }
 
     public void onEnterFullName(View view) throws JsonProcessingException {
@@ -74,8 +122,7 @@ public class Registration extends AppCompatActivity {
 
         response_finished = false;
         registerCharacter(firstNameStr, secondNameStr);
-        while (!response_finished) {
-        }
+        while (!response_finished) ;
         if (!is_response_success) return;
 
         Intent intent = new Intent(this, com.example.test.MainActivity.class);
@@ -116,15 +163,16 @@ public class Registration extends AppCompatActivity {
                     System.out.println(Constants.can_play);
                     response_finished = true;
                 } catch (Exception e) {
-                    response_finished = true;
                     is_response_success = false;
                     System.out.println("Ошибка 2 " + e);
+                    response_finished = true;
                 }
             }
         });
     }
 
-    private void registerCharacter(String first_name, String second_name) throws JsonProcessingException {
+    private void registerCharacter(String first_name, String second_name) throws
+            JsonProcessingException {
         MediaType JSON = MediaType.get("application/json; charset=utf-8");
         Map<String, String> json_template = Map.of("first_name", first_name, "second_name", second_name);
         String json = Constants.object_mapper.writeValueAsString(json_template);
@@ -157,9 +205,9 @@ public class Registration extends AppCompatActivity {
                     Constants.second_name = second_name;
                     response_finished = true;
                 } catch (Exception e) {
-                    response_finished = true;
                     is_response_success = false;
                     System.out.println("Ошибка 2 " + e);
+                    response_finished = true;
                 }
             }
         });
