@@ -43,7 +43,7 @@ async def url(message: types.Message):
         '\n\nДалее следуйте инструкциям, которые будет отправлять бот.',
     )
 
-    if message.text.lower() != ACCESS_PASS.lower() and message.from_user.id not in access_ids:
+    if message.text.lower() != ACCESS_PASS.lower() and not is_allowd_id(message.from_user.id):
         await bot.send_message(
             message.from_user.id,
             'Введите пароль, который вам предоставили сотрудники Сбербанка',
@@ -66,10 +66,10 @@ async def get_result(message: types.Message):
             'Вы еще не создавали токенов'
         )
 
-    result = requests.get(f"http://{HOST}:{PORT}/bot/results?phone=%2B{get_phone_by_id(message.from_user.id)[1:]}")
+    result = requests.get(f"http://{HOST}:{PORT}/bot/results?phone={get_phone_by_id(message.from_user.id)[1:]}")
     result = json.loads(result.content)
 
-    teacher_classes = requests.get(f"http://{HOST}:{PORT}/bot/classes?phone=%2B{get_phone_by_id(message.from_user.id)[1:]}")
+    teacher_classes = requests.get(f"http://{HOST}:{PORT}/bot/classes?phone={get_phone_by_id(message.from_user.id)[1:]}")
     teacher_classes = json.loads(teacher_classes.content)
 
     workbook = xlsxwriter.Workbook(f'{get_phone_by_id(message.from_user.id)}_results.xlsx')
@@ -113,11 +113,11 @@ async def contact(message):
         print(message.contact, message.from_user.id)
         current_user_data = user_data.get(message.from_user.id)
 
-        current_user_data['phone'] = message.contact.phone_number
+        current_user_data['phone'] = message.contact.phone_number if message.contact.phone_number[0] != "+" else message.contact.phone_number[1:]
 
         if not is_allowd_id(message.from_user.id):
             with open("ids.txt", "a") as myfile:
-                myfile.write(f"{str(message.from_user.id)}|{message.contact.phone_number}\n")
+                myfile.write(f"{str(message.from_user.id)}|{current_user_data['phone']}\n")
 
         user_data.update(current_user_data)
 
@@ -162,7 +162,7 @@ async def set_city(callback: types.CallbackQuery):
 # @dp.callback_query_handler(text=['МОУ СОШ №110', 'МОУ СОШ №111', 'МОУ СОШ №112'])
 async def set_school(callback: types.CallbackQuery):
     mark, school, school_id = callback.data.split("|")
-    if callback.from_user.id not in access_ids:
+    if not is_allowd_id(callback.from_user.id):
         await bot.send_message(
             callback.message.chat.id,
             'Введите пароль, который вам предоставили сотрудники Сбербанка',
@@ -249,15 +249,14 @@ async def set_liter(callback: types.CallbackQuery):
 
 @dp.message_handler(content_types=['text'])
 async def get_text_messages(message):
-    if message.text.lower() != ACCESS_PASS.lower() and message.from_user.id not in access_ids:
+    if message.text.lower() != ACCESS_PASS.lower() and not is_allowd_id(message.from_user.id):
         await bot.send_message(
             message.from_user.id,
             'Введите пароль, который вам предоставили сотрудники Сбербанка',
         )
         return 0
 
-    if message.from_user.id not in access_ids:
-        access_ids.add(message.from_user.id)
+    if not is_allowd_id(message.from_user.id):
         user_data.update({message.from_user.id: {}})
         await bot.send_message(
             message.from_user.id,

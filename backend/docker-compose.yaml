@@ -42,6 +42,8 @@ services:
     build:
       context: .
       dockerfile: ./bot/Dockerfile
+    volumes:
+      - ./bot/ids.txt:/usr/src/backend/bot/ids.txt
 
     restart: always
 

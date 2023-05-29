@@ -13,3 +13,4 @@ venv.bak/
 frontend/.gradle/
 .idea/
 .ipynb_checkpoints/
+/backend/bot/ids.txt
