@@ -43,7 +43,7 @@ async def url(message: types.Message):
         '\n\nДалее следуйте инструкциям, которые будет отправлять бот.',
     )
 
-    if message.text.lower() != ACCESS_PASS.lower() and not is_allowd_id(message.from_user.id):
+    if message.text.lower() != ACCESS_PASS.lower() and message.from_user.id not in access_ids:
         await bot.send_message(
             message.from_user.id,
             'Введите пароль, который вам предоставили сотрудники Сбербанка',
@@ -162,7 +162,7 @@ async def set_city(callback: types.CallbackQuery):
 # @dp.callback_query_handler(text=['МОУ СОШ №110', 'МОУ СОШ №111', 'МОУ СОШ №112'])
 async def set_school(callback: types.CallbackQuery):
     mark, school, school_id = callback.data.split("|")
-    if not is_allowd_id(callback.from_user.id):
+    if callback.from_user.id not in access_ids:
         await bot.send_message(
             callback.message.chat.id,
             'Введите пароль, который вам предоставили сотрудники Сбербанка',
@@ -241,7 +241,9 @@ async def set_liter(callback: types.CallbackQuery):
         callback.from_user.id,
         'Для получения статистики кликните по команде /result в этом сообщении.'
         '\n\n❗️ Обратите внимание, что если ученики еще не прошли игру, то файл со статистикой будет пустым.'
-        '\n\nДля получения дополнительных кодов ВРУЧНУЮ введите нужное количество, а затем кликните по команде /start в этом сообщении.',
+        '\n\nДля получения дополнительных кодов ВРУЧНУЮ введите нужное количество, а затем кликните по команде /start в этом сообщении.'
+        '\n\nСкачайте файл с кодами для каждого ученика на свой компьютер или телефон.'
+        '\n\n🔑 Для каждого ученика предназначен свой уникальный код для входа в игру. В полученной таблице вы можете сами добавить столбец с фамилиями учеников и затем передать его ученикам (отправить таблицу в чат класса, распечатать и передать ученикам и другое).',
     )
     current_user_data['count'] = 0
     await callback.answer()
@@ -249,14 +251,15 @@ async def set_liter(callback: types.CallbackQuery):
 
 @dp.message_handler(content_types=['text'])
 async def get_text_messages(message):
-    if message.text.lower() != ACCESS_PASS.lower() and not is_allowd_id(message.from_user.id):
+    if message.text.lower() != ACCESS_PASS.lower() and message.from_user.id not in access_ids:
         await bot.send_message(
             message.from_user.id,
             'Введите пароль, который вам предоставили сотрудники Сбербанка',
         )
         return 0
 
-    if not is_allowd_id(message.from_user.id):
+    if message.from_user.id not in access_ids:
+        access_ids.add(message.from_user.id)
         user_data.update({message.from_user.id: {}})
         await bot.send_message(
             message.from_user.id,
