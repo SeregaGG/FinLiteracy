@@ -66,10 +66,10 @@ async def get_result(message: types.Message):
             'Вы еще не создавали токенов'
         )
 
-    result = requests.get(f"http://{HOST}:{PORT}/bot/results?phone={get_phone_by_id(message.from_user.id)[1:]}")
+    result = requests.get(f"http://{HOST}:{PORT}/bot/results?phone={get_phone_by_id(message.from_user.id)}")
     result = json.loads(result.content)
 
-    teacher_classes = requests.get(f"http://{HOST}:{PORT}/bot/classes?phone={get_phone_by_id(message.from_user.id)[1:]}")
+    teacher_classes = requests.get(f"http://{HOST}:{PORT}/bot/classes?phone={get_phone_by_id(message.from_user.id)}")
     teacher_classes = json.loads(teacher_classes.content)
 
     workbook = xlsxwriter.Workbook(f'{get_phone_by_id(message.from_user.id)}_results.xlsx')
