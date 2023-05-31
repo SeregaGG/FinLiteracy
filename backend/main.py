@@ -1,5 +1,8 @@
+import io
+
+import PIL.Image
 from fastapi import FastAPI, Depends, File, UploadFile
-from fastapi.responses import JSONResponse, Response
+from fastapi.responses import JSONResponse, Response, FileResponse, StreamingResponse
 import string
 import random
 
@@ -14,6 +17,9 @@ from sqlalchemy.orm import Query
 import pandas as pd
 from sqlalchemy.sql import func
 from sqladmin import Admin, ModelView
+
+from PIL import Image, ImageDraw, ImageFont
+from datetime import datetime
 
 app = FastAPI()
 admin = Admin(app, engine=engine)
@@ -51,6 +57,7 @@ async def create_token(token_data: TokenCreate, students_count: int, session: As
 
 @app.get('/token/info')
 async def get_token(token: str, session: AsyncSession = Depends(get_session)):
+    token = token.upper()
     raw_tokens = await session.execute(
         select(Tokens.teacher_phone, City.city, School.school, Tokens.class_name, Tokens.id)
         .where(Tokens.id == token, School.id == Tokens.school_id, City.id == School.city_id)
@@ -81,6 +88,7 @@ async def get_token(token: str, session: AsyncSession = Depends(get_session)):
 
 @app.post('/auth')
 async def auth(token: str, student: StudentsCreate = None, session: AsyncSession = Depends(get_session)):
+    token = token.upper()
     raw_tokens = await session.execute(select(Tokens).where(Tokens.id == token))
     current_token: Tokens = raw_tokens.scalar_one_or_none()
     if current_token is None:
@@ -160,6 +168,7 @@ async def get_question(questions: UploadFile = File(...), session: AsyncSession 
 
 @app.post('/results')
 async def post_results(token: str, results: list[StatisticsCreate], session: AsyncSession = Depends(get_session)):
+    token = token.upper()
     if len(results) != 5:
         return JSONResponse(content={"message": "Bad questions count. Should be 5"}, status_code=400)
 
@@ -196,6 +205,7 @@ async def post_results(token: str, results: list[StatisticsCreate], session: Asy
 
 @app.get('/results')
 async def get_results(token: str, session: AsyncSession = Depends(get_session)):
+    token = token.upper()
     raw_tokens = await session.execute(select(Tokens).where(Tokens.id == token))
     current_token: Tokens = raw_tokens.scalar_one_or_none()
     if current_token is None:
@@ -286,3 +296,54 @@ async def get_teacher_classes(phone: str, session: AsyncSession = Depends(get_se
     current_tokens: list[Tokens] = raw_tokens.scalars().all()
     teacher_classes = set([x.class_name for x in current_tokens])
     return teacher_classes
+
+
+@app.get('/certificate', response_class=FileResponse)
+async def get_certificate(token: str, session: AsyncSession = Depends(get_session)):
+    token = token.upper()
+    raw_tokens = await session.execute(select(Tokens).where(Tokens.id == token))
+    current_token: Tokens = raw_tokens.scalar_one_or_none()
+    if current_token is None:
+        return JSONResponse(content={"message": "Forbidden"}, status_code=403)
+
+    raw_students = await session.execute(select(Students).where(Students.token_id == current_token.id))
+    current_student: Students = raw_students.scalar_one_or_none()
+    if current_student is None:
+        return Response(status_code=404)
+
+    raw_school = await session.execute(select(School).where(School.id == current_token.school_id))
+    current_school: School = raw_school.scalar_one_or_none()
+
+    student_info = [current_token.class_name[0], current_token.class_name[1], current_school.school, f"{current_student.first_name} {current_student.second_name}", datetime.now().strftime('%d.%m.%Y')]
+
+    my_coords = [(0, 1075, 940, 58), (1, 1160, 940, 58),
+                 (3, 1260, 1170, 120), (4, 1225, 1560, 58)]
+
+    image = Image.open('Certificate.png')
+    draw = ImageDraw.Draw(image)
+    font = ImageFont.truetype('MyriadPro.ttf', 58)
+    draw.text((1430, 918), student_info[2], font=font, fill=(12, 12, 12))
+
+    for numText, coordinates_x, coordinates_y, sizeFont in my_coords:
+        container_width = 1
+        container_height = 1
+        # Определяем координаты верхнего левого угла контейнера
+        container_x = coordinates_x
+        container_y = coordinates_y
+        # Определяем размеры текста
+        text_bbox = draw.textbbox((0, 0), student_info[numText], font=font)
+        text_width = text_bbox[2] - text_bbox[0]
+        text_height = text_bbox[3] - text_bbox[1]
+        # Определяем координаты верхнего левого угла текста
+        text_x = container_x + (container_width - text_width) / 2
+        text_y = container_y + (container_height - text_height) / 2
+        # Рисуем текст
+        draw.text((text_x, text_y), student_info[numText], font=font,
+                  fill=(12, 12, 12))
+
+    roi_img = image.crop()
+
+    img_byte_arr = io.BytesIO()
+    roi_img.save(img_byte_arr, format='PNG')
+    img_byte_arr = img_byte_arr.getvalue()
+    return Response(img_byte_arr, media_type="image/png")

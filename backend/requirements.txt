@@ -13,3 +13,4 @@ pyTelegramBotAPI
 sqladmin
 aiogram
 XlsxWriter
+Pillow
