@@ -14,16 +14,15 @@
         android:id="@+id/toolbarToolbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_40pxh"
         app:contentInsetStart="0dp"
         style="@style/groupStylegray_300">
 
         <LinearLayout
             android:id="@+id/linearRow"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_25pxv"
             android:layout_marginEnd="@dimen/_42pxh"
             android:layout_marginStart="@dimen/_59pxh"
-            android:layout_marginTop="@dimen/_19pxv"
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:baselineAligned="false">
@@ -86,7 +85,7 @@
                     android:layout_marginBottom="@dimen/_1pxv"
                     android:layout_marginStart="@dimen/_13pxh"
                     android:layout_marginTop="@dimen/_1pxv"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/_70pxh"
                     android:singleLine="true"
                     android:text="@string/lbl_40_03"
                     style="@style/txtMontserratbold20_2"
@@ -197,9 +196,8 @@
             android:layout_marginStart="@dimen/_29pxh"
             android:layout_marginTop="@dimen/_23pxv"
             android:layout_width="match_parent"
-            android:text="@string/msg45"
-            style="@style/txtMontserratsemibold15"
-            tools:text="@string/msg45" />
+            android:text="@string/msg45r"
+            style="@style/txtMontserratsemibold15" />
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
