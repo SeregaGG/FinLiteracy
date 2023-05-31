@@ -19,10 +19,8 @@
         <LinearLayout
             android:id="@+id/linearRow"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_23pxv"
             android:layout_marginEnd="@dimen/_42pxh"
             android:layout_marginStart="@dimen/_59pxh"
-            android:layout_marginTop="@dimen/_23pxv"
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:baselineAligned="false">
