@@ -13,6 +13,7 @@
         android:id="@+id/toolbarToolbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_40pxh"
         app:contentInsetStart="0dp"
         style="@style/groupStylegray_300">
 
@@ -93,150 +94,186 @@
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
-
-    <android.widget.Button
-        android:id="@+id/btn_school"
-        style="@style/btnSolidRoundedOutline_1"
-        android:layout_width="@dimen/_120pxh"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|start"
-        android:layout_marginStart="@dimen/_240pxv"
-        android:layout_marginTop="@dimen/_80pxv"
-        android:layout_marginEnd="@dimen/_40pxv"
-        android:ellipsize="end"
-        android:gravity="center"
-        android:onClick="schoolToTask"
-        android:paddingStart="@dimen/_30pxh"
-        android:paddingTop="@dimen/_12pxv"
-        android:paddingEnd="@dimen/_29pxh"
-        android:paddingBottom="@dimen/_12pxv"
-        android:singleLine="true"
-        android:text="@string/lbl26"
-        android:textAllCaps="false"
-        tools:text="@string/lbl26" />
-
-    <ImageView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_280pxv"
-        android:layout_marginTop="@dimen/_2pxh"
-        android:src="@drawable/minus_100"/>
+        android:layout_marginStart="@dimen/_150pxh"
+        android:layout_marginTop="@dimen/_10pxh"
+        android:orientation="vertical">
 
-    <android.widget.Button
-        android:id="@+id/btn_mall"
-        style="@style/not_passed_btn"
-        android:layout_width="@dimen/_120pxh"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|start"
-        android:layout_marginTop="@dimen/_30pxv"
-        android:layout_marginStart="@dimen/_260pxv"
-        android:layout_marginEnd="@dimen/_10pxv"
-        android:ellipsize="end"
-        android:gravity="center"
-        android:onClick="mallToTask"
-        android:paddingStart="@dimen/_30pxh"
-        android:paddingTop="@dimen/_12pxv"
-        android:paddingEnd="@dimen/_30pxh"
-        android:paddingBottom="@dimen/_12pxv"
-        android:singleLine="true"
-        android:text="@string/lbl57"
-        android:textAllCaps="false"
-        tools:text="@string/lbl57" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/minus_100" />
 
-    <ImageView
+        <android.widget.Button
+            android:id="@+id/btn_school"
+            style="@style/not_passed_btn"
+            android:layout_width="@dimen/_119pxh"
+            android:layout_height="@dimen/_41pxh"
+            android:layout_gravity="center_horizontal"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:onClick="schoolToTask"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_12pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingBottom="@dimen/_12pxv"
+            android:singleLine="true"
+            android:text="@string/lbl26"
+            android:textAllCaps="false"
+            tools:text="@string/lbl26" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_300pxv"
-        android:layout_marginTop="@dimen/_2pxh"
-        android:src="@drawable/minus_100"/>
+        android:layout_marginStart="@dimen/_210pxh"
+        android:layout_marginTop="@dimen/_60pxh"
+        android:orientation="vertical">
 
-    <android.widget.Button
-        android:id="@+id/btn_shop"
-        style="@style/not_passed_btn"
-        android:layout_width="@dimen/_120pxh"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|start"
-        android:ellipsize="end"
-        android:layout_marginStart="@dimen/_15pxv"
-        android:gravity="center"
-        android:onClick="marketToTask"
-        android:paddingStart="@dimen/_23pxh"
-        android:paddingTop="@dimen/_12pxv"
-        android:paddingEnd="@dimen/_21pxh"
-        android:paddingBottom="@dimen/_12pxv"
-        android:singleLine="true"
-        android:text="@string/lbl58"
-        android:textAllCaps="false"
-        tools:text="@string/lbl58" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/minus_100" />
 
-    <ImageView
+        <android.widget.Button
+            android:id="@+id/btn_mall"
+            style="@style/not_passed_btn"
+            android:layout_width="@dimen/_119pxh"
+            android:layout_height="@dimen/_41pxh"
+            android:layout_gravity="center_horizontal"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:onClick="mallToTask"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_12pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingBottom="@dimen/_12pxv"
+            android:singleLine="true"
+            android:text="@string/lbl57"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_55pxv"
-        android:layout_marginTop="@dimen/_2pxh"
-        android:src="@drawable/minus_100" />
+        android:layout_marginTop="@dimen/_70pxh"
+        android:layout_marginStart="@dimen/_15pxh"
+        android:orientation="vertical">
 
-    <android.widget.Button
-        android:id="@+id/btn_bank"
-        style="@style/not_passed_btn"
-        android:layout_width="@dimen/_120pxh"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|start"
-        android:layout_marginTop="@dimen/_60pxv"
-        android:layout_marginStart="@dimen/_220pxh"
-        android:ellipsize="end"
-        android:gravity="center"
-        android:onClick="atmToTask"
-        android:paddingStart="@dimen/_16pxh"
-        android:paddingTop="@dimen/_12pxv"
-        android:paddingEnd="@dimen/_15pxh"
-        android:paddingBottom="@dimen/_12pxv"
-        android:singleLine="true"
-        android:text="@string/lbl59"
-        android:textAllCaps="false"
-        tools:text="@string/lbl59" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/minus_100" />
 
-    <ImageView
+        <android.widget.Button
+            android:id="@+id/btn_shop"
+            style="@style/not_passed_btn"
+            android:layout_width="@dimen/_119pxh"
+            android:layout_height="@dimen/_41pxh"
+            android:layout_gravity="center_horizontal"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:onClick="marketToTask"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_12pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingBottom="@dimen/_12pxv"
+            android:singleLine="true"
+            android:text="@string/lbl58"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_300pxv"
-        android:layout_marginTop="@dimen/_2pxh"
-        android:src="@drawable/minus_100"/>
+        android:layout_marginTop="@dimen/_40pxh"
+        android:layout_marginStart="@dimen/_210pxh"
+        android:orientation="vertical">
 
-    <android.widget.Button
-        android:id="@+id/btn_fin_org"
-        style="@style/not_passed_btn"
-        android:layout_width="@dimen/_120pxh"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|start"
-        android:layout_marginTop="@dimen/_20pxh"
-        android:layout_marginStart="@dimen/_20pxv"
-        android:ellipsize="end"
-        android:gravity="center"
-        android:onClick="bankToTask"
-        android:paddingStart="@dimen/_30pxv"
-        android:paddingTop="@dimen/_12pxv"
-        android:paddingEnd="@dimen/_30pxh"
-        android:paddingBottom="@dimen/_12pxv"
-        android:singleLine="true"
-        android:text="@string/lbl56"
-        android:textAllCaps="false"
-        tools:text="@string/lbl56" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/minus_100" />
 
-    <ImageView
+        <android.widget.Button
+            android:id="@+id/btn_bankomat"
+            style="@style/not_passed_btn"
+            android:layout_width="@dimen/_119pxh"
+            android:layout_height="@dimen/_41pxh"
+            android:layout_gravity="center_horizontal"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:onClick="atmToTask"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_12pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingBottom="@dimen/_12pxv"
+            android:singleLine="true"
+            android:text="@string/lbl59"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_60pxv"
-        android:layout_marginTop="@dimen/_2pxh"
-        android:src="@drawable/minus_100"/>
+        android:layout_marginTop="@dimen/_25pxh"
+        android:layout_marginStart="@dimen/_15pxh"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/minus_100" />
+
+        <android.widget.Button
+            android:id="@+id/btn_fin_org"
+            style="@style/not_passed_btn"
+            android:layout_width="@dimen/_119pxh"
+            android:layout_height="@dimen/_41pxh"
+            android:layout_gravity="center_horizontal"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:onClick="bankToTask"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_12pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingBottom="@dimen/_12pxv"
+            android:singleLine="true"
+            android:text="@string/lbl56"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+    <TextView
+        android:ellipsize="end"
+        android:id="@+id/txtGroupThirtyFive"
+        android:layout_gravity="end"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_30pxh"
+        android:layout_width="wrap_content"
+        android:paddingBottom="@dimen/_5pxv"
+        android:paddingEnd="@dimen/_11pxh"
+        android:paddingStart="@dimen/_10pxh"
+        android:paddingTop="@dimen/_5pxv"
+        android:onClick="clickHelpButton"
+        android:singleLine="true"
+        android:text="@string/lbl60"
+        style="@style/txtSolidRounded"
+        tools:text="@string/lbl60" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_finish"
         style="@style/btnSolidRounded_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3pxh"
         android:layout_marginStart="@dimen/_20pxh"
-        android:layout_marginTop="@dimen/_60pxv"
         android:layout_marginEnd="@dimen/_20pxh"
         android:ellipsize="end"
         android:gravity="center"
@@ -251,23 +288,4 @@
         android:visibility="invisible"
         tools:text="@string/lbl75" />
 
-    <TextView
-        android:ellipsize="end"
-        android:id="@+id/txtGroupThirtyFive"
-        android:layout_gravity="end"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_20pxv"
-        android:layout_marginEnd="@dimen/_25pxh"
-        android:layout_marginStart="@dimen/_25pxh"
-        android:layout_marginTop="@dimen/_114pxv"
-        android:layout_width="wrap_content"
-        android:paddingBottom="@dimen/_5pxv"
-        android:paddingEnd="@dimen/_11pxh"
-        android:paddingStart="@dimen/_10pxh"
-        android:paddingTop="@dimen/_5pxv"
-        android:onClick="clickHelpButton"
-        android:singleLine="true"
-        android:text="@string/lbl60"
-        style="@style/txtSolidRounded"
-        tools:text="@string/lbl60" />
 </LinearLayout>

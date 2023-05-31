@@ -15,11 +15,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_38pxh"
         android:layout_marginStart="@dimen/_38pxh"
-        android:layout_marginTop="@dimen/_40pxh"
+        android:layout_marginTop="@dimen/_70pxh"
         android:layout_width="wrap_content"
         android:lineSpacingExtra="@dimen/_5pxh"
         android:layout_gravity="center"
-        android:background="@drawable/start_txt" />
+        android:background="@drawable/token_txt" />
 
     <TextView
         android:gravity="center_horizontal"
@@ -34,7 +34,7 @@
 
     <EditText
         android:id="@+id/tokenText"
-        android:layout_width="@dimen/_300pxh"
+        android:layout_width="@dimen/_316pxh"
         android:layout_height="@dimen/_50pxv"
         android:hint="Для ввода кода нажми сюда"
         android:gravity="center"/>
@@ -43,15 +43,9 @@
         android:ellipsize="end"
         android:gravity="center"
         android:id="@+id/btn"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_10pxh"
-        android:layout_marginStart="@dimen/_10pxh"
+        android:layout_height="@dimen/_58pxh"
+        android:layout_width="@dimen/_316pxh"
         android:layout_marginTop="@dimen/_28pxv"
-        android:layout_width="match_parent"
-        android:paddingBottom="@dimen/_14pxv"
-        android:paddingEnd="@dimen/_30pxh"
-        android:paddingStart="@dimen/_30pxh"
-        android:paddingTop="@dimen/_14pxv"
         android:onClick="onEnterToken"
         android:singleLine="true"
         android:text="@string/enter"

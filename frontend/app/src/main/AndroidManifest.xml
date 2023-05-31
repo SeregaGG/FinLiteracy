@@ -19,11 +19,11 @@
             android:name=".Registration"
             android:windowSoftInputMode="adjustResize"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity
             android:name=".Rating"
@@ -38,7 +38,13 @@
             android:theme="@style/Theme.Test.NoActionBar" />
         <activity
             android:name=".Map"
-            android:exported="false" />
+            android:exported="true" >
+<!--        <intent-filter>-->
+<!--            <action android:name="android.intent.action.MAIN" />-->
+
+<!--            <category android:name="android.intent.category.LAUNCHER" />-->
+<!--        </intent-filter>-->
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
