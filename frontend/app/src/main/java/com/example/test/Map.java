@@ -120,66 +120,70 @@ public class Map extends AppCompatActivity {
 
     private void setLocationActualStatuses() {
         Button button;
+        try {
 
-        button = findViewById(R.id.btn_bank);
-        if (QuestManager.bank_status == QuestManager.locationStatuses.WRONG_ANSWER) {
-            button.setBackgroundResource(R.drawable.map_wrong_answer);
-            button.setEnabled(false);
-            counter++;
-        } else if (QuestManager.bank_status == QuestManager.locationStatuses.CORRECT_ANSWER) {
-            button.setBackgroundResource(R.drawable.map_correct_answer);
-            button.setEnabled(false);
-            counter++;
+            button = findViewById(R.id.btn_bankomat);
+            if (QuestManager.bank_status == QuestManager.locationStatuses.WRONG_ANSWER) {
+                button.setBackgroundResource(R.drawable.map_wrong_answer);
+                button.setEnabled(false);
+                counter++;
+            } else if (QuestManager.bank_status == QuestManager.locationStatuses.CORRECT_ANSWER) {
+                button.setBackgroundResource(R.drawable.map_correct_answer);
+                button.setEnabled(false);
+                counter++;
+            }
+        } catch (Exception exception) {
+            System.out.println(exception);
         }
 
-        button = findViewById(R.id.btn_shop);
-        if (QuestManager.shop_status == QuestManager.locationStatuses.WRONG_ANSWER) {
-            button.setBackgroundResource(R.drawable.map_wrong_answer);
-            button.setEnabled(false);
-            counter++;
-        } else if (QuestManager.shop_status == QuestManager.locationStatuses.CORRECT_ANSWER) {
-            button.setBackgroundResource(R.drawable.map_correct_answer);
-            button.setEnabled(false);
-            counter++;
-        }
+            button = findViewById(R.id.btn_shop);
+            if (QuestManager.shop_status == QuestManager.locationStatuses.WRONG_ANSWER) {
+                button.setBackgroundResource(R.drawable.map_wrong_answer);
+                button.setEnabled(false);
+                counter++;
+            } else if (QuestManager.shop_status == QuestManager.locationStatuses.CORRECT_ANSWER) {
+                button.setBackgroundResource(R.drawable.map_correct_answer);
+                button.setEnabled(false);
+                counter++;
+            }
 
-        button = findViewById(R.id.btn_mall);
-        if (QuestManager.mall_status == QuestManager.locationStatuses.WRONG_ANSWER) {
-            button.setBackgroundResource(R.drawable.map_wrong_answer);
-            button.setEnabled(false);
-            counter++;
-        } else if (QuestManager.mall_status == QuestManager.locationStatuses.CORRECT_ANSWER) {
-            button.setBackgroundResource(R.drawable.map_correct_answer);
-            button.setEnabled(false);
-            counter++;
-        }
+            button = findViewById(R.id.btn_mall);
+            if (QuestManager.mall_status == QuestManager.locationStatuses.WRONG_ANSWER) {
+                button.setBackgroundResource(R.drawable.map_wrong_answer);
+                button.setEnabled(false);
+                counter++;
+            } else if (QuestManager.mall_status == QuestManager.locationStatuses.CORRECT_ANSWER) {
+                button.setBackgroundResource(R.drawable.map_correct_answer);
+                button.setEnabled(false);
+                counter++;
+            }
 
-        button = findViewById(R.id.btn_school);
-        if (QuestManager.school_status == QuestManager.locationStatuses.WRONG_ANSWER) {
-            button.setBackgroundResource(R.drawable.map_wrong_answer);
-            button.setEnabled(false);
-            counter++;
-        } else if (QuestManager.school_status == QuestManager.locationStatuses.CORRECT_ANSWER) {
-            button.setBackgroundResource(R.drawable.map_correct_answer);
-            button.setEnabled(false);
-            counter++;
-        }
+            button = findViewById(R.id.btn_school);
+            if (QuestManager.school_status == QuestManager.locationStatuses.WRONG_ANSWER) {
+                button.setBackgroundResource(R.drawable.map_wrong_answer);
+                button.setEnabled(false);
+                counter++;
+            } else if (QuestManager.school_status == QuestManager.locationStatuses.CORRECT_ANSWER) {
+                button.setBackgroundResource(R.drawable.map_correct_answer);
+                button.setEnabled(false);
+                counter++;
+            }
 
-        button = findViewById(R.id.btn_fin_org);
-        if (QuestManager.fin_org_status == QuestManager.locationStatuses.WRONG_ANSWER) {
-            button.setBackgroundResource(R.drawable.map_wrong_answer);
-            button.setEnabled(false);
-            counter++;
-        } else if (QuestManager.fin_org_status == QuestManager.locationStatuses.CORRECT_ANSWER) {
-            button.setBackgroundResource(R.drawable.map_correct_answer);
-            button.setEnabled(false);
-            counter++;
-        }
+            button = findViewById(R.id.btn_fin_org);
+            if (QuestManager.fin_org_status == QuestManager.locationStatuses.WRONG_ANSWER) {
+                button.setBackgroundResource(R.drawable.map_wrong_answer);
+                button.setEnabled(false);
+                counter++;
+            } else if (QuestManager.fin_org_status == QuestManager.locationStatuses.CORRECT_ANSWER) {
+                button.setBackgroundResource(R.drawable.map_correct_answer);
+                button.setEnabled(false);
+                counter++;
+            }
 
-        if (counter == 5) {
-            var btn = findViewById(R.id.btn_finish);
-            btn.setVisibility(View.VISIBLE);
-        }
+            if (counter == 5) {
+                var btn = findViewById(R.id.btn_finish);
+                btn.setVisibility(View.VISIBLE);
+            }
     }
 
     private void setTimerClock(int new_time) {

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
@@ -14,6 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
@@ -36,6 +40,8 @@ public class Rating extends AppCompatActivity {
     boolean temp_flag = false;
     boolean temp_flag2 = false;
 
+    boolean is_success = false;
+
     @Override
     public void onBackPressed() {
         // do nothing
@@ -57,11 +63,39 @@ public class Rating extends AppCompatActivity {
         setContentView(R.layout.activity_rating);
 
         updateRating();
+
+        while (!temp_flag) {
+            try {
+                Thread.sleep(30);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println("updateRating");
+        }
+
+        if(!is_success){
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Ошибка в запросе updateRating", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
+        is_success = false;
+
         updateIndRating();
 
         while (!temp_flag2) {
+            try {
+                Thread.sleep(30);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println("updateIndRating");
         }
-        while (!temp_flag) {
+
+        if(!is_success){
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Ошибка в запросе updateIndRating", Toast.LENGTH_SHORT);
+            toast.show();
         }
 
         RecyclerView recyclerView = findViewById(R.id.recyclerRating);
@@ -92,15 +126,21 @@ public class Rating extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                try (ResponseBody responseBody = response.peekBody(2048)) { // TODO: Проверить на правильность.
+                try (ResponseBody responseBody = response.peekBody(12000)) { // TODO: Проверить на правильность.
                     if (!response.isSuccessful()) {
                         throw new IOException("Запрос к серверу не был успешен: " +
                                 response.code() + " " + response.message());
                     }
-                    ratingItems = Arrays.asList(Constants.object_mapper.readValue(responseBody.string(), RatingItem[].class));
+                    String str = responseBody.string();
+                    String str1 = str.trim();
+                    System.out.println(str1);
+                    ratingItems = Arrays.asList(Constants.object_mapper.readValue(str1, RatingItem[].class));
+                    is_success = true;
                     temp_flag = true;
                 } catch (Exception e) {
                     System.out.println("Ошибка 1 " + e);
+                    is_success = false;
+                    temp_flag = true;
                 }
             }
         });
@@ -130,10 +170,12 @@ public class Rating extends AppCompatActivity {
                     Map<String, String> response_map = Constants.object_mapper.readValue(responseBody.string(), new TypeReference<>() {
                     });
                     score = response_map.get("Results");
+                    is_success = true;
                     temp_flag2 = true;
                 } catch (Exception e) {
                     System.out.println("Ошибка 2 " + e);
                     score = "0";
+                    is_success = false;
                     temp_flag2 = true;
                 }
             }

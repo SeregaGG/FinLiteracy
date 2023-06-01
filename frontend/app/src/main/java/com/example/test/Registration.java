@@ -13,11 +13,13 @@ import android.text.InputFilter;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -77,8 +79,21 @@ public class Registration extends AppCompatActivity {
 
         response_finished = false;
         updateStudentInfoByToken(token);
-        while (!response_finished) ;
-        if (!is_response_success) return;
+        while (!response_finished) {
+            try {
+                Thread.sleep(30);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println("updateStudentInfoByToken");
+        }
+        ;
+        if (!is_response_success) {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Ошибка в запросе updateStudentInfoByToken", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
 
         if (Constants.in_use) {
             Intent intent = new Intent(this, com.example.test.MainActivity.class);
@@ -142,8 +157,21 @@ public class Registration extends AppCompatActivity {
 
         response_finished = false;
         registerCharacter(firstNameStr, secondNameStr);
-        while (!response_finished) ;
-        if (!is_response_success) return;
+        while (!response_finished) {
+            try {
+                Thread.sleep(30);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println("registerCharacter");
+        }
+
+        if (!is_response_success) {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Ошибка в запросе registerCharacter", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
 
         Intent intent = new Intent(this, com.example.test.MainActivity.class);
         startActivity(intent);
@@ -234,10 +262,10 @@ public class Registration extends AppCompatActivity {
     }
 
     public void FullScreencall() {
-        if(Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
+        if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
             View v = this.getWindow().getDecorView();
             v.setSystemUiVisibility(View.GONE);
-        } else if(Build.VERSION.SDK_INT >= 19) {
+        } else if (Build.VERSION.SDK_INT >= 19) {
             //for new api versions.
             View decorView = getWindow().getDecorView();
             int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;

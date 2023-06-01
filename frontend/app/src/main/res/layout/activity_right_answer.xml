@@ -97,7 +97,7 @@
 
     <TextView
         android:ellipsize="end"
-        android:id="@+id/txtEightySix"
+        android:id="@+id/txtLoc"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_22pxh"

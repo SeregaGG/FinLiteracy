@@ -13,8 +13,6 @@ import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-import org.w3c.dom.Text;
-
 public class Task extends AppCompatActivity {
     @Override
     public void onBackPressed() {
@@ -44,6 +42,7 @@ public class Task extends AppCompatActivity {
         QuestManager.subject.subscribe(v -> setTimerClock(v)); // TODO: Подписывается каждый раз, как создается
 
         setContentView(R.layout.activity_task_choosing);
+        updateTxtLocInTask();
         QuestManager.updateCoins(this);
     }
 
@@ -54,7 +53,7 @@ public class Task extends AppCompatActivity {
         QuestManager.updateCoins(this);
         question_ = QuestManager.getQuestion(kEasyTaskReward, location_);
 
-        updateTxtLoc();
+        updateTxtLocInTask();
 
         ImageView imageView = findViewById(R.id.img_task);
         if (location_.equals(Constants.loc_fin_org)) {
@@ -90,7 +89,7 @@ public class Task extends AppCompatActivity {
         QuestManager.updateCoins(this);
         question_ = QuestManager.getQuestion(kMiddleTaskReward, location_);
 
-        updateTxtLoc();
+        updateTxtLocInTask();
 
         ImageView imageView = findViewById(R.id.img_task);
         if (location_.equals(Constants.loc_school)) {
@@ -125,7 +124,7 @@ public class Task extends AppCompatActivity {
         QuestManager.updateCoins(this);
         question_ = QuestManager.getQuestion(kHardTaskReward, location_);
 
-        updateTxtLoc();
+        updateTxtLocInTask();
 
         ImageView imageView = findViewById(R.id.img_task);
         if (location_.equals(Constants.loc_fin_org)) {
@@ -215,6 +214,7 @@ public class Task extends AppCompatActivity {
             QuestManager.updateCoins(this);
             QuestManager.addQuestionResult(question_.question_id, false);
         }
+        updateTxtLocInTask();
     }
 
     private void updateLocationStatuses(boolean is_passed) {
@@ -247,7 +247,8 @@ public class Task extends AppCompatActivity {
         String seconds = Integer.toString(new_time % 60);
         timer.setText(minutes + ":" + seconds);
     }
-    private void updateTxtLoc(){
+
+    private void updateTxtLocInTask(){
         TextView textView = findViewById(R.id.txtLoc);
         if (location_.equals(Constants.loc_fin_org)) {
             textView.setText("БАНК");
