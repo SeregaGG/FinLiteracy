@@ -1,8 +1,8 @@
 import io
 
 import PIL.Image
-from fastapi import FastAPI, Depends, File, UploadFile
-from fastapi.responses import JSONResponse, Response, FileResponse, StreamingResponse
+from fastapi import FastAPI, Depends, File, UploadFile, Request
+from fastapi.responses import JSONResponse, Response, FileResponse, StreamingResponse, RedirectResponse
 import string
 import random
 
@@ -17,12 +17,36 @@ from sqlalchemy.orm import Query
 import pandas as pd
 from sqlalchemy.sql import func
 from sqladmin import Admin, ModelView
+from sqladmin.authentication import AuthenticationBackend
+from typing import Optional
 
 from PIL import Image, ImageDraw, ImageFont
 from datetime import datetime
 
+
+class AdminAuth(AuthenticationBackend):
+    async def login(self, request: Request) -> bool:
+        form = await request.form()
+        username, password = form["username"], form["password"]
+        request.session.update({"token": "..."})
+        if password == "admin" and username == "admin":
+            return True
+        return False
+
+    async def logout(self, request: Request) -> bool:
+        request.session.clear()
+        return True
+
+    async def authenticate(self, request: Request) -> Optional[RedirectResponse]:
+        token = request.session.get("token")
+
+        if not token:
+            return RedirectResponse(request.url_for("admin:login"), status_code=302)
+
+
 app = FastAPI()
-admin = Admin(app, engine=engine)
+authentication_backend = AdminAuth(secret_key="123")
+admin = Admin(app, engine=engine, authentication_backend=authentication_backend)
 admin.add_view(TokenView)
 admin.add_view(QuestionsView)
 admin.add_view(StudentView)
@@ -314,7 +338,8 @@ async def get_certificate(token: str, session: AsyncSession = Depends(get_sessio
     raw_school = await session.execute(select(School).where(School.id == current_token.school_id))
     current_school: School = raw_school.scalar_one_or_none()
 
-    student_info = [current_token.class_name[0], current_token.class_name[1], current_school.school, f"{current_student.first_name} {current_student.second_name}", datetime.now().strftime('%d.%m.%Y')]
+    student_info = [current_token.class_name[0], current_token.class_name[1], current_school.school,
+                    f"{current_student.first_name} {current_student.second_name}", datetime.now().strftime('%d.%m.%Y')]
 
     my_coords = [(0, 1075, 940, 58), (1, 1160, 940, 58),
                  (3, 1260, 1170, 120), (4, 1225, 1560, 58)]

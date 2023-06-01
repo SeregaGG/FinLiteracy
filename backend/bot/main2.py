@@ -173,7 +173,7 @@ async def set_school(callback: types.CallbackQuery):
     current_user_data['school'] = (school, school_id)
     user_data.update(current_user_data)
 
-    current_numbers = [InlineKeyboardButton(str(x), callback_data=f'number {x}') for x in range(1, 6)]
+    current_numbers = [InlineKeyboardButton(str(x), callback_data=f'number {x}') for x in range(1, 5)]
     class_number_inline = InlineKeyboardMarkup(row_width=1).add(*current_numbers)
 
     await bot.send_message(
