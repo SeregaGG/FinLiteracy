@@ -261,7 +261,7 @@
         android:paddingEnd="@dimen/_11pxh"
         android:paddingStart="@dimen/_10pxh"
         android:paddingTop="@dimen/_5pxv"
-        android:onClick="clickHelpButton"
+        android:onClick="toHelp"
         android:singleLine="true"
         android:text="@string/lbl60"
         style="@style/txtSolidRounded"

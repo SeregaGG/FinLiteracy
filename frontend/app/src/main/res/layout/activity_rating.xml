@@ -14,30 +14,23 @@
         android:id="@+id/toolbarToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="start"
-        app:contentInsetStart="0dp">
+        android:layout_marginTop="@dimen/_30pxh"
+        android:gravity="center"
+        app:contentInsetStart="0dp"
+        style="@style/groupStylegray_300">
 
-        <FrameLayout
-            android:id="@+id/linearRowleftarrowone"
-            style="@style/groupStylegray_300"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/txtEightySeven"
+            style="@style/txtMontserratbold20"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="start"
-            android:orientation="horizontal">
+            android:ellipsize="end"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:text="@string/rating"
+            android:textAllCaps="true"
+            tools:text="@string/rating" />
 
-            <TextView
-                android:id="@+id/txtEightySeven"
-                style="@style/txtMontserratbold20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_22pxv"
-                android:layout_marginBottom="@dimen/_22pxv"
-                android:ellipsize="end"
-                android:singleLine="true"
-                android:layout_gravity="center"
-                android:text="@string/rating"
-                android:textAllCaps="true" />
-        </FrameLayout>
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout

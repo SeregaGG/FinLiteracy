@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toDialogBegin(View view) {
-        System.out.println(Constants.can_play);
+        System.out.println("\n\n\n" + Constants.can_play + "\n\n\n");
         if (!Constants.can_play) {
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Вы уже прошли игру", Toast.LENGTH_SHORT);
