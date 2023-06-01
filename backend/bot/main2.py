@@ -34,21 +34,13 @@ def get_phone_by_id(user_id: int):
 @dp.message_handler(commands=['start'])
 async def url(message: types.Message):
 
-    await bot.send_message(
-        message.from_user.id,
-        'Что умеет этот бот?'
-        '\n\nБот финансовой игры для школьников имеет следующие функции:'
-        '\n\n🔐 выдача кодов для регистрации учеников в мобильной игре;'
-        '\n\n📈 выдача статистики по прохождению игры учениками.'
-        '\n\nДалее следуйте инструкциям, которые будет отправлять бот.',
-    )
-
     if message.text.lower() != ACCESS_PASS.lower() and message.from_user.id not in access_ids:
         await bot.send_message(
             message.from_user.id,
             'Введите пароль, который вам предоставили сотрудники Сбербанка',
         )
         return 0
+
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
     markup.add(types.KeyboardButton(text='Send phone', request_contact=True))
     await bot.send_message(
