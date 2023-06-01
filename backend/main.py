@@ -66,7 +66,7 @@ async def create_token(token_data: TokenCreate, students_count: int, session: As
     result = []
     while students_count > 0:
         try:
-            random_str = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(5)).upper()
+            random_str = ''.join(random.choice("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЫЬЭЮЯ" + string.digits) for _ in range(5)).upper()
             token = Tokens(**token_data.dict(), id=random_str)
             session.add(token)
             await session.commit()
