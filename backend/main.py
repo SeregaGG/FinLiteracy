@@ -87,7 +87,7 @@ async def get_token(token: str, session: AsyncSession = Depends(get_session)):
         .where(Tokens.id == token, School.id == Tokens.school_id, City.id == School.city_id)
     )
 
-    current_token = raw_tokens.one()
+    current_token = raw_tokens.one_or_none()
     if current_token is None:
         return JSONResponse(content={"message": "Forbidden"}, status_code=403)
 
