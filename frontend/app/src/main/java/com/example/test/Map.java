@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -93,10 +94,18 @@ public class Map extends AppCompatActivity {
     }
 
     @SuppressLint("SetTextI18n")
-    public void clickFinishBtn(View view) {
+    public void clickFinishBtn(View view) throws InterruptedException {
         is_finished = false;
+        is_success = false;
         sendResultsToServer();
         while (!is_finished) {
+            Thread.sleep(10);
+        }
+        if (!is_success) {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Ошибка в отправке результатов", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
         }
         setContentView(R.layout.activity_finish);
         TextView textView = findViewById(R.id.txtThreeHundredOne);
@@ -120,8 +129,9 @@ public class Map extends AppCompatActivity {
 
     private void setLocationActualStatuses() {
         Button button;
-        try {
 
+        counter = 0;
+        try {
             button = findViewById(R.id.btn_bankomat);
             if (QuestManager.bank_status == QuestManager.locationStatuses.WRONG_ANSWER) {
                 button.setBackgroundResource(R.drawable.map_wrong_answer);
@@ -180,6 +190,7 @@ public class Map extends AppCompatActivity {
             counter++;
         }
 
+        System.out.println("\n\n\n" + counter + "\n\n\n");
         if (counter == 5) {
             var btn = findViewById(R.id.btn_finish);
             btn.setVisibility(View.VISIBLE);
@@ -253,10 +264,12 @@ public class Map extends AppCompatActivity {
                         throw new IOException("Запрос к серверу не был успешен: " +
                                 response.code() + " " + response.message());
                     }
-
+                    is_success = true;
                     is_finished = true;
                 } catch (Exception e) {
                     System.out.println("Ошибка 2 " + e);
+                    is_success = false;
+                    is_finished = true;
                 }
             }
         });
@@ -268,6 +281,7 @@ public class Map extends AppCompatActivity {
     }
 
     private boolean is_finished = true;
+    private boolean is_success = true;
     private int counter = 0;
 
 }

@@ -75,7 +75,7 @@ public class Rating extends AppCompatActivity {
 
         if(!is_success){
             Toast toast = Toast.makeText(getApplicationContext(),
-                    "Ошибка в запросе updateRating", Toast.LENGTH_SHORT);
+                    "Ошибка в получении рейтинга", Toast.LENGTH_SHORT);
             toast.show();
         }
 
@@ -94,7 +94,7 @@ public class Rating extends AppCompatActivity {
 
         if(!is_success){
             Toast toast = Toast.makeText(getApplicationContext(),
-                    "Ошибка в запросе updateIndRating", Toast.LENGTH_SHORT);
+                    "Ошибка в получении твоего рейтинга", Toast.LENGTH_SHORT);
             toast.show();
         }
 
