@@ -124,6 +124,7 @@
                     android:layout_marginTop="@dimen/_1pxv"
                     android:layout_width="@dimen/_30pxh"
                     android:scaleType="fitXY"
+                    android:onClick="toStartFromDialog"
                     android:src="@drawable/img_left_arrow"
                     android:contentDescription="TODO" />
 
