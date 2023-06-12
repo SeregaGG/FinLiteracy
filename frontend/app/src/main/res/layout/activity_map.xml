@@ -210,10 +210,6 @@
             android:ellipsize="end"
             android:gravity="center"
             android:onClick="atmToTask"
-            android:paddingStart="@dimen/_30pxh"
-            android:paddingTop="@dimen/_12pxv"
-            android:paddingEnd="@dimen/_30pxh"
-            android:paddingBottom="@dimen/_12pxv"
             android:singleLine="true"
             android:text="@string/lbl59"
             android:textAllCaps="false" />

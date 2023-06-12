@@ -107,34 +107,28 @@
             android:layout_marginStart="@dimen/_21pxh"
             android:layout_marginTop="@dimen/_12pxv"
             android:layout_width="@dimen/_318pxh"
+            android:overScrollMode="never"
             android:scrollbars="none">
 
             <LinearLayout
                 android:id="@+id/linearColumndescription"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10pxv"
+                android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                style="@style/groupStylewhite_A700cornerRadius">
+                android:orientation="vertical">
 
-                <LinearLayout
+                <FrameLayout
                     android:gravity="start"
                     android:id="@+id/linearRowleftarrowtwo"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_22pxh"
-                    android:layout_marginStart="@dimen/_22pxh"
-                    android:layout_marginTop="@dimen/_30pxv"
                     android:layout_width="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="@dimen/_30pxv">
 
                     <ImageView
                         android:id="@+id/imageLeftarrowTwo"
                         android:layout_height="@dimen/_30pxh"
-                        android:layout_marginBottom="@dimen/_11pxv"
-                        android:layout_marginTop="@dimen/_7pxv"
                         android:layout_width="@dimen/_30pxh"
-                        android:scaleType="fitXY"
                         android:onClick="returnToMap"
+                        android:layout_gravity="center_vertical"
                         android:src="@drawable/img_left_arrow"
                         tools:ignore="ContentDescription"
                         tools:src="@drawable/img_left_arrow" />
@@ -143,14 +137,14 @@
                         android:ellipsize="end"
                         android:id="@+id/txtLoc"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_44pxh"
-                        android:layout_weight="0.85"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="center"
                         android:singleLine="true"
                         android:text="@string/lbl26"
                         style="@style/txtMontserratbold40"
                         tools:text="@string/lbl26" />
-                </LinearLayout>
+                </FrameLayout>
 
                 <LinearLayout
                     android:gravity="center_vertical"
@@ -187,137 +181,141 @@
                         tools:src="@drawable/img_coins" />
                 </LinearLayout>
 
-                <TextView
-                    android:gravity="center_horizontal"
-                    android:id="@+id/taskDescription"
+                <LinearLayout
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_26pxh"
-                    android:layout_marginStart="@dimen/_26pxh"
-                    android:layout_marginTop="@dimen/_23pxv"
                     android:layout_width="match_parent"
-                    android:text="@string/msg24"
-                    style="@style/txtMontserratsemibold15"
-                    tools:text="@string/msg24" />
-
-                <ImageView
-                    android:id="@+id/img_task"
-                    android:layout_width="@dimen/_300pxv"
-                    android:layout_height="@dimen/_300pxv"
-                    android:layout_gravity="center"
-                    android:src="@drawable/wizard" />
-
-                <FrameLayout
-                    android:gravity="center_horizontal"
-                    android:id="@+id/linearColumna"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10pxv"
-                    android:layout_width="match_parent"
-                    style="@style/groupStylewhite_A700_cc">
-
-                    <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:onClick="onClickFirst"
-                        android:background="@null" />
-
-                    <View
-                        android:background="@color/black_900_14"
-                        android:layout_height="3dp"
-                        android:layout_width="match_parent" />
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_15pxh"
+                    style="@style/groupStylewhite_A700cornerRadius">
 
                     <TextView
-                        android:id="@+id/txtA"
-                        style="@style/txtMontserratsemibold15"
-                        android:layout_width="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:id="@+id/taskDescription"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_25pxh"
-                        android:layout_marginTop="@dimen/_15pxv"
-                        android:layout_marginEnd="@dimen/_25pxh"
-                        android:layout_marginBottom="@dimen/_15pxv"
-                        android:ellipsize="end"
-                        android:text="@string/msg_a"
-                        tools:text="@string/msg_a" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/linearRowb"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_3pxv"
-                    android:layout_width="match_parent"
-                    style="@style/groupStylewhite_A700_cc">
-
-                    <ImageButton
+                        android:layout_marginEnd="@dimen/_26pxh"
+                        android:layout_marginStart="@dimen/_26pxh"
+                        android:layout_marginTop="@dimen/_23pxv"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:onClick="onClickSecond"
-                        android:background="@null" />
+                        android:text="@string/msg24"
+                        style="@style/txtMontserratsemibold15"
+                        tools:text="@string/msg24" />
 
-                    <View
-                        android:background="@color/black_900_14"
-                        android:layout_height="3dp"
-                        android:layout_width="match_parent" />
+                    <ImageView
+                        android:id="@+id/img_task"
+                        android:layout_width="@dimen/_300pxv"
+                        android:layout_height="@dimen/_300pxv"
+                        android:layout_gravity="center"
+                        android:src="@drawable/wizard" />
 
-                    <TextView
-                        android:ellipsize="end"
-                        android:id="@+id/txtB"
+                    <FrameLayout
+                        android:gravity="center_horizontal"
+                        android:id="@+id/linearColumna"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_25pxh"
-                        android:layout_marginTop="@dimen/_15pxv"
-                        android:layout_marginEnd="@dimen/_25pxh"
-                        android:layout_marginBottom="@dimen/_15pxv"
-                        android:layout_width="wrap_content"
-                        android:text="@string/msg_b"
-                        style="@style/txtMontserratsemibold15"
-                        tools:text="@string/msg_b" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:gravity="center_horizontal"
-                    android:id="@+id/linearColumnc"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_3pxv"
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    style="@style/groupStylewhite_A700_cccornerRadius">
-
-                    <View
-                        android:background="@color/black_900_14"
-                        android:layout_height="3dp"
-                        android:layout_width="match_parent" />
-
-                    <ImageButton
+                        android:layout_marginTop="@dimen/_10pxv"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:onClick="onClickThird"
-                        android:background="@null" />
+                        style="@style/groupStylewhite_A700_cc">
 
-                    <TextView
-                        android:ellipsize="end"
-                        android:id="@+id/txtC"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/_25pxh"
-                        android:layout_marginTop="@dimen/_15pxv"
-                        android:layout_marginEnd="@dimen/_25pxh"
-                        android:layout_marginBottom="@dimen/_15pxv"
-                        android:layout_width="wrap_content"
-                        android:text="@string/msg_c"
-                        style="@style/txtMontserratsemibold15"
-                        tools:text="@string/msg_c" />
-                </FrameLayout>
+                        <ImageButton
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:onClick="onClickFirst"
+                            android:background="@null" />
+
+                        <View
+                            android:background="@color/black_900_14"
+                            android:layout_height="3dp"
+                            android:layout_width="match_parent" />
+
+                        <TextView
+                            android:id="@+id/txtA"
+                            style="@style/txtMontserratsemibold15"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_25pxh"
+                            android:layout_marginTop="@dimen/_15pxv"
+                            android:layout_marginEnd="@dimen/_25pxh"
+                            android:layout_marginBottom="@dimen/_15pxv"
+                            android:ellipsize="end"
+                            android:text="@string/msg_a"
+                            tools:text="@string/msg_a" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/linearRowb"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_3pxv"
+                        android:layout_width="match_parent"
+                        style="@style/groupStylewhite_A700_cc">
+
+                        <ImageButton
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:onClick="onClickSecond"
+                            android:background="@null" />
+
+                        <View
+                            android:background="@color/black_900_14"
+                            android:layout_height="3dp"
+                            android:layout_width="match_parent" />
+
+                        <TextView
+                            android:ellipsize="end"
+                            android:id="@+id/txtB"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_25pxh"
+                            android:layout_marginTop="@dimen/_15pxv"
+                            android:layout_marginEnd="@dimen/_25pxh"
+                            android:layout_marginBottom="@dimen/_15pxv"
+                            android:layout_width="wrap_content"
+                            android:text="@string/msg_b"
+                            style="@style/txtMontserratsemibold15"
+                            tools:text="@string/msg_b" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:gravity="center_horizontal"
+                        android:id="@+id/linearColumnc"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_3pxv"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        style="@style/groupStylewhite_A700_cccornerRadius">
+
+                        <View
+                            android:background="@color/black_900_14"
+                            android:layout_height="3dp"
+                            android:layout_width="match_parent" />
+
+                        <ImageButton
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:onClick="onClickThird"
+                            android:background="@null" />
+
+                        <TextView
+                            android:ellipsize="end"
+                            android:id="@+id/txtC"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/_25pxh"
+                            android:layout_marginTop="@dimen/_15pxv"
+                            android:layout_marginEnd="@dimen/_25pxh"
+                            android:layout_marginBottom="@dimen/_15pxv"
+                            android:layout_width="wrap_content"
+                            android:text="@string/msg_c"
+                            style="@style/txtMontserratsemibold15"
+                            tools:text="@string/msg_c" />
+                    </FrameLayout>
+
+                </LinearLayout>
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:ellipsize="end"
                     android:gravity="center"
                     android:id="@+id/btn_bank"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_21pxh"
-                    android:layout_marginStart="@dimen/_21pxh"
-                    android:layout_marginTop="@dimen/_26pxv"
-                    android:layout_width="match_parent"
-                    android:paddingBottom="@dimen/_14pxv"
-                    android:paddingEnd="@dimen/_30pxh"
-                    android:paddingStart="@dimen/_30pxh"
-                    android:paddingTop="@dimen/_14pxv"
+                    android:layout_height="@dimen/_58pxh"
+                    android:layout_width="@dimen/_316pxh"
+                    android:layout_marginTop="@dimen/_25pxh"
+                    android:layout_marginBottom="@dimen/_15pxh"
                     android:singleLine="true"
                     android:onClick="onClickAnswer"
                     android:text="@string/lbl61"

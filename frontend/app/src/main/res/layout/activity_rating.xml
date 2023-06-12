@@ -166,13 +166,13 @@
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:gravity="center_horizontal"
                 android:id="@+id/recyclerRating"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_16pxh"
                 android:layout_marginStart="@dimen/_22pxh"
                 android:layout_marginTop="@dimen/_13pxv"
-                android:layout_width="match_parent"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:gravity="center_horizontal"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="4"
