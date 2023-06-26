@@ -335,6 +335,11 @@ async def get_certificate(token: str, session: AsyncSession = Depends(get_sessio
     if current_student is None:
         return Response(status_code=404)
 
+    raw_statistic = await session.execute(select(Statistics).where(Statistics.student_id == current_student.student_id))
+    can_play: bool = len(raw_statistic.all()) == 0
+    if can_play:
+        return JSONResponse(content={"message": "Statistics not found"}, status_code=400)
+
     raw_school = await session.execute(select(School).where(School.id == current_token.school_id))
     current_school: School = raw_school.scalar_one_or_none()
 
