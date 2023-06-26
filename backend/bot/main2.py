@@ -269,6 +269,18 @@ async def get_text_messages(message):
     current_user_data = user_data.get(message.from_user.id)
     try:
         if current_user_data['count'] == 0:
+
+            if int(message.text.lower()) > 40:
+                await bot.send_message(
+                    message.from_user.id,
+                    f'Максимум 40 учеников на один класс',
+                )
+                await bot.send_message(
+                    message.from_user.id,
+                    'Введите количествое учеников',
+                )
+                return 0
+
             current_user_data['count'] = int(message.text.lower())
             await bot.send_message(
                 message.from_user.id,
@@ -279,6 +291,18 @@ async def get_text_messages(message):
         pass
 
     try:
+
+        if int(message.text.lower()) > 40:
+            await bot.send_message(
+                message.from_user.id,
+                f'Максимум 40 учеников на один класс',
+            )
+            await bot.send_message(
+                message.from_user.id,
+                'Введите количествое учеников',
+            )
+            return 0
+
         current_user_data['count'] = int(message.text.lower())
     except ValueError:
         await bot.send_message(
